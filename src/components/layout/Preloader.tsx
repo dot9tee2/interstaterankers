@@ -15,6 +15,14 @@ export default function Preloader() {
   const [isHiding, setIsHiding] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [sequenceDone, setSequenceDone] = useState(false);
+
+  // Ensure the visual animation sequence fully completes before allowing dismissal
+  useEffect(() => {
+    const SEQUENCE_MS = 2800; // covers logo + text animations with a small buffer
+    const timer = setTimeout(() => setSequenceDone(true), SEQUENCE_MS);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Detect when the route/content is fully ready
   useEffect(() => {
@@ -45,12 +53,12 @@ export default function Preloader() {
     if (isDone) return;
     const interval = window.setInterval(() => {
       setProgress((prev) => {
-        if (isReady) {
+        if (isReady && sequenceDone) {
           const next = Math.min(100, prev + 6);
           return next;
         }
-        // before ready, creep up to 88%
-        const stallCap = 88;
+        // before both are ready and sequence complete, creep up to a stall cap
+        const stallCap = 95;
         if (prev < stallCap) {
           const inc = 1 + Math.floor(Math.random() * 2); // 1-2%
           return Math.min(stallCap, prev + inc);
@@ -59,11 +67,11 @@ export default function Preloader() {
       });
     }, 80);
     return () => clearInterval(interval);
-  }, [isReady, isDone]);
+  }, [isReady, sequenceDone, isDone]);
 
-  // When progress completes, crossfade and remove preloader
+  // When both conditions are met and progress finishes, crossfade and remove preloader
   useEffect(() => {
-    if (progress >= 100 && !isHiding) {
+    if (isReady && sequenceDone && progress >= 100 && !isHiding) {
       setIsHiding(true);
       // Reveal the site root (crossfade-in)
       const root = document.querySelector(".site-root");
@@ -71,7 +79,7 @@ export default function Preloader() {
       const t = setTimeout(() => setIsDone(true), 450);
       return () => clearTimeout(t);
     }
-  }, [progress, isHiding]);
+  }, [isReady, sequenceDone, progress, isHiding]);
 
   if (isDone) return null;
 

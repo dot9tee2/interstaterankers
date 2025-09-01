@@ -15,12 +15,30 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/sections/ContactForm";
 import { Phone, Mail } from "lucide-react";
+import Script from "next/script";
+import Link from "next/link";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 export default function ContactPage() {
 	return (
 		<div className="min-h-screen">
 			<Navbar />
 			<main className="container mx-auto px-4 py-16">
+				<div className="mb-8">
+					<Breadcrumb>
+						<BreadcrumbList>
+							<BreadcrumbItem>
+								<BreadcrumbLink asChild>
+									<Link href="/">Home</Link>
+								</BreadcrumbLink>
+							</BreadcrumbItem>
+							<BreadcrumbSeparator />
+							<BreadcrumbItem>
+								<BreadcrumbPage>Contact</BreadcrumbPage>
+							</BreadcrumbItem>
+						</BreadcrumbList>
+					</Breadcrumb>
+				</div>
 				<div className="mx-auto max-w-3xl text-center mb-12">
 					<h1 className="text-4xl md:text-5xl font-heading font-bold gradient-text">Contact Us</h1>
 					<p className="mt-4 text-lg md:text-xl text-muted-foreground">
@@ -57,6 +75,26 @@ export default function ContactPage() {
 					<ContactForm />
 				</div>
 			</main>
+			{/* BreadcrumbList JSON-LD */}
+			<Script id="contact-breadcrumb-ld" type="application/ld+json" strategy="afterInteractive"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "BreadcrumbList",
+					itemListElement: [
+						{ "@type": "ListItem", position: 1, name: "Home", item: "https://interstaterankers.com/" },
+						{ "@type": "ListItem", position: 2, name: "Contact", item: "https://interstaterankers.com/contact" }
+					]
+				}) }} />
+			{/* ContactPage JSON-LD */}
+			<Script id="contact-contactpage-ld" type="application/ld+json" strategy="afterInteractive"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "ContactPage",
+					name: "Contact InterStateRankers",
+					url: "https://interstaterankers.com/contact",
+					inLanguage: "en-US",
+					isPartOf: { "@id": "https://interstaterankers.com/#website" }
+				}) }} />
 			<Footer />
 		</div>
 	);

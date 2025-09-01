@@ -1,3 +1,20 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "AI Answering & SEO for US Businesses",
+	description: "InterStateRankers delivers AI-driven answering services and SEO solutions across the United States.",
+	openGraph: {
+		title: "AI Answering & SEO for US Businesses",
+		description: "InterStateRankers delivers AI-driven answering services and SEO solutions across the United States.",
+		url: "/",
+		locale: "en_US",
+		images: [
+			{ url: "/placeholder.svg", width: 1200, height: 630, alt: "InterStateRankers" }
+		]
+	},
+	alternates: { canonical: "/" },
+	robots: { index: true, follow: true }
+};
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import KeyDifferentiators from "@/components/sections/KeyDifferentiators";

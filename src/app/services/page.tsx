@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Digital Services: SEO, Web, PPC, Social (US)",
+	description: "Full-funnel growth services for US businesses: SEO, web & app development, PPC, social media, content, GMB.",
+	openGraph: {
+		title: "Digital Services: SEO, Web, PPC, Social (US)",
+		description: "Full-funnel growth services for US businesses: SEO, web & app development, PPC, social media, content, GMB.",
+		url: "/services",
+		locale: "en_US"
+	},
+	alternates: { canonical: "/services" }
+};
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import dynamic from "next/dynamic";

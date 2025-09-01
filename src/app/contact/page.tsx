@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Contact InterStateRankers (US)",
+	description: "Contact InterStateRankers for AI answering, SEO, and digital growth services across the United States.",
+	openGraph: {
+		title: "Contact InterStateRankers (US)",
+		description: "Contact InterStateRankers for AI answering, SEO, and digital growth services across the United States.",
+		url: "/contact",
+		locale: "en_US"
+	},
+	alternates: { canonical: "/contact" }
+};
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/sections/ContactForm";

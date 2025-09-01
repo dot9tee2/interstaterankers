@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Insights: SEO & Growth Guides (US)",
+	description: "US-focused insights on SEO strategies, digital growth, and best practices.",
+	openGraph: {
+		title: "Insights: SEO & Growth Guides (US)",
+		description: "US-focused insights on SEO strategies, digital growth, and best practices.",
+		url: "/insights",
+		locale: "en_US"
+	},
+	alternates: { canonical: "/insights" }
+};
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 

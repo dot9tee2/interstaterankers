@@ -1,3 +1,16 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Projects & Case Studies (US)",
+	description: "Explore InterStateRankers projects and case studies for US businesses.",
+	openGraph: {
+		title: "Projects & Case Studies (US)",
+		description: "Explore InterStateRankers projects and case studies for US businesses.",
+		url: "/projects",
+		locale: "en_US"
+	},
+	alternates: { canonical: "/projects" }
+};
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 

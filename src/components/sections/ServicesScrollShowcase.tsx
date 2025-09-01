@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Headphones, Phone, LayoutGrid, Search, Share2, Globe, Code, Smartphone, Palette, DollarSign } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 type ServiceSection = {
   id: string;
@@ -137,6 +138,22 @@ const ServicesScrollShowcase = () => {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   const [activeId, setActiveId] = useState<string>(SERVICES[0].id);
   const [progressById, setProgressById] = useState<Record<string, number>>({});
+  const [openServiceId, setOpenServiceId] = useState<string | null>(null);
+  const openService = (id: string) => {
+    setOpenServiceId(id);
+    if (typeof window !== "undefined") {
+      const url = `${window.location.pathname}#${id}`;
+      window.history.pushState(null, "", url);
+    }
+  };
+  const closeService = () => {
+    setOpenServiceId(null);
+    if (typeof window !== "undefined") {
+      const url = `${window.location.pathname}`;
+      window.history.pushState(null, "", url);
+    }
+  };
+  const selectedService = useMemo(() => SERVICES.find(s => s.id === openServiceId) || null, [openServiceId]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -180,7 +197,39 @@ const ServicesScrollShowcase = () => {
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
+  // Sync with URL: open modal for /services#id, or scroll only for /services?focus=1#id
+  useEffect(() => {
+    const ids = new Set(SERVICES.map(s => s.id));
+    const syncFromHash = () => {
+      const raw = typeof window !== "undefined" ? window.location.hash : "";
+      const id = raw ? raw.replace(/^#/, "") : "";
+      const search = typeof window !== "undefined" ? window.location.search : "";
+      const focus = new URLSearchParams(search).get("focus");
+      if (id && ids.has(id)) {
+        if (focus === "1") {
+          setOpenServiceId(null);
+          // Scroll to section with offset after mount
+          handleClick(id);
+        } else {
+          setOpenServiceId(id);
+        }
+      } else {
+        setOpenServiceId(null);
+      }
+    };
+    syncFromHash();
+    const onHashChange = () => syncFromHash();
+    const onPopState = () => syncFromHash();
+    window.addEventListener("hashchange", onHashChange);
+    window.addEventListener("popstate", onPopState);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      window.removeEventListener("popstate", onPopState);
+    };
+  }, []);
+
   return (
+    <div>
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -243,7 +292,10 @@ const ServicesScrollShowcase = () => {
                 key={s.id}
                 id={s.id}
                 ref={(el) => { sectionRefs.current[s.id] = el; }}
-                className="scroll-mt-24 p-6 rounded-2xl bg-card border border-border glow-card group"
+                className="scroll-mt-24 p-6 rounded-2xl bg-card border border-border glow-card group cursor-pointer"
+                onClick={() => openService(s.id)}
+                role="button"
+                aria-label={`Learn more about ${s.title}`}
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center">
@@ -274,6 +326,43 @@ const ServicesScrollShowcase = () => {
         </div>
       </div>
     </section>
+    <Dialog open={!!openServiceId} onOpenChange={(o) => { if (!o) closeService(); }}>
+      <DialogContent className="max-w-2xl">
+        {selectedService && (
+          <div>
+            <DialogHeader>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg hero-gradient flex items-center justify-center">
+                  <selectedService.icon className="w-5 h-5 text-white" />
+                </div>
+                <DialogTitle>{selectedService.title}</DialogTitle>
+              </div>
+              <DialogDescription>{selectedService.description}</DialogDescription>
+            </DialogHeader>
+            <div className="mt-4 space-y-4">
+              <div>
+                <h5 className="font-semibold mb-2">What’s included</h5>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {selectedService.bullets.map((b, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-lg border p-4 bg-background/50">
+                <p className="text-sm text-muted-foreground">
+                  Want specifics for your use case? Get a tailored proposal and timeline.
+                </p>
+                <a href="/contact" className="inline-block mt-3 text-sm px-4 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">Get a Proposal</a>
+              </div>
+            </div>
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+    </div>
   );
 };
 

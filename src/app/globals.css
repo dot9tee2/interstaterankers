@@ -132,5 +132,78 @@
 	.active-accent-cyan { color: hsl(var(--accent-cyan)); }
 }
 
+/* Preloader animations */
+@keyframes logoBlinkGlow {
+  0% { opacity: 0; filter: drop-shadow(0 0 0 hsla(262,83%,65%,0)); transform: scale(0.96); }
+  20% { opacity: 1; filter: drop-shadow(0 0 24px hsla(262,83%,65%,0.5)); transform: scale(1.02); }
+  40% { filter: drop-shadow(0 0 10px hsla(262,83%,65%,0.25)); transform: scale(1); }
+  60% { filter: drop-shadow(0 0 22px hsla(262,83%,65%,0.4)); }
+  100% { filter: drop-shadow(0 0 0 hsla(262,83%,65%,0.2)); }
+}
+@keyframes revealMask {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+@keyframes slideUpFade {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-logo-pop { animation: logoBlinkGlow 1.2s ease-out both; }
+.reveal-left { animation: revealMask 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.slide-up-fade { animation: slideUpFade 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+/* Ensure elements start hidden even before animation begins (no flash) */
+.preloader-reveal-initial { clip-path: inset(0 100% 0 0); opacity: 0; }
+.preloader-slide-initial { transform: translateY(10px); opacity: 0; }
+
+/* Hint GPU acceleration for smoother animation */
+.will-reveal { will-change: clip-path, opacity; }
+.will-slide { will-change: transform, opacity; }
+
+/* Subtle animated gradient for preloader bg */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.hero-gradient-animated {
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease-in-out infinite alternate;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-logo-pop,
+  .reveal-left,
+  .slide-up-fade { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-fill-mode: both !important; }
+  .hero-gradient-animated { animation: none !important; }
+}
+
+/* Site enter crossfade (toggled by preloader) */
+.site-root { opacity: 0; transition: opacity 400ms ease; }
+.site-root.site-visible { opacity: 1; }
+
+/* Slim progress bar styles */
+.preloader-progress {
+  position: relative;
+  height: 2px;
+  width: 200px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.preloader-progress > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,1));
+  box-shadow: 0 0 16px rgba(255,255,255,0.6);
+  transition: width 0.3s ease;
+}
+
+
 
 

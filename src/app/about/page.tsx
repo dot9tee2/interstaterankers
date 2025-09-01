@@ -122,9 +122,9 @@ export default function AboutPage() {
 
 				{/* Services quick links */}
 				<div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3 mb-16">
-					<Link href="/services/web-development" className="text-center rounded-md border px-4 py-3 hover:bg-primary/10">Web Development</Link>
-					<Link href="/services/seo" className="text-center rounded-md border px-4 py-3 hover:bg-primary/10">SEO Services</Link>
-					<Link href="/services/social-media-marketing" className="text-center rounded-md border px-4 py-3 hover:bg-primary/10">Social Media</Link>
+					<Link href="/services" className="text-center rounded-md border px-4 py-3 hover:bg-primary/10">Web Development</Link>
+					<Link href="/services" className="text-center rounded-md border px-4 py-3 hover:bg-primary/10">SEO Services</Link>
+					<Link href="/services" className="text-center rounded-md border px-4 py-3 hover:bg-primary/10">Social Media</Link>
 				</div>
 
 				<section className="max-w-4xl mx-auto mb-14">

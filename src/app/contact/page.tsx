@@ -35,7 +35,7 @@ export default function ContactPage() {
 								</div>
 								<div>
 									<p className="text-sm text-muted-foreground">Email</p>
-									<a href="mailto:hello@interstaterankers.com" className="text-lg font-medium hover:underline">hello@interstaterankers.com</a>
+									<a href="mailto:hello@interstaterankers.com" className="text-lg font-medium hover:underline">info@interstaterankers.com</a>
 								</div>
 							</div>
 						</div>

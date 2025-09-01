@@ -1,73 +1,104 @@
-# Welcome to your Lovable project
+# InterStateRankers
 
-## Project info
+Marketing site and lead-gen app for AI-driven answering services, SEO, PPC, and web development. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/f44ff6f9-4a48-410f-a764-29eebf46f27b
+## Tech Stack
 
-## How can I edit this code?
+- Next.js 14 (App Router, `src/app`)
+- React 18 + TypeScript
+- Tailwind CSS + tailwindcss-animate + typography
+- shadcn/ui (Radix UI primitives)
+- TanStack Query
+- Recharts, Embla Carousel
+- Three.js (`@react-three/fiber`, `@react-three/drei`)
+- EmailJS (client-side) for demo contact form
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+Prerequisites:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f44ff6f9-4a48-410f-a764-29eebf46f27b) and start prompting.
+- Node.js 18+ and npm
 
-Changes made via Lovable will be committed automatically to this repo.
+Install dependencies:
 
-**Use your preferred IDE**
+```bash
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Run the dev server:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app runs on `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Build and start production server:
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+npm start
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Environment Variables
 
-## What technologies are used for this project?
+Copy `env.example` to `.env.local` and fill in your EmailJS credentials. These are client-exposed and optional; when omitted, the contact flow runs in demo mode.
 
-This project is built with:
+```bash
+cp env.example .env.local
+# Then edit .env.local
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Required (optional for demo):
 
-## How can I deploy this project?
+- `NEXT_PUBLIC_EMAILJS_SERVICE_ID`
+- `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
+- `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
 
-Simply open [Lovable](https://lovable.dev/projects/f44ff6f9-4a48-410f-a764-29eebf46f27b) and click on Share -> Publish.
+Email sending logic lives in `src/lib/email.ts`. If the variables are not set, the app simulates a successful request for a smooth demo.
 
-## Can I connect a custom domain to my Lovable project?
+## Project Structure
 
-Yes, you can!
+Key directories:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- `src/app` — App Router pages and layout
+  - `layout.tsx` — root layout and metadata
+  - `page.tsx` — homepage composition
+  - `about`, `contact`, `pricing`, `projects`, `insights`, `services/*` — marketing pages
+- `src/components` — UI, layout, and section components (shadcn/ui based)
+- `src/lib` — utilities and EmailJS integration
+- `public` — static assets and logos
+- `tailwind.config.ts` — Tailwind theme and animation settings
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Scripts
+
+- `npm run dev` — start Next.js dev server on port 8080
+- `npm run build` — production build
+- `npm start` — start production server on port 8080
+- `npm run lint` — run ESLint
+
+## Styling & UI
+
+- Tailwind configured for class-based dark mode (`dark` class)
+- Custom theme tokens in `tailwind.config.ts`
+- shadcn/ui components under `src/components/ui`
+
+## Deployment
+
+This is a standard Next.js app and can be deployed to any Node-compatible host or edge platform:
+
+- Vercel (recommended)
+- Netlify
+- Render / Fly.io / Docker
+
+Typical Vercel steps: push to a Git repo, import in Vercel, set env vars, and deploy.
+
+## Contact & Forms
+
+- Email sending uses EmailJS from the browser (`@emailjs/browser`)
+- Configure your service/template/public key in `.env.local`
+- For production-grade email, consider moving to a server-side provider (e.g., Resend, SendGrid) and API Route
+
+## License
+
+Proprietary – All rights reserved.

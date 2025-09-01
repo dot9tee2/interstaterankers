@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -75,13 +76,15 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg hero-gradient">
-              <Search className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-xl font-heading font-bold gradient-text">
-              InterStateRankers
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/InterStateRankerLogo.png"
+              alt="InterStateRankers logo"
+              width={160}
+              height={32}
+              priority
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

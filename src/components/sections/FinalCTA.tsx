@@ -47,22 +47,26 @@ const FinalCTA = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8 animate-slide-up" style={{ animationDelay: '600ms' }}>
-            <Button 
-              size="lg" 
-              className="bg-white text-primary hover:bg-white/90 hover-lift glow-button text-lg px-8 py-6 h-auto font-bold"
-            >
-              Get Your Free Proposal
-              <ArrowRight className="ml-2 h-6 w-6" />
-            </Button>
+            <a href="/contact">
+              <Button 
+                size="lg" 
+                className="bg-white text-primary hover:bg-white/90 hover-lift glow-button text-lg px-8 py-6 h-auto font-bold"
+              >
+                Get Your Free Proposal
+                <ArrowRight className="ml-2 h-6 w-6" />
+              </Button>
+            </a>
             
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              Talk to an Expert Now
-            </Button>
+            <a href="tel:+11234567890">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                Talk to an Expert Now
+              </Button>
+            </a>
           </div>
 
           {/* Trust Indicators */}

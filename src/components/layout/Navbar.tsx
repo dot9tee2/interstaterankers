@@ -162,12 +162,16 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Button variant="outline" size="sm" className="animate-underline">
-              Talk to an Expert
-            </Button>
-            <Button size="sm" className="hero-gradient hover-lift text-white">
-              Get a Proposal
-            </Button>
+            <a href="tel:+11234567890">
+              <Button variant="outline" size="sm" className="animate-underline">
+                Talk to an Expert
+              </Button>
+            </a>
+            <Link href="/contact">
+              <Button size="sm" className="hero-gradient hover-lift text-white">
+                Get a Proposal
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu */}
@@ -205,12 +209,16 @@ const Navbar = () => {
                   </div>
                 ))}
                 <div className="pt-4 space-y-2">
-                  <Button variant="outline" className="w-full">
-                    Talk to an Expert
-                  </Button>
-                  <Button className="w-full hero-gradient text-white">
-                    Get a Proposal
-                  </Button>
+                  <a href="tel:+11234567890" className="w-full">
+                    <Button variant="outline" className="w-full">
+                      Talk to an Expert
+                    </Button>
+                  </a>
+                  <Link href="/contact" className="w-full" onClick={() => setIsOpen(false)}>
+                    <Button className="w-full hero-gradient text-white">
+                      Get a Proposal
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>

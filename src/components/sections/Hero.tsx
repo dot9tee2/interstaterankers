@@ -125,15 +125,19 @@ const Hero = () => {
               AI answering and SEO-first experiences built to convert. A modern stack that works while you sleep.
             </p>
             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-2">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 glow-button text-lg px-8 py-6 h-auto font-semibold rounded-full">
-              Get a Proposal
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold rounded-full">
-              <Play className="mr-2 h-5 w-5" />
-              Talk to an Expert
-            </Button>
-          </div>
+              <a href="/contact">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 glow-button text-lg px-8 py-6 h-auto font-semibold rounded-full">
+                  Get a Proposal
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </a>
+              <a href="tel:+11234567890">
+                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold rounded-full">
+                  <Play className="mr-2 h-5 w-5" />
+                  Talk to an Expert
+                </Button>
+              </a>
+            </div>
             </div>
 
           <div className="relative aspect-square lg:aspect-[4/3] w-full max-w-xl mx-auto lg:max-w-none">

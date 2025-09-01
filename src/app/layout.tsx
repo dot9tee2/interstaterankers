@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./fonts.css";
 import Providers from "./providers";
@@ -58,10 +58,11 @@ export const metadata: Metadata = {
 		],
 	},
 	manifest: "/site.webmanifest",
-	viewport: {
-		width: "device-width",
-		initialScale: 1,
-	},
+};
+
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

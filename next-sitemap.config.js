@@ -11,9 +11,6 @@ export default {
 		policies: [
 			{ userAgent: '*', allow: '/' },
 		],
-		additionalSitemaps: [
-			`${siteUrl}/sitemap.xml`,
-		],
 	},
 	transform: async (config, path) => {
 		let priority = 0.7;

@@ -57,7 +57,7 @@ const FinalCTA = () => {
               </Button>
             </a>
             
-            <a href="tel:+11234567890">
+            <a href="tel:+12253261269">
               <Button 
                 variant="outline" 
                 size="lg" 

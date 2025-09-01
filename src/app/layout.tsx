@@ -87,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						contactPoint: {
 							"@type": "ContactPoint",
 							contactType: "customer support",
-							telephone: "+1-123-456-7890",
+							telephone: "+1-225-326-1269",
 							email: "info@interstaterankers.com",
 							areaServed: "US",
 							availableLanguage: "English"

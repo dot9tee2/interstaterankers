@@ -162,7 +162,7 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            <a href="tel:+11234567890">
+            <a href="tel:+12253261269">
               <Button variant="outline" size="sm" className="animate-underline">
                 Talk to an Expert
               </Button>
@@ -209,7 +209,7 @@ const Navbar = () => {
                   </div>
                 ))}
                 <div className="pt-4 space-y-2">
-                  <a href="tel:+11234567890" className="w-full">
+                  <a href="tel:+12253261269" className="w-full">
                     <Button variant="outline" className="w-full">
                       Talk to an Expert
                     </Button>

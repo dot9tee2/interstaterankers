@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/sections/ContactForm";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 import Script from "next/script";
 import Link from "next/link";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
@@ -57,7 +57,7 @@ export default function ContactPage() {
 								</div>
 								<div>
 									<p className="text-sm text-muted-foreground">Phone</p>
-									<a href="tel:+11234567890" className="text-lg font-medium hover:underline">+1 (123) 456-7890</a>
+									<a href="tel:+12253261269" className="text-lg font-medium hover:underline">(225) 326-1269</a>
 								</div>
 							</div>
 							<div className="flex items-center gap-4">
@@ -70,6 +70,20 @@ export default function ContactPage() {
 								</div>
 							</div>
 						</div>
+					</div>
+					<div className="mt-6 flex items-center gap-3">
+						<a href="https://instagram.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Instagram">
+							<Instagram className="h-4 w-4" />
+						</a>
+						<a href="https://facebook.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Facebook">
+							<Facebook className="h-4 w-4" />
+						</a>
+						<a href="https://twitter.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Twitter">
+							<Twitter className="h-4 w-4" />
+						</a>
+						<a href="https://linkedin.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="LinkedIn">
+							<Linkedin className="h-4 w-4" />
+						</a>
 					</div>
 
 					<ContactForm />

@@ -131,7 +131,7 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
-              <a href="tel:+11234567890">
+              <a href="tel:+12253261269">
                 <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold rounded-full">
                   <Play className="mr-2 h-5 w-5" />
                   Talk to an Expert

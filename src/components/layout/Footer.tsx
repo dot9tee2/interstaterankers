@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Phone, Mail, MapPin } from "lucide-react";
+import { Search, Phone, Mail, MapPin, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -24,11 +24,25 @@ const Footer = () => {
             </p>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4" />
-              <a href="tel:2253261269" className="hover:text-foreground transition-colors">225-326-1269</a>
+              <a href="tel:+12253261269" className="hover:text-foreground transition-colors">(225) 326-1269</a>
             </div>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Mail className="h-4 w-4" />
               <a href="mailto:info@interstaterankers.com" className="hover:text-foreground transition-colors">info@interstaterankers.com</a>
+            </div>
+            <div className="flex items-center gap-3 pt-2">
+              <Link href="https://instagram.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Instagram">
+                <Instagram className="h-4 w-4" />
+              </Link>
+              <Link href="https://facebook.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Facebook">
+                <Facebook className="h-4 w-4" />
+              </Link>
+              <Link href="https://twitter.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Twitter">
+                <Twitter className="h-4 w-4" />
+              </Link>
+              <Link href="https://linkedin.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </Link>
             </div>
           </div>
 

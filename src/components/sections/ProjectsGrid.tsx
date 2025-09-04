@@ -38,13 +38,13 @@ const projects: Project[] = [
     description: "YatchClub is a website for a yatch club",
     tags: ["ShowCase", "Booking", "Yatch", "Reviews"]
   },
-  {
-    title: "Pakistan Properties and Builders",
-    url: "https://pakistanpropertiesandbuilders.com",
-    image: "/projects/pakistanpropertiesandbuilders.png",
-    description: "Pakistan Properties and Builders is a website for a real estate company",
-    tags: ["PHP", "MySQL", "SEO", "Real Estate"]
-  }
+  // {
+  //   title: "Pakistan Properties and Builders",
+  //   url: "https://pakistanpropertiesandbuilders.com",
+  //   image: "/projects/pakistanpropertiesandbuilders.png",
+  //   description: "Pakistan Properties and Builders is a website for a real estate company",
+  //   tags: ["PHP", "MySQL", "SEO", "Real Estate"]
+  // }
 ];
 
 function getTagClass(tag: string): string {

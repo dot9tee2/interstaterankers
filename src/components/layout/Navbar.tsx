@@ -56,6 +56,7 @@ const Navbar = () => {
     // { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
     { name: "Insights", href: "/insights" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const services = [

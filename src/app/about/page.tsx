@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 		siteName: "InterStateRankers",
 		images: [
 			{
-				url: "/placeholder.svg",
+				url: "/favicon.ico",
 				width: 1200,
 				height: 630,
 				alt: "InterStateRankers"
@@ -188,7 +188,7 @@ export default function AboutPage() {
 
 				{/* Social proof and results */}
 				<StatsResults />
-				<Testimonials compact />
+				{/* <Testimonials compact /> */}
 
 				{/* Team */}
 				<section className="max-w-5xl mx-auto mt-12 md:mt-16 mb-16">
@@ -197,39 +197,39 @@ export default function AboutPage() {
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 						<div className="text-center rounded-lg border p-6 bg-background/50">
 							<Avatar className="w-16 h-16 mx-auto mb-3">
-								<AvatarImage src="" alt="Alex Carter" />
-								<AvatarFallback>AC</AvatarFallback>
+								<AvatarImage src="" alt="Kenneth Adams" />
+								<AvatarFallback>KA</AvatarFallback>
 							</Avatar>
-							<div className="font-semibold">Alex Carter</div>
-							<div className="text-sm text-muted-foreground mb-2">Head of SEO</div>
+							<div className="font-semibold">Kenneth Adams</div>
+							<div className="text-sm text-muted-foreground mb-2">Founder</div>
 							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 						</div>
 						<div className="text-center rounded-lg border p-6 bg-background/50">
 							<Avatar className="w-16 h-16 mx-auto mb-3">
-								<AvatarImage src="" alt="Jordan Lee" />
-								<AvatarFallback>JL</AvatarFallback>
+								<AvatarImage src="" alt="Benny Hoover" />
+								<AvatarFallback>BH</AvatarFallback>
 							</Avatar>
-							<div className="font-semibold">Jordan Lee</div>
+							<div className="font-semibold">Benny Hoover</div>
+							<div className="text-sm text-muted-foreground mb-2">Co-Founder</div>
+							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+						</div>
+						<div className="text-center rounded-lg border p-6 bg-background/50">
+							<Avatar className="w-16 h-16 mx-auto mb-3">
+								<AvatarImage src="" alt="Maverick Cooper" />
+								<AvatarFallback>JB</AvatarFallback>
+							</Avatar>
+							<div className="font-semibold">Jonnathan Brown</div>
+							<div className="text-sm text-muted-foreground mb-2">Business Developer</div>
+							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+						</div>
+						<div className="text-center rounded-lg border p-6 bg-background/50">
+							<Avatar className="w-16 h-16 mx-auto mb-3">
+								<AvatarImage src="" alt="Jonnathan Brown" />
+								<AvatarFallback>MM</AvatarFallback>
+							</Avatar>
+							<div className="font-semibold">Muhammad Mehroz</div>
 							<div className="text-sm text-muted-foreground mb-2">Lead Developer</div>
-							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-						</div>
-						<div className="text-center rounded-lg border p-6 bg-background/50">
-							<Avatar className="w-16 h-16 mx-auto mb-3">
-								<AvatarImage src="" alt="Taylor Morgan" />
-								<AvatarFallback>TM</AvatarFallback>
-							</Avatar>
-							<div className="font-semibold">Taylor Morgan</div>
-							<div className="text-sm text-muted-foreground mb-2">Content Strategist</div>
-							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-						</div>
-						<div className="text-center rounded-lg border p-6 bg-background/50">
-							<Avatar className="w-16 h-16 mx-auto mb-3">
-								<AvatarImage src="" alt="Riley James" />
-								<AvatarFallback>RJ</AvatarFallback>
-							</Avatar>
-							<div className="font-semibold">Riley James</div>
-							<div className="text-sm text-muted-foreground mb-2">Marketing Lead</div>
-							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/in/dot9tee2/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 						</div>
 					</div>
 				</section>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 		url: "/",
 		locale: "en_US",
 		images: [
-			{ url: "/placeholder.svg", width: 1200, height: 630, alt: "InterStateRankers" }
+			{ url: "/favicon.ico", width: 1200, height: 630, alt: "InterStateRankers" }
 		]
 	},
 	alternates: { canonical: "/" },

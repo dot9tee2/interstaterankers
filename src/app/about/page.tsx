@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 		title: "About InterStateRankers | US Digital Growth Collective",
 		description:
 			"Custom web development, SEO services, and social media marketing for businesses across the United States.",
-		images: ["/placeholder.svg"]
+		images: ["/favicon.ico"]
 	},
 	alternates: {
 		canonical: "/about"

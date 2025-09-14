@@ -4,6 +4,7 @@ import "./fonts.css";
 import Providers from "./providers";
 import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://interstaterankers.com"),
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 		type: "website",
 		images: [
 			{
-				url: "/placeholder.svg",
+				url: "/favicon.ico",
 				width: 1200,
 				height: 630,
 				alt: "InterStateRankers"
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "InterStateRankers",
 		description: "AI-driven answering services and SEO solutions for US businesses.",
-		images: ["/placeholder.svg"]
+		images: ["/favicon.ico"]
 	},
 	alternates: {
 		canonical: "/"
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Preloader />
 				<div className="site-root">
 					<Providers>
+						<SpeedInsights />
 						{children}
 					</Providers>
 				</div>

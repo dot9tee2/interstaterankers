@@ -191,7 +191,7 @@ export default function AboutPage() {
 				{/* <Testimonials compact /> */}
 
 				{/* Team */}
-				<section className="max-w-5xl mx-auto mt-12 md:mt-16 mb-16">
+				{/* <section className="max-w-5xl mx-auto mt-12 md:mt-16 mb-16">
 					<h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6 text-center">Meet the Team</h2>
 					<p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">Experienced US-based professionals committed to clarity, craftsmanship, and results.</p>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -219,20 +219,38 @@ export default function AboutPage() {
 								<AvatarFallback>JB</AvatarFallback>
 							</Avatar>
 							<div className="font-semibold">Jonnathan Brown</div>
-							<div className="text-sm text-muted-foreground mb-2">Business Developer</div>
+							<div className="text-sm text-muted-foreground mb-2">Co-founder</div>
 							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 						</div>
 						<div className="text-center rounded-lg border p-6 bg-background/50">
 							<Avatar className="w-16 h-16 mx-auto mb-3">
-								<AvatarImage src="" alt="Jonnathan Brown" />
-								<AvatarFallback>MM</AvatarFallback>
+								<AvatarImage src="" alt="Maverick Cooper" />
+								<AvatarFallback>MC</AvatarFallback>
 							</Avatar>
-							<div className="font-semibold">Muhammad Mehroz</div>
-							<div className="text-sm text-muted-foreground mb-2">Lead Developer</div>
+							<div className="font-semibold">Maverick Cooper</div>
+							<div className="text-sm text-muted-foreground mb-2">Web Developer</div>
+							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/in/dot9tee2/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+						</div>
+						<div className="text-center rounded-lg border p-6 bg-background/50">
+							<Avatar className="w-16 h-16 mx-auto mb-3">
+								<AvatarImage src="" alt="Zack Wilson" />
+								<AvatarFallback>ZW</AvatarFallback>
+							</Avatar>
+							<div className="font-semibold">Zack Wilson</div>
+							<div className="text-sm text-muted-foreground mb-2">Team Lead</div>
+							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/in/dot9tee2/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+						</div>
+						<div className="text-center rounded-lg border p-6 bg-background/50">
+							<Avatar className="w-16 h-16 mx-auto mb-3">
+								<AvatarImage src="" alt="Eric Murphy" />
+								<AvatarFallback>EM</AvatarFallback>
+							</Avatar>
+							<div className="font-semibold">Eric Murphy</div>
+							<div className="text-sm text-muted-foreground mb-2">Team Lead</div>
 							<a className="text-sm text-primary hover:underline" href="https://www.linkedin.com/in/dot9tee2/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 						</div>
 					</div>
-				</section>
+				</section> */}
 
 				{/* FAQ */}
 				<section className="max-w-4xl mx-auto mb-16">

@@ -85,15 +85,6 @@ const FinalCTA = () => {
             </div>
           </div>
 
-          {/* Urgency Message */}
-          <div className="mt-12 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl animate-slide-up" style={{ animationDelay: '1000ms' }}>
-            <p className="text-white/80 text-sm mb-2">
-              <strong className="text-white">Limited Time:</strong> First 50 new clients get 50% off setup fees
-            </p>
-            <p className="text-accent-amber font-semibold text-sm">
-              Join today and start seeing results within 30 days
-            </p>
-          </div>
         </div>
 
         {/* Background Elements */}

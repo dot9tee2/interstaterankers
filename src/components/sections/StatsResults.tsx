@@ -50,11 +50,20 @@ const StatsResults = () => {
   }, []);
 
   const AnimatedCounter = ({ value, prefix = "", suffix = "", duration = 2000 }) => {
-    const [count, setCount] = useState(0);
+    const [displayValue, setDisplayValue] = useState(prefix + (typeof value === 'string' ? value : '0') + suffix);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
       if (!isVisible) return;
 
+      // If value is a string (like "95 - 98"), just display it directly
+      if (typeof value === 'string') {
+        setDisplayValue(prefix + value + suffix);
+        return;
+      }
+
+      // For numeric values, animate from 0 to the target
+      setIsAnimating(true);
       let startTime = 0;
       const startValue = 0;
       const endValue = value;
@@ -65,21 +74,22 @@ const StatsResults = () => {
 
         if (progress < 1) {
           const current = startValue + (endValue - startValue) * easeOutCubic(progress);
-          setCount(Math.floor(current));
+          setDisplayValue(prefix + Math.floor(current).toLocaleString() + suffix);
           requestAnimationFrame(animate);
         } else {
-          setCount(endValue);
+          setDisplayValue(prefix + endValue.toLocaleString() + suffix);
+          setIsAnimating(false);
         }
       };
 
       requestAnimationFrame(animate);
-    }, [isVisible, value, duration]);
+    }, [isVisible, value, duration, prefix, suffix]);
 
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
     return (
-      <span className="stats-counter">
-        {prefix}{count.toLocaleString()}{suffix}
+      <span className={`stats-counter ${isAnimating ? 'animate-pulse' : ''}`}>
+        {displayValue}
       </span>
     );
   };

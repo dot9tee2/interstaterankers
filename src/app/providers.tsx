@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import GA4Tracker from "@/components/analytics/GA4Tracker";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
@@ -13,7 +13,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 			<TooltipProvider>
 				<Toaster />
 				<Sonner />
-				<GA4Tracker />
+				<Suspense fallback={null}>
+					<GA4Tracker />
+				</Suspense>
 				{children}
 			</TooltipProvider>
 		</QueryClientProvider>

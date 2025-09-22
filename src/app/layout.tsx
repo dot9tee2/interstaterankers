@@ -77,6 +77,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						{children}
 					</Providers>
 				</div>
+			{process.env.NEXT_PUBLIC_GA4_ID ? (
+				<>
+					<Script
+						src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
+						strategy="afterInteractive"
+					/>
+					<Script id="ga4-init" strategy="afterInteractive">
+						{`
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){window.dataLayer.push(arguments);}
+							gtag('js', new Date());
+							gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}', { send_page_view: false });
+						`}
+					</Script>
+				</>
+			) : null}
 				<Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify({
 						"@context": "https://schema.org",

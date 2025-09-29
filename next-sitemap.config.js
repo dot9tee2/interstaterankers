@@ -10,6 +10,10 @@ export default {
 	// exclude: ['/pricing'],
 	// Add formatting options for better readability
 	format: true,
+	// Add additional options to ensure proper XML generation
+	additionalPaths: async (config) => {
+		return [];
+	},
 	robotsTxtOptions: {
 		policies: [
 			{ userAgent: '*', allow: '/' },

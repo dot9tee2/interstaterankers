@@ -40,7 +40,7 @@ export default function ContactPage() {
 					</Breadcrumb>
 				</div>
 				<div className="mx-auto max-w-3xl text-center mb-12">
-					<h1 className="text-4xl md:text-5xl font-heading font-bold gradient-text">Contact Us</h1>
+					<h1 className="text-4xl md:text-5xl font-body font-bold gradient-text">Contact Us</h1>
 					<p className="mt-4 text-lg md:text-xl text-muted-foreground">
 						Ready to grow your business? Send us a message and we’ll get back to you.
 					</p>
@@ -49,7 +49,7 @@ export default function ContactPage() {
 				<div className="grid grid-cols-1 gap-8">
 					{/* Contact details */}
 					<div className="rounded-2xl border border-primary/40 ring-1 ring-primary/20 bg-card/60 p-8 md:p-10 glow-card">
-						<h2 className="text-2xl font-heading font-bold mb-4">Get in touch</h2>
+						<h2 className="text-2xl font-body font-bold mb-4">Get in touch</h2>
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 							<div className="flex items-center gap-4">
 								<div className="w-10 h-10 rounded-xl hero-gradient flex items-center justify-center shrink-0">

@@ -35,7 +35,7 @@ const InsightsPreview = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
             Growth Insights
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -75,7 +75,7 @@ const InsightsPreview = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-heading font-semibold mb-3 leading-tight group-hover:text-primary transition-colors">
+                <h3 className="text-lg font-body font-semibold mb-3 leading-tight group-hover:text-primary transition-colors">
                   {insight.title}
                 </h3>
                 

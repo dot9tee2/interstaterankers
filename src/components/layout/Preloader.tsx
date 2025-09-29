@@ -106,7 +106,7 @@ export default function Preloader() {
           <div className="relative overflow-hidden">
             {/* reveal mask */}
             <span
-              className="block text-5xl md:text-6xl font-heading font-bold text-white tracking-wide preloader-reveal-initial will-reveal reveal-left"
+              className="block text-5xl md:text-6xl font-body font-bold text-white tracking-wide preloader-reveal-initial will-reveal reveal-left"
               style={{ animationDelay: "900ms" }}
             >
               InterState
@@ -114,7 +114,7 @@ export default function Preloader() {
           </div>
           <div className="relative overflow-hidden mt-1">
             <span
-              className="block text-5xl md:text-6xl font-heading font-bold text-white tracking-wide preloader-slide-initial will-slide slide-up-fade"
+              className="block text-5xl md:text-6xl font-body font-bold text-white tracking-wide preloader-slide-initial will-slide slide-up-fade"
               style={{ animationDelay: "1700ms" }}
             >
               Rankers

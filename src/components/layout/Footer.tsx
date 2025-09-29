@@ -48,7 +48,7 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="font-heading font-semibold">Services</h3>
+            <h3 className="font-body font-semibold">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/services" className="hover:text-foreground transition-colors">Search Engine Optimization</Link></li>
               <li><Link href="/services" className="hover:text-foreground transition-colors">Google My Business Optimization</Link></li>
@@ -65,7 +65,7 @@ const Footer = () => {
 
           {/* Company */}
           <div className="space-y-4">
-            <h3 className="font-heading font-semibold">Company</h3>
+            <h3 className="font-body font-semibold">Company</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
               <li><Link href="/projects" className="hover:text-foreground transition-colors">Projects</Link></li>
@@ -76,7 +76,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-heading font-semibold">Get Started</h3>
+            <h3 className="font-body font-semibold">Get Started</h3>
             <p className="text-sm text-muted-foreground">
               Ready to grow your business? Contact us today.
             </p>

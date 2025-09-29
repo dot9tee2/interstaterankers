@@ -24,7 +24,7 @@ const FinalCTA = () => {
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 animate-slide-up">
+          <h2 className="text-4xl md:text-6xl font-body font-bold text-white mb-6 animate-slide-up">
             Ready to Grow?
           </h2>
 

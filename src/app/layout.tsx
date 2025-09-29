@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import "./fonts.css";
 import Providers from "./providers";
 import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";

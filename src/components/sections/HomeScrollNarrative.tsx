@@ -85,7 +85,7 @@ const HomeScrollNarrative = () => {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 gradient-text">Our Growth Playbook</h2>
+          <h2 className="text-4xl md:text-5xl font-body font-bold mb-4 gradient-text">Our Growth Playbook</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">A simple, repeatable system that compounds results—designed to move fast and measure what matters.</p>
         </div>
 
@@ -94,7 +94,7 @@ const HomeScrollNarrative = () => {
           <aside className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24 space-y-4">
               <div className="p-6 rounded-2xl bg-card border border-border glow-card">
-                <h3 className="text-2xl font-heading font-bold">Playbook</h3>
+                <h3 className="text-2xl font-body font-bold">Playbook</h3>
                 <p className="text-sm text-muted-foreground">Follow the steps as the story scrolls on the right.</p>
               </div>
               <nav className="p-2 rounded-2xl bg-card border border-border glow-card divide-y divide-border">
@@ -151,7 +151,7 @@ const HomeScrollNarrative = () => {
                     <s.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-heading font-semibold">{s.title}</h4>
+                    <h4 className="text-xl font-body font-semibold">{s.title}</h4>
                     <p className="text-muted-foreground mt-1">{s.description}</p>
                   </div>
                 </div>

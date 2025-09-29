@@ -116,7 +116,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 text-center lg:text-left">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight">
+          <h1 className="text-5xl md:text-7xl font-body font-bold text-white leading-tight">
               Minimal. Fast.
             <br />
               <span className="accent-gradient-text">Seriously Effective.</span>

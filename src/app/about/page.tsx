@@ -123,7 +123,7 @@ export default function AboutPage() {
 						<div className="absolute bottom-10 right-10 w-32 h-32 bg-accent-cyan/10 rounded-full blur-2xl animate-pulse delay-1000" />
 						
 						<div className="relative z-10">
-							<h1 className="text-4xl md:text-6xl font-heading font-bold mb-8 gradient-text animate-fade-in">
+							<h1 className="text-4xl md:text-6xl font-body font-bold mb-8 gradient-text animate-fade-in">
 								Your Trusted Digital Growth Collective for <span className="text-primary">US Businesses</span>
 							</h1>
 							<p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-slide-up">
@@ -162,7 +162,7 @@ export default function AboutPage() {
 										<Users className="w-8 h-8 text-white" />
 									</div>
 								</div>
-								<CardTitle className="text-3xl md:text-4xl font-heading font-bold mb-4">
+								<CardTitle className="text-3xl md:text-4xl font-body font-bold mb-4">
 									Who We Are: <span className="text-primary">US Digital Marketing Experts</span>
 								</CardTitle>
 								<CardDescription className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -241,7 +241,7 @@ export default function AboutPage() {
 					{/* Enhanced Service Quick Links */}
 					<section className="max-w-6xl mx-auto mb-16">
 						<div className="text-center mb-12">
-							<h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 gradient-text">
+							<h2 className="text-3xl md:text-4xl font-body font-bold mb-4 gradient-text">
 								Our Core Services for <span className="text-primary">US Businesses</span>
 							</h2>
 							<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -309,7 +309,7 @@ export default function AboutPage() {
 					{/* Enhanced Why Choose Us Section */}
 					<section className="max-w-6xl mx-auto mb-16">
 						<div className="text-center mb-12">
-							<h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 gradient-text">
+							<h2 className="text-3xl md:text-4xl font-body font-bold mb-4 gradient-text">
 								Why Choose <span className="text-primary">InterStateRankers</span> for Your US Business
 							</h2>
 							<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -438,7 +438,7 @@ export default function AboutPage() {
 										<div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
 											<Target className="w-6 h-6 text-white" />
 										</div>
-										<h3 className="text-2xl font-heading font-bold text-primary">Our Mission</h3>
+										<h3 className="text-2xl font-body font-bold text-primary">Our Mission</h3>
 									</div>
 									<CardDescription className="text-lg leading-relaxed">
 										To empower <strong>US businesses</strong> to achieve sustainable digital growth through innovation, craftsmanship, and integrity across all markets from coast to coast.
@@ -453,7 +453,7 @@ export default function AboutPage() {
 										<div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-cyan to-accent-cyan/80 flex items-center justify-center">
 											<Star className="w-6 h-6 text-white" />
 										</div>
-										<h3 className="text-2xl font-heading font-bold text-accent-cyan">Our Vision</h3>
+										<h3 className="text-2xl font-body font-bold text-accent-cyan">Our Vision</h3>
 									</div>
 									<CardDescription className="text-lg leading-relaxed">
 										To be the go-to digital partners for <strong>American businesses</strong> that value quality-driven results over flashy marketing—building trust one project at a time, from <strong>Silicon Valley startups to Main Street enterprises</strong>.
@@ -466,7 +466,7 @@ export default function AboutPage() {
 					{/* Enhanced Values Section */}
 					<section className="max-w-6xl mx-auto mb-16">
 						<div className="text-center mb-12">
-							<h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 gradient-text">
+							<h2 className="text-3xl md:text-4xl font-body font-bold mb-4 gradient-text">
 								Our Core Values for <span className="text-primary">US Clients</span>
 							</h2>
 							<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -550,7 +550,7 @@ export default function AboutPage() {
 					</section>
 
 					<section className="max-w-4xl mx-auto mb-14 space-y-4">
-						<h2 className="text-2xl md:text-3xl font-heading font-semibold">Who We Serve: US Businesses Nationwide</h2>
+						<h2 className="text-2xl md:text-3xl font-body font-semibold">Who We Serve: US Businesses Nationwide</h2>
 						<p className="text-muted-foreground">
 							Our clients span <strong>startups, small and medium enterprises, and growing brands</strong>—from local businesses in <strong>rural communities</strong> to service-focused firms in <strong>major metropolitan areas</strong>—who seek a digital presence that's both meaningful and effective across the United States. We serve businesses in <strong>all 50 states</strong>, from <strong>tech startups in California</strong> to <strong>manufacturing companies in the Midwest</strong> and <strong>service providers on the East Coast</strong>.
 						</p>
@@ -571,7 +571,7 @@ export default function AboutPage() {
 
 				{/* Team */}
 				{/* <section className="max-w-5xl mx-auto mt-12 md:mt-16 mb-16">
-					<h2 className="text-2xl md:text-3xl font-heading font-semibold mb-6 text-center">Meet the Team</h2>
+					<h2 className="text-2xl md:text-3xl font-body font-semibold mb-6 text-center">Meet the Team</h2>
 					<p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">Experienced US-based professionals committed to clarity, craftsmanship, and results.</p>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 						<div className="text-center rounded-lg border p-6 bg-background/50">
@@ -633,7 +633,7 @@ export default function AboutPage() {
 
 					{/* FAQ */}
 					<section className="max-w-4xl mx-auto mb-16">
-						<h2 className="text-2xl md:text-3xl font-heading font-semibold mb-4">Frequently Asked Questions About Our US Services</h2>
+						<h2 className="text-2xl md:text-3xl font-body font-semibold mb-4">Frequently Asked Questions About Our US Services</h2>
 						<Accordion type="single" collapsible className="w-full">
 							<AccordionItem value="q1">
 								<AccordionTrigger>Do you work with businesses across all 50 US states?</AccordionTrigger>
@@ -683,7 +683,7 @@ export default function AboutPage() {
 								</div>
 
 								{/* Main Headline */}
-								<h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 animate-slide-up">
+								<h2 className="text-4xl md:text-6xl font-body font-bold text-white mb-6 animate-slide-up">
 									Ready to Grow Your <span className="accent-gradient-text">US Business</span>?
 								</h2>
 

@@ -99,7 +99,7 @@ const StatsResults = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
             Results That Speak
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -126,7 +126,7 @@ const StatsResults = () => {
               </div>
 
               {/* Label */}
-              <h3 className="text-lg font-heading font-semibold mb-2">{stat.label}</h3>
+              <h3 className="text-lg font-body font-semibold mb-2">{stat.label}</h3>
               
               {/* Description */}
               <p className="text-sm text-muted-foreground">{stat.description}</p>

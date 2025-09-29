@@ -94,7 +94,7 @@ const InteractivePillarCard: React.FC<{
         </div>
 
         {/* Content */}
-        <h3 className="text-2xl font-heading font-bold mb-4">{pillar.title}</h3>
+        <h3 className="text-2xl font-body font-bold mb-4">{pillar.title}</h3>
         <p className="text-muted-foreground mb-6 leading-relaxed">{pillar.description}</p>
 
         {/* Features */}
@@ -143,7 +143,7 @@ const KeyDifferentiators = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
             Two Pillars of Growth
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

@@ -94,7 +94,7 @@ const PricingPreview = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
             Transparent Pricing
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -129,7 +129,7 @@ const PricingPreview = () => {
 
         {/* Answering Services */}
         <div className="mb-16">
-          <h3 className="text-2xl font-heading font-bold text-center mb-8">
+          <h3 className="text-2xl font-body font-bold text-center mb-8">
             Answering & Calling Services
           </h3>
           
@@ -156,7 +156,7 @@ const PricingPreview = () => {
                 }`}>
                   {/* Header */}
                   <div className="text-center mb-6">
-                    <h4 className="text-xl font-heading font-bold mb-2">{pkg.name}</h4>
+                    <h4 className="text-xl font-body font-bold mb-2">{pkg.name}</h4>
                     <div className="flex items-baseline justify-center space-x-1">
                       <span className="text-3xl font-bold gradient-text">${computePrice(pkg.price)}</span>
                       <span className="text-muted-foreground">/month</span>
@@ -196,7 +196,7 @@ const PricingPreview = () => {
 
         {/* SEO & GMB */}
         <div>
-          <h3 className="text-2xl font-heading font-bold text-center mb-8">
+          <h3 className="text-2xl font-body font-bold text-center mb-8">
             SEO & GMB Packages
           </h3>
           
@@ -223,7 +223,7 @@ const PricingPreview = () => {
                 }`}>
                   {/* Header */}
                   <div className="text-center mb-6">
-                    <h4 className="text-xl font-heading font-bold mb-2">{pkg.name}</h4>
+                    <h4 className="text-xl font-body font-bold mb-2">{pkg.name}</h4>
                     <div className="flex items-baseline justify-center space-x-1">
                       <span className="text-3xl font-bold gradient-text">${computePrice(pkg.price)}</span>
                       <span className="text-muted-foreground">/month</span>

@@ -37,7 +37,7 @@ export default function InsightsPage() {
 						</BreadcrumbList>
 					</Breadcrumb>
 				</div>
-				<h1 className="text-4xl font-heading font-bold text-center mb-8 gradient-text">Insights & Resources</h1>
+				<h1 className="text-4xl font-body font-bold text-center mb-8 gradient-text">Insights & Resources</h1>
 				<p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto">
 					Stay ahead with our latest insights on business growth, SEO strategies, and industry best practices.
 				</p>

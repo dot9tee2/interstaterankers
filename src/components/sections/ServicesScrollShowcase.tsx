@@ -237,7 +237,7 @@ const ServicesScrollShowcase = () => {
           <aside className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24 space-y-6">
               <div className="p-6 rounded-2xl bg-card border border-border glow-card">
-                <h3 className="text-2xl font-heading font-bold mb-2">Services We Provide</h3>
+                <h3 className="text-2xl font-body font-bold mb-2">Services We Provide</h3>
                 <p className="text-sm text-muted-foreground">Explore our core capabilities. The list highlights the section currently in view.</p>
               </div>
 
@@ -302,7 +302,7 @@ const ServicesScrollShowcase = () => {
                     <s.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-heading font-semibold">{s.title}</h4>
+                    <h4 className="text-xl font-body font-semibold">{s.title}</h4>
                     <p className="text-muted-foreground mt-1">{s.description}</p>
                   </div>
                 </div>

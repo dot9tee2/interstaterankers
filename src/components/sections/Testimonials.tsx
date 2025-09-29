@@ -67,7 +67,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
             What Our Clients Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -111,7 +111,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
 
               {/* Author */}
               <div className="text-center">
-                <div className="font-heading font-semibold text-lg mb-1">
+                <div className="font-body font-semibold text-lg mb-1">
                   {testimonials[currentIndex].author}
                 </div>
                 <div className="text-muted-foreground text-sm mb-2">

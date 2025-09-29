@@ -40,7 +40,7 @@ export default function ServicesPage() {
 						</BreadcrumbList>
 					</Breadcrumb>
 				</div>
-				<h1 className="text-4xl font-heading font-bold text-center mb-8 gradient-text">Our Services</h1>
+				<h1 className="text-4xl font-body font-bold text-center mb-8 gradient-text">Our Services</h1>
 				<p className="text-xl text-center text-muted-foreground max-w-3xl mx-auto">
 					Full-funnel growth services: answering, calling, content marketing, social media, web & app development, graphic designing, SEO, PPC, and Google My Business optimization.
 				</p>

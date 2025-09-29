@@ -35,7 +35,7 @@ const FeaturedProjects = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
             Success Stories
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -56,7 +56,7 @@ const FeaturedProjects = () => {
                 {/* Header */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-heading font-bold">{project.title}</h3>
+                    <h3 className="text-xl font-body font-bold">{project.title}</h3>
                     <Badge variant="secondary" className="text-xs">
                       {project.industry}
                     </Badge>

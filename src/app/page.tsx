@@ -26,6 +26,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import InsightsPreview from "@/components/sections/InsightsPreview";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/layout/Footer";
+// import PrankOverlay from "@/components/PrankOverlay";
 import dynamic from "next/dynamic";
 
 const HomeScrollNarrative = dynamic(() => import("@/components/sections/HomeScrollNarrative"), { ssr: false });
@@ -47,6 +48,7 @@ export default function HomePage() {
 				<FinalCTA />
 			</main>
 			<Footer />
+			{/* <PrankOverlay /> */}
 		</div>
 	);
 }

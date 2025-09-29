@@ -6,7 +6,10 @@ export default {
 	generateRobotsTxt: true,
 	changefreq: 'weekly',
 	priority: 0.7,
-	exclude: ['/pricing'],
+	// Remove pricing from exclude to include it in sitemap
+	// exclude: ['/pricing'],
+	// Add formatting options for better readability
+	format: true,
 	robotsTxtOptions: {
 		policies: [
 			{ userAgent: '*', allow: '/' },
@@ -16,6 +19,8 @@ export default {
 		let priority = 0.7;
 		if (path === '/') priority = 1.0;
 		else if (path.startsWith('/services')) priority = 0.9;
+		else if (path.startsWith('/pricing')) priority = 0.8;
+		
 		return {
 			loc: path,
 			changefreq: 'weekly',

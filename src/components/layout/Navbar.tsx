@@ -5,12 +5,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Menu, Phone, Headphones, Globe, Search, TrendingUp, ChevronDown, Code, Palette, Smartphone, Share2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showServicesMenu, setShowServicesMenu] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const menuContainerRef = useRef<HTMLDivElement | null>(null);
   const enterTimeoutRef = useRef<number | null>(null);
@@ -51,11 +53,13 @@ const Navbar = () => {
   }, []);
 
   const navigation = [
+    { name: "Home", href: "/" },
     { name: "Services", href: "/services", hasDropdown: true },
-    { name: "Projects", href: "/projects" },
+    { name: "Insights", href: "/insights" },
+
+    // { name: "Projects", href: "/projects" },
     // { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
-    { name: "Insights", href: "/insights" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -186,26 +190,33 @@ const Navbar = () => {
               <div className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
                   <div key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="block py-2 text-lg font-medium"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                    {item.hasDropdown && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {services.map((service) => (
-                          <Link
-                            key={service.name}
-                            href={service.href}
-                            className="block py-1 text-sm text-muted-foreground hover:text-foreground"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {service.name}
-                          </Link>
-                        ))}
-                      </div>
+                    {item.hasDropdown ? (
+                      <Collapsible open={isMobileServicesOpen} onOpenChange={setIsMobileServicesOpen}>
+                        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-lg font-medium hover:text-foreground">
+                          <span>{item.name}</span>
+                          <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isMobileServicesOpen && "rotate-180")} />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="ml-4 mt-2 space-y-2">
+                          {services.map((service) => (
+                            <Link
+                              key={service.name}
+                              href={service.href}
+                              className="block py-1 text-sm text-muted-foreground hover:text-foreground"
+                              onClick={() => setIsOpen(false)}
+                            >
+                              {service.name}
+                            </Link>
+                          ))}
+                        </CollapsibleContent>
+                      </Collapsible>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block py-2 text-lg font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
                     )}
                   </div>
                 ))}

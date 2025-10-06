@@ -36,3 +36,9 @@ dist-ssr
 
 # Vercel project settings
 .vercel
+
+# Sitemap monitoring reports
+sitemap-reports/
+
+# Sanity Studio build
+.sanity/

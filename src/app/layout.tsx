@@ -39,6 +39,9 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: "/"
 	},
+	other: {
+		"sitemap": "/sitemap.xml"
+	},
 	robots: {
 		index: true,
 		follow: true,

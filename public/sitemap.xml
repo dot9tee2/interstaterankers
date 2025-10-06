@@ -1,6 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://interstaterankers.com/sitemap-0.xml</loc>
-  </sitemap>
-</sitemapindex>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://interstaterankers.com</loc>
+<lastmod>2025-10-06T23:39:28.072Z</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/about</loc>
+<lastmod>2025-10-06T23:39:28.072Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/contact</loc>
+<lastmod>2025-10-06T23:39:28.072Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/services</loc>
+<lastmod>2025-10-06T23:39:28.072Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/pricing</loc>
+<lastmod>2025-10-06T23:39:28.072Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/projects</loc>
+<lastmod>2025-10-06T23:39:28.072Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/insights</loc>
+<lastmod>2025-10-06T23:39:28.072Z</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/insights/instagram-5120x1080-ultra-wide-format-guide</loc>
+<lastmod>2025-10-06T21:36:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/insights/category/digital-marketing</loc>
+<lastmod>2025-10-06T23:39:28.195Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/insights/category/local-seo</loc>
+<lastmod>2025-10-06T23:39:28.195Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://interstaterankers.com/insights/category/seo-stratergy</loc>
+<lastmod>2025-10-06T23:39:28.195Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+</urlset>

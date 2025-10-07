@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm ci --legacy-peer-deps && npm run build",
-  "installCommand": "npm ci --legacy-peer-deps",
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci --include=dev --legacy-peer-deps",
   "framework": "nextjs",
   "functions": {
     "src/app/sitemap.ts": {

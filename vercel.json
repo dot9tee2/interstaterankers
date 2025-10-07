@@ -1,7 +1,15 @@
 {
-  "buildCommand": "npm install --legacy-peer-deps && npm run build",
-  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm ci --legacy-peer-deps && npm run build",
+  "installCommand": "npm ci --legacy-peer-deps",
   "framework": "nextjs",
+  "functions": {
+    "src/app/sitemap.ts": {
+      "maxDuration": 30
+    },
+    "src/app/robots.ts": {
+      "maxDuration": 10
+    }
+  },
   "headers": [
     {
       "source": "/sitemap.xml",

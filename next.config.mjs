@@ -12,6 +12,13 @@ const nextConfig = {
       // { protocol: 'https', hostname: 'api.screenshotapi.net' }
     ]
   },
+  webpack: (config) => {
+    // Ensure '@' alias always points to the repo's src directory
+    config.resolve = config.resolve || {};
+    config.resolve.alias = config.resolve.alias || {};
+    config.resolve.alias['@'] = config.resolve.alias['@'] || require('path').join(__dirname, 'src');
+    return config;
+  },
 };
 
 export default nextConfig;

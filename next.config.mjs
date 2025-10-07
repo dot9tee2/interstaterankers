@@ -25,6 +25,16 @@ const nextConfig = {
     config.resolve.alias['@'] = config.resolve.alias['@'] || path.join(__dirname, 'src');
     return config;
   },
+  async headers() {
+    return [
+      {
+        source: '/studio/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

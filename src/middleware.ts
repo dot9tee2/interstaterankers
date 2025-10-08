@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
-// Enforce canonical host (apex) and HTTPS
+// Enforce HTTPS always; optionally enforce a single host if enabled via env
 export function middleware(request: NextRequest) {
   const url = new URL(request.url)
 
@@ -18,18 +18,18 @@ export function middleware(request: NextRequest) {
   if (isAsset) return NextResponse.next()
 
   const host = request.headers.get('host') || ''
-
-  // Determine canonical hostname (apex)
-  const apexHost = 'interstaterankers.com'
-
-  // If on Vercel preview environments, skip host redirect to avoid 404s
+  const siteUrlFromEnv = process.env.SITE_URL || 'https://www.interstaterankers.com'
+  const primaryHost = (() => {
+    try { return new URL(siteUrlFromEnv).host } catch { return 'www.interstaterankers.com' }
+  })()
+  const enableHostRedirect = String(process.env.ENABLE_HOST_REDIRECT || '').toLowerCase() === 'true'
   const isVercelPreview = process.env.VERCEL === '1' && (process.env.VERCEL_ENV === 'preview')
 
   let shouldRedirect = false
 
-  // Redirect www to apex (unless preview)
-  if (!isVercelPreview && (host === `www.${apexHost}`)) {
-    url.host = apexHost
+  // If enabled, redirect any non-primary host to the configured primary host
+  if (!isVercelPreview && enableHostRedirect && host && primaryHost && host !== primaryHost) {
+    url.host = primaryHost
     shouldRedirect = true
   }
 

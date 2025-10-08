@@ -6,7 +6,7 @@ import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://interstaterankers.com"),
+	metadataBase: new URL(process.env.SITE_URL || "https://www.interstaterankers.com"),
 	title: {
 		default: "InterStateRankers",
 		template: "%s | InterStateRankers",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "InterStateRankers",
 		description: "AI-driven answering services and SEO solutions for US businesses.",
-		url: "https://interstaterankers.com/",
+		url: (process.env.SITE_URL || "https://www.interstaterankers.com") + "/",
 		siteName: "InterStateRankers",
 		locale: "en_US",
 		type: "website",
@@ -39,9 +39,7 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: "/"
 	},
-	other: {
-		"sitemap": "/sitemap.xml"
-	},
+		other: { "sitemap": "/sitemap.xml" },
 	robots: {
 		index: true,
 		follow: true,

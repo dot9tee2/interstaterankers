@@ -14,6 +14,9 @@ export const metadata: Metadata = {
 	alternates: { canonical: "/insights" }
 };
 
+// Revalidate the Insights listing periodically to pick up newly published posts
+export const revalidate = 60;
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Script from "next/script";

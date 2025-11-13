@@ -15,6 +15,9 @@ import Footer from "@/components/layout/Footer";
 import Script from "next/script";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
+// Revalidate individual post pages to keep related lists fresh
+export const revalidate = 60;
+
 interface BlogPostPageProps {
   params: {
     slug: string;

@@ -201,10 +201,11 @@ const Navbar = () => {
                             <Link
                               key={service.name}
                               href={service.href}
-                              className="block py-1 text-sm text-muted-foreground hover:text-foreground"
+                              className="flex items-center gap-2 py-1 text-sm text-muted-foreground hover:text-foreground"
                               onClick={() => setIsOpen(false)}
                             >
-                              {service.name}
+                              <service.icon className="h-4 w-4 text-accent-cyan" />
+                              <span>{service.name}</span>
                             </Link>
                           ))}
                         </CollapsibleContent>

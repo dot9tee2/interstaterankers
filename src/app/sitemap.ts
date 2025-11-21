@@ -59,14 +59,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error('Error fetching blog posts for sitemap:', error)
   }
 
-  // Get categories from Sanity
-  let categories: any[] = []
+  // Get projects from Sanity
+  let projects: any[] = []
   try {
-    const { getAllCategories } = await import('@/lib/blog')
-    categories = await getAllCategories()
-    console.log(`📂 Found ${categories.length} categories for sitemap`)
+    const { getAllProjects } = await import('@/lib/projects')
+    projects = await getAllProjects()
+    console.log(`📁 Found ${projects.length} projects for sitemap`)
   } catch (error) {
-    console.error('Error fetching categories for sitemap:', error)
+    console.error('Error fetching projects for sitemap:', error)
   }
 
   // Blog post pages
@@ -77,15 +77,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  // Category pages (if you have category pages)
-  const categoryPages = categories.map((category) => ({
-    url: `${baseUrl}/insights/category/${category.slug.current}`,
+  // Project pages
+  const projectPages = projects.map((p) => ({
+    url: `${baseUrl}/projects/${p.slug.current}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: 0.5,
+    priority: 0.6,
   }))
 
-  const allPages = [...staticPages, ...blogPostPages, ...categoryPages]
+  const allPages = [...staticPages, ...blogPostPages, ...projectPages]
   console.log(`✅ Generated sitemap with ${allPages.length} URLs`)
   
   return allPages

@@ -18,6 +18,15 @@ const nextConfig = {
       // { protocol: 'https', hostname: 'api.screenshotapi.net' }
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/insights/category/:slug',
+        destination: '/insights',
+        permanent: true,
+      },
+    ];
+  },
   webpack: (config) => {
     // Ensure '@' alias always points to the repo's src directory
     config.resolve = config.resolve || {};

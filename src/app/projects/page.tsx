@@ -11,6 +11,10 @@ export const metadata: Metadata = {
 	},
 	alternates: { canonical: "/projects" }
 };
+
+// Revalidate the projects listing periodically to pick up new projects
+export const revalidate = 60;
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Script from "next/script";

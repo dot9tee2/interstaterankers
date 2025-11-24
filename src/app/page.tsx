@@ -15,6 +15,10 @@ export const metadata: Metadata = {
 	alternates: { canonical: "/" },
 	robots: { index: true, follow: true }
 };
+
+// Revalidate the home page periodically to show new featured projects/insights
+export const revalidate = 60;
+
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import KeyDifferentiators from "@/components/sections/KeyDifferentiators";

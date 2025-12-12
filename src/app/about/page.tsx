@@ -3,17 +3,9 @@ import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import dynamic from "next/dynamic";
 import { Suspense } from "react";
-
-const StatsResults = dynamic(() => import("@/components/sections/StatsResults"), { 
-	ssr: false,
-	loading: () => <div className="animate-pulse bg-muted/20 h-32 rounded-lg" />
-});
-const Testimonials = dynamic(() => import("@/components/sections/Testimonials"), { 
-	ssr: false,
-	loading: () => <div className="animate-pulse bg-muted/20 h-48 rounded-lg" />
-});
+import StatsResults from "@/components/sections/StatsResultsWrapper";
+import Testimonials from "@/components/sections/TestimonialsWrapper";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";

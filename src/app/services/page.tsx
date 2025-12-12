@@ -13,12 +13,10 @@ export const metadata: Metadata = {
 };
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import Script from "next/script";
-
-const ServicesScrollShowcase = dynamic(() => import("@/components/sections/ServicesScrollShowcase"), { ssr: false });
+import ServicesScrollShowcase from "@/components/sections/ServicesScrollShowcaseWrapper";
 
 export default function ServicesPage() {
 	return (

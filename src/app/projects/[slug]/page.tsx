@@ -15,7 +15,7 @@ import { PortableText } from "@portabletext/react";
 export const revalidate = 300;
 
 interface ProjectPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -24,7 +24,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-  const project = await getProjectBySlug(params.slug);
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
   const title = project.seo?.title || project.title;
   const description = project.seo?.description || project.summary || "";
@@ -44,7 +45,8 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const project = await getProjectBySlug(params.slug);
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
   if (!project) notFound();
 
   return (
@@ -124,7 +126,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <section className="max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-4">Gallery</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {project.gallery.map((img: any, idx: number) => (
+              {project.gallery.map((img, idx: number) => (
                 <div key={idx} className="relative w-full overflow-hidden rounded-md border border-border/60">
                   <div className="relative h-56">
                     <Image
@@ -143,16 +145,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* JSON-LD Structured Data */}
       <Script id="project-ld" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "CreativeWork",
-          name: project.title,
-          description: project.summary,
-          url: `https://interstaterankers.com/projects/${project.slug.current}`,
-          image: project.featuredImage ? urlFor(project.featuredImage).width(1200).height(630).url() : undefined,
-          isPartOf: { "@id": "https://interstaterankers.com/#website" },
-          sameAs: project.liveUrl ? [project.liveUrl] : undefined,
-        }) }} />
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: project.title,
+            description: project.summary,
+            url: `https://interstaterankers.com/projects/${project.slug.current}`,
+            image: project.featuredImage ? urlFor(project.featuredImage).width(1200).height(630).url() : undefined,
+            isPartOf: { "@id": "https://interstaterankers.com/#website" },
+            sameAs: project.liveUrl ? [project.liveUrl] : undefined,
+          })
+        }} />
 
       <Footer />
     </div>

@@ -1,3 +1,5 @@
+import type { PortableTextBlock } from 'sanity'
+
 export interface Author {
   _id: string
   name: string
@@ -30,7 +32,7 @@ export interface BlogPost {
   title: string
   slug: { current: string }
   excerpt: string
-  content: any[] // Portable Text content
+  content: PortableTextBlock[] // Portable Text content
   featuredImage?: {
     asset: {
       _ref: string

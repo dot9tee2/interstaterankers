@@ -12,7 +12,7 @@ export default function GA4Tracker() {
 		if (!measurementId) return;
 		const query = searchParams?.toString();
 		const pagePath = query ? `${pathname}?${query}` : pathname;
-		// @ts-ignore - gtag is injected by GA script in layout
+		// @ts-expect-error - gtag is injected by GA script in layout
 		window.gtag?.("event", "page_view", {
 			page_title: document.title,
 			page_location: window.location.href,

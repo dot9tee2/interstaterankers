@@ -1,4 +1,6 @@
 import { MetadataRoute } from 'next'
+import { BlogPostPreview } from '@/types/blog'
+import { ProjectPreview } from '@/types/project'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.SITE_URL || 'https://interstaterankers.com'
@@ -50,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   // Get blog posts from Sanity
-  let blogPosts: any[] = []
+  let blogPosts: BlogPostPreview[] = []
   try {
     const { getAllPosts } = await import('@/lib/blog')
     blogPosts = await getAllPosts()
@@ -60,7 +62,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Get projects from Sanity
-  let projects: any[] = []
+  let projects: ProjectPreview[] = []
   try {
     const { getAllProjects } = await import('@/lib/projects')
     projects = await getAllProjects()

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getRelatedPosts, getAllPosts } from "@/lib/blog";
 import { BlogPostCard } from "@/components/blog/BlogPostCard";
-import { PortableText } from "@portabletext/react";
+import { PortableText, type PortableTextComponents, type PortableTextTypeComponentProps, type PortableTextMarkComponentProps } from "@portabletext/react";
+import { type SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,14 +20,15 @@ import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbP
 export const revalidate = 60;
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
-  
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
   if (!post) {
     return {
       title: "Post Not Found",
@@ -71,16 +73,16 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 // Generate static params for all blog posts
 export async function generateStaticParams() {
   const posts = await getAllPosts();
-  
+
   return posts.map((post) => ({
     slug: post.slug.current,
   }));
 }
 
 // Portable Text components for rendering rich content
-const portableTextComponents = {
+const portableTextComponents: PortableTextComponents = {
   types: {
-    image: ({ value }: any) => {
+    image: ({ value }: PortableTextTypeComponentProps<SanityImageSource & { caption?: string; alt?: string; _type: 'image' }>) => {
       return (
         <div className="my-8">
           <Image
@@ -100,48 +102,49 @@ const portableTextComponents = {
     },
   },
   block: {
-    h1: ({ children }: any) => (
+    h1: ({ children }) => (
       <h1 className="text-4xl font-bold mb-6 mt-8 gradient-text">{children}</h1>
     ),
-    h2: ({ children }: any) => (
+    h2: ({ children }) => (
       <h2 className="text-3xl font-bold mb-4 mt-8">{children}</h2>
     ),
-    h3: ({ children }: any) => (
+    h3: ({ children }) => (
       <h3 className="text-2xl font-bold mb-3 mt-6">{children}</h3>
     ),
-    h4: ({ children }: any) => (
+    h4: ({ children }) => (
       <h4 className="text-xl font-bold mb-2 mt-4">{children}</h4>
     ),
-    normal: ({ children }: any) => (
+    normal: ({ children }) => (
       <p className="mb-4 text-muted-foreground leading-relaxed">{children}</p>
     ),
-    blockquote: ({ children }: any) => (
+    blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-primary pl-4 my-6 italic text-muted-foreground">
         {children}
       </blockquote>
     ),
   },
   list: {
-    bullet: ({ children }: any) => (
+    bullet: ({ children }) => (
       <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
     ),
-    number: ({ children }: any) => (
+    number: ({ children }) => (
       <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>
     ),
   },
   marks: {
-    strong: ({ children }: any) => (
+    strong: ({ children }) => (
       <strong className="font-semibold">{children}</strong>
     ),
-    em: ({ children }: any) => (
+    em: ({ children }) => (
       <em className="italic">{children}</em>
     ),
-    code: ({ children }: any) => (
+    code: ({ children }) => (
       <code className="bg-muted px-2 py-1 rounded text-sm font-mono">{children}</code>
     ),
-    link: ({ children, value }: any) => (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    link: ({ children, value }: PortableTextMarkComponentProps<any>) => (
       <a
-        href={value.href}
+        href={value?.href}
         target="_blank"
         rel="noopener noreferrer"
         className="text-primary hover:underline"
@@ -153,8 +156,9 @@ const portableTextComponents = {
 };
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await getPostBySlug(params.slug);
-  
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
   if (!post) {
     notFound();
   }
@@ -173,7 +177,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <div className="min-h-screen">
       <Navbar />
-      
+
       <main className="container mx-auto px-4 py-16">
         {/* Breadcrumb */}
         <div className="mb-8">
@@ -282,32 +286,34 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       {/* JSON-LD Structured Data */}
       <Script id="blog-post-ld" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          headline: post.title,
-          description: post.excerpt,
-          image: post.featuredImage ? urlFor(post.featuredImage).width(1200).height(630).url() : undefined,
-          author: {
-            "@type": "Person",
-            name: post.author.name,
-            url: post.author.socialLinks?.website,
-          },
-          publisher: {
-            "@type": "Organization",
-            name: "InterStateRankers",
-            logo: {
-              "@type": "ImageObject",
-              url: "https://interstaterankers.com/InterStateRankerLogo.png",
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            image: post.featuredImage ? urlFor(post.featuredImage).width(1200).height(630).url() : undefined,
+            author: {
+              "@type": "Person",
+              name: post.author.name,
+              url: post.author.socialLinks?.website,
             },
-          },
-          datePublished: post.publishedAt,
-          dateModified: post.publishedAt,
-          mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `https://interstaterankers.com/insights/${post.slug.current}`,
-          },
-        }) }} />
+            publisher: {
+              "@type": "Organization",
+              name: "InterStateRankers",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://interstaterankers.com/InterStateRankerLogo.png",
+              },
+            },
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://interstaterankers.com/insights/${post.slug.current}`,
+            },
+          })
+        }} />
 
       <Footer />
     </div>

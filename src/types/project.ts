@@ -1,3 +1,6 @@
+import type { PortableTextBlock } from 'sanity'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+
 export type ProjectLink = {
   label: string
   url: string
@@ -19,13 +22,13 @@ export type ProjectPreview = {
   servicesProvided?: string[]
   tags?: string[]
   featured?: boolean
-  featuredImage?: any
+  featuredImage?: SanityImageSource & { alt?: string }
 }
 
 export type Project = ProjectPreview & {
-  gallery?: any[]
+  gallery?: (SanityImageSource & { alt?: string })[]
   stats?: ProjectStat[]
-  content?: any
+  content?: PortableTextBlock[]
   links?: ProjectLink[]
   seo?: {
     title?: string

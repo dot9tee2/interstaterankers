@@ -24,16 +24,14 @@ import Hero from "@/components/sections/Hero";
 import KeyDifferentiators from "@/components/sections/KeyDifferentiators";
 import ValueProps from "@/components/sections/ValueProps";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
-import StatsResults from "@/components/sections/StatsResults";
+import StatsResults from "@/components/sections/StatsResultsWrapper";
 // import PricingPreview from "@/components/sections/PricingPreview";
-import Testimonials from "@/components/sections/Testimonials";
+import Testimonials from "@/components/sections/TestimonialsWrapper";
 import InsightsPreview from "@/components/sections/InsightsPreview";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/layout/Footer";
 // import PrankOverlay from "@/components/PrankOverlay";
-import dynamic from "next/dynamic";
-
-const HomeScrollNarrative = dynamic(() => import("@/components/sections/HomeScrollNarrative"), { ssr: false });
+import HomeScrollNarrative from "@/components/sections/HomeScrollNarrativeWrapper";
 
 export default function HomePage() {
 	return (

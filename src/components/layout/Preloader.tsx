@@ -31,10 +31,10 @@ export default function Preloader() {
       if (document.readyState === "complete") {
         markReady();
       } else {
-        window.addEventListener("load", markReady, { once: true } as any);
+        window.addEventListener("load", markReady, { once: true });
       }
     }
-    return () => window.removeEventListener?.("load", markReady as any);
+    return () => window.removeEventListener?.("load", markReady);
   }, []);
 
   // Safety fallback: never block interaction beyond a few seconds

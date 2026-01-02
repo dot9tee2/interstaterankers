@@ -105,8 +105,8 @@ const Navbar = () => {
                     <button
                       className={cn(
                         "flex items-center space-x-1 text-sm font-medium transition-transform duration-200 hover:scale-105 hover-accent-cyan-dark",
-                        pathname && pathname.startsWith("/services") 
-                          ? "active-accent-cyan" 
+                        pathname && pathname.startsWith("/services")
+                          ? "active-accent-cyan"
                           : "text-foreground/80"
                       )}
                       aria-haspopup="menu"
@@ -116,7 +116,7 @@ const Navbar = () => {
                       <span>{item.name}</span>
                       <ChevronDown className="h-4 w-4" />
                     </button>
-                    
+
                     {showServicesMenu && (
                       <div
                         role="menu"
@@ -152,8 +152,8 @@ const Navbar = () => {
                     href={item.href}
                     className={cn(
                       "text-sm font-medium transition-transform duration-200 hover:scale-105 hover-accent-cyan-dark",
-                      pathname === item.href 
-                        ? "active-accent-cyan" 
+                      pathname === item.href
+                        ? "active-accent-cyan"
                         : "text-foreground/80"
                     )}
                   >
@@ -166,7 +166,7 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
-            <a href="tel:+12253261269">
+            <a href="tel:+12816195295">
               <Button variant="outline" size="sm" className="animate-underline">
                 Talk to an Expert
               </Button>
@@ -221,7 +221,7 @@ const Navbar = () => {
                   </div>
                 ))}
                 <div className="pt-4 space-y-2">
-                  <a href="tel:+12253261269" className="w-full">
+                  <a href="tel:+12816195295" className="w-full">
                     <Button variant="outline" className="w-full">
                       Talk to an Expert
                     </Button>

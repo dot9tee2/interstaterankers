@@ -116,11 +116,11 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 text-center lg:text-left">
-          <h1 className="text-5xl md:text-7xl font-body font-bold text-white leading-tight">
+            <h1 className="text-5xl md:text-7xl font-body font-bold text-white leading-tight">
               Minimal. Fast.
-            <br />
+              <br />
               <span className="accent-gradient-text">Seriously Effective.</span>
-          </h1>
+            </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               AI answering and SEO-first experiences built to convert. A modern stack that works while you sleep.
             </p>
@@ -131,14 +131,14 @@ const Hero = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
-              <a href="tel:+12253261269">
+              <a href="tel:+12816195295">
                 <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold rounded-full">
                   <Play className="mr-2 h-5 w-5" />
                   Talk to an Expert
                 </Button>
               </a>
             </div>
-            </div>
+          </div>
 
           <div className="relative aspect-square lg:aspect-[4/3] w-full max-w-xl mx-auto lg:max-w-none">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-cyan-500/10 via-fuchsia-500/10 to-amber-500/10 blur-3xl" />

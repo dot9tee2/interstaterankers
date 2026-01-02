@@ -4,7 +4,7 @@ import { ArrowRight, Phone, CheckCircle, Star } from "lucide-react";
 const FinalCTA = () => {
   const benefits = [
     "Free consultation & business audit",
-    "Custom growth strategy in 24 hours", 
+    "Custom growth strategy in 24 hours",
     "No long-term contracts required",
     "Results guaranteed or money back"
   ];
@@ -13,7 +13,7 @@ const FinalCTA = () => {
     <section className="relative py-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 hero-gradient" />
-      
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -48,19 +48,19 @@ const FinalCTA = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8 animate-slide-up" style={{ animationDelay: '600ms' }}>
             <a href="/contact">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-white text-primary hover:bg-white/90 hover-lift glow-button text-lg px-8 py-6 h-auto font-bold"
               >
                 Get Your Free Proposal
                 <ArrowRight className="ml-2 h-6 w-6" />
               </Button>
             </a>
-            
-            <a href="tel:+12253261269">
-              <Button 
-                variant="outline" 
-                size="lg" 
+
+            <a href="tel:+12816195295">
+              <Button
+                variant="outline"
+                size="lg"
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold"
               >
                 <Phone className="mr-2 h-5 w-5" />

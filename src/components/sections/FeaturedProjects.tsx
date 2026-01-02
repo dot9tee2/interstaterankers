@@ -43,7 +43,7 @@ const FeaturedProjects = async () => {
                       </Badge>
                     ) : null}
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {(project.servicesProvided || []).slice(0, 4).map((service) => (
                       <Badge key={service} variant="outline" className="text-xs border-accent-cyan/30 text-accent-cyan">
@@ -60,7 +60,7 @@ const FeaturedProjects = async () => {
                       <TrendingUp className="w-4 h-4 text-accent-amber" />
                       <span className="text-sm font-semibold text-accent-amber">Featured case study</span>
                     </div>
-                    
+
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {project.summary}
                     </p>
@@ -81,9 +81,11 @@ const FeaturedProjects = async () => {
 
         {/* CTA */}
         <div className="text-center">
-          <Button size="lg" className="hero-gradient hover-lift text-white font-semibold">
-            <Phone className="mr-2 h-5 w-5" />
-            See How We Can Help Your Business
+          <Button asChild size="lg" className="hero-gradient hover-lift text-white font-semibold">
+            <a href="tel:+12816195295">
+              <Phone className="mr-2 h-5 w-5" />
+              Call (281) 619-5295
+            </a>
           </Button>
           <p className="text-sm text-muted-foreground mt-4">
             Free consultation • No commitment required

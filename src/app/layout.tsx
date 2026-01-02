@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: "/"
 	},
-		other: { "sitemap": "/sitemap.xml" },
+	other: { "sitemap": "/sitemap.xml" },
 	robots: {
 		index: true,
 		follow: true,
@@ -77,52 +77,56 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						{children}
 					</Providers>
 				</div>
-			{process.env.NEXT_PUBLIC_GA4_ID ? (
-				<>
-					<Script
-						src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
-						strategy="afterInteractive"
-					/>
-					<Script id="ga4-init" strategy="afterInteractive">
-						{`
+				{process.env.NEXT_PUBLIC_GA4_ID ? (
+					<>
+						<Script
+							src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
+							strategy="afterInteractive"
+						/>
+						<Script id="ga4-init" strategy="afterInteractive">
+							{`
 							window.dataLayer = window.dataLayer || [];
 							function gtag(){window.dataLayer.push(arguments);}
 							gtag('js', new Date());
 							gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}', { send_page_view: false });
 						`}
-					</Script>
-				</>
-			) : null}
+						</Script>
+					</>
+				) : null}
 				<Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "Organization",
-						"@id": "https://interstaterankers.com/#organization",
-						name: "InterStateRankers",
-						url: "https://interstaterankers.com/",
-						logo: "/InterStateRankerLogo.png",
-						areaServed: { "@type": "Country", name: "United States" },
-						contactPoint: {
-							"@type": "ContactPoint",
-							contactType: "customer support",
-							telephone: "+1-225-326-1269",
-							email: "info@interstaterankers.com",
-							areaServed: "US",
-							availableLanguage: "English"
-						}
-					}) }} />
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "Organization",
+							"@id": "https://interstaterankers.com/#organization",
+							name: "InterStateRankers",
+							url: "https://interstaterankers.com/",
+							logo: "/InterStateRankerLogo.png",
+							areaServed: { "@type": "Country", name: "United States" },
+							contactPoint: {
+								"@type": "ContactPoint",
+								contactType: "customer support",
+								telephone: "+1-281-619-5295",
+								email: "info@interstaterankers.com",
+								areaServed: "US",
+								availableLanguage: "English"
+							}
+						})
+					}} />
 				<Script id="website-jsonld" type="application/ld+json" strategy="afterInteractive"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "WebSite",
-						"@id": "https://interstaterankers.com/#website",
-						url: "https://interstaterankers.com/",
-						name: "InterStateRankers",
-						inLanguage: "en-US",
-						publisher: {
-							"@id": "https://interstaterankers.com/#organization"
-						}
-					}) }} />
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "WebSite",
+							"@id": "https://interstaterankers.com/#website",
+							url: "https://interstaterankers.com/",
+							name: "InterStateRankers",
+							inLanguage: "en-US",
+							publisher: {
+								"@id": "https://interstaterankers.com/#organization"
+							}
+						})
+					}} />
 			</body>
 		</html>
 	);

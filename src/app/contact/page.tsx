@@ -57,7 +57,7 @@ export default function ContactPage() {
 								</div>
 								<div>
 									<p className="text-sm text-muted-foreground">Phone</p>
-									<a href="tel:+12253261269" className="text-lg font-medium hover:underline">(225) 326-1269</a>
+									<a href="tel:+12816195295" className="text-lg font-medium hover:underline">(281) 619-5295</a>
 								</div>
 							</div>
 							<div className="flex items-center gap-4">
@@ -72,13 +72,13 @@ export default function ContactPage() {
 						</div>
 					</div>
 					<div className="mt-6 flex items-center gap-3">
-						<a href="https://instagram.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Instagram">
+						<a href="https://instagram.com/interstaterankers" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Instagram">
 							<Instagram className="h-4 w-4" />
 						</a>
-						<a href="https://facebook.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Facebook">
+						<a href="https://facebook.com/interstaterankers" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Facebook">
 							<Facebook className="h-4 w-4" />
 						</a>
-						<a href="https://twitter.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Twitter">
+						<a href="https://twitter.com/interstaternkrs" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Twitter">
 							<Twitter className="h-4 w-4" />
 						</a>
 						<a href="https://linkedin.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="LinkedIn">
@@ -91,24 +91,28 @@ export default function ContactPage() {
 			</main>
 			{/* BreadcrumbList JSON-LD */}
 			<Script id="contact-breadcrumb-ld" type="application/ld+json" strategy="afterInteractive"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "BreadcrumbList",
-					itemListElement: [
-						{ "@type": "ListItem", position: 1, name: "Home", item: "https://interstaterankers.com/" },
-						{ "@type": "ListItem", position: 2, name: "Contact", item: "https://interstaterankers.com/contact" }
-					]
-				}) }} />
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BreadcrumbList",
+						itemListElement: [
+							{ "@type": "ListItem", position: 1, name: "Home", item: "https://interstaterankers.com/" },
+							{ "@type": "ListItem", position: 2, name: "Contact", item: "https://interstaterankers.com/contact" }
+						]
+					})
+				}} />
 			{/* ContactPage JSON-LD */}
 			<Script id="contact-contactpage-ld" type="application/ld+json" strategy="afterInteractive"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "ContactPage",
-					name: "Contact InterStateRankers",
-					url: "https://interstaterankers.com/contact",
-					inLanguage: "en-US",
-					isPartOf: { "@id": "https://interstaterankers.com/#website" }
-				}) }} />
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "ContactPage",
+						name: "Contact InterStateRankers",
+						url: "https://interstaterankers.com/contact",
+						inLanguage: "en-US",
+						isPartOf: { "@id": "https://interstaterankers.com/#website" }
+					})
+				}} />
 			<Footer />
 		</div>
 	);

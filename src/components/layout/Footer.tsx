@@ -24,20 +24,20 @@ const Footer = () => {
             </p>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4" />
-              <a href="tel:+12253261269" className="hover:text-foreground transition-colors">(225) 326-1269</a>
+              <a href="tel:+12816195295" className="hover:text-foreground transition-colors">(281) 619-5295</a>
             </div>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Mail className="h-4 w-4" />
               <a href="mailto:info@interstaterankers.com" className="hover:text-foreground transition-colors">info@interstaterankers.com</a>
             </div>
             <div className="flex items-center gap-3 pt-2">
-              <Link href="https://instagram.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Instagram">
+              <Link href="https://instagram.com/interstaterankers" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Instagram">
                 <Instagram className="h-4 w-4" />
               </Link>
               <Link href="https://facebook.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Facebook">
                 <Facebook className="h-4 w-4" />
               </Link>
-              <Link href="https://twitter.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Twitter">
+              <Link href="https://twitter.com/interstaternkrs" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="Twitter">
                 <Twitter className="h-4 w-4" />
               </Link>
               <Link href="https://linkedin.com/" target="_blank" className="p-2 rounded-md border border-border/60 hover:border-primary/40 hover:text-foreground transition-colors" aria-label="LinkedIn">
@@ -81,8 +81,8 @@ const Footer = () => {
               Ready to grow your business? Contact us today.
             </p>
             <div className="space-y-2">
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="block w-full text-center py-2 px-4 bg-primary text-primary-foreground rounded-lg hover-lift text-sm font-medium"
               >
                 Get a Proposal

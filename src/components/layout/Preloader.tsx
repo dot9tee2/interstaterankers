@@ -19,7 +19,7 @@ export default function Preloader() {
 
   // Ensure the visual animation sequence fully completes before allowing dismissal
   useEffect(() => {
-    const SEQUENCE_MS = 2800; // covers logo + text animations with a small buffer
+    const SEQUENCE_MS = 1500; // faster sequence
     const timer = setTimeout(() => setSequenceDone(true), SEQUENCE_MS);
     return () => clearTimeout(timer);
   }, []);
@@ -44,7 +44,7 @@ export default function Preloader() {
       setProgress(100);
       const root = document.querySelector(".site-root");
       root?.classList.add("site-visible");
-    }, 6000);
+    }, 4000); // reduced fallback
     return () => clearTimeout(fallback);
   }, []);
 
@@ -54,18 +54,18 @@ export default function Preloader() {
     const interval = window.setInterval(() => {
       setProgress((prev) => {
         if (isReady && sequenceDone) {
-          const next = Math.min(100, prev + 6);
+          const next = Math.min(100, prev + 8); // faster completion
           return next;
         }
         // before both are ready and sequence complete, creep up to a stall cap
         const stallCap = 95;
         if (prev < stallCap) {
-          const inc = 1 + Math.floor(Math.random() * 2); // 1-2%
+          const inc = 1 + Math.floor(Math.random() * 3); // 1-3%
           return Math.min(stallCap, prev + inc);
         }
         return prev;
       });
-    }, 80);
+    }, 40); // faster ticks (was 80)
     return () => clearInterval(interval);
   }, [isReady, sequenceDone, isDone]);
 
@@ -107,7 +107,7 @@ export default function Preloader() {
             {/* reveal mask */}
             <span
               className="block text-5xl md:text-6xl font-body font-bold text-white tracking-wide preloader-reveal-initial will-reveal reveal-left"
-              style={{ animationDelay: "900ms" }}
+              style={{ animationDelay: "300ms" }}
             >
               InterState
             </span>
@@ -115,7 +115,7 @@ export default function Preloader() {
           <div className="relative overflow-hidden mt-1">
             <span
               className="block text-5xl md:text-6xl font-body font-bold text-white tracking-wide preloader-slide-initial will-slide slide-up-fade"
-              style={{ animationDelay: "1700ms" }}
+              style={{ animationDelay: "700ms" }}
             >
               Rankers
             </span>

@@ -22,10 +22,10 @@ const PricingPreview = () => {
       popular: false
     },
     {
-      name: "Growth", 
+      name: "Growth",
       price: 599,
       period: "/month",
-      description: "Ideal for growing businesses", 
+      description: "Ideal for growing businesses",
       features: [
         "Up to 500 calls/month",
         "Lead qualification",
@@ -38,7 +38,7 @@ const PricingPreview = () => {
     {
       name: "Scale",
       price: 999,
-      period: "/month", 
+      period: "/month",
       description: "For high-volume businesses",
       features: [
         "Unlimited calls",
@@ -60,14 +60,14 @@ const PricingPreview = () => {
       features: [
         "Google Business Profile optimization",
         "Local keyword targeting",
-        "Citation management", 
+        "Citation management",
         "Review management"
       ],
       popular: false
     },
     {
       name: "Growth SEO + GMB",
-      price: 2499, 
+      price: 2499,
       period: "/month",
       description: "Complete digital presence",
       features: [
@@ -108,7 +108,7 @@ const PricingPreview = () => {
             <button
               role="tab"
               aria-selected={billing === "monthly"}
-              className={`px-4 py-2 text-sm rounded-full transition-colors ${billing === "monthly" ? "bg-primary text-white" : "text-foreground hover:text-primary"}`}
+              className={`px-4 py-2 text-sm rounded-full transition-colors ${billing === "monthly" ? "bg-primary text-white" : "text-foreground hover:text-primary-glow"}`}
               onClick={() => setBilling("monthly")}
             >
               Monthly
@@ -116,7 +116,7 @@ const PricingPreview = () => {
             <button
               role="tab"
               aria-selected={billing === "yearly"}
-              className={`px-4 py-2 text-sm rounded-full transition-colors ${billing === "yearly" ? "bg-primary text-white" : "text-foreground hover:text-primary"}`}
+              className={`px-4 py-2 text-sm rounded-full transition-colors ${billing === "yearly" ? "bg-primary text-white" : "text-foreground hover:text-primary-glow"}`}
               onClick={() => setBilling("yearly")}
             >
               Yearly
@@ -132,10 +132,10 @@ const PricingPreview = () => {
           <h3 className="text-2xl font-body font-bold text-center mb-8">
             Answering & Calling Services
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {answeringPackages.map((pkg, index) => (
-              <div 
+              <div
                 key={pkg.name}
                 className={`relative group animate-slide-up ${pkg.popular ? 'transform scale-105' : ''}`}
                 style={{ animationDelay: `${index * 150}ms` }}
@@ -149,11 +149,10 @@ const PricingPreview = () => {
                   </div>
                 )}
 
-                <div className={`relative h-full p-6 rounded-xl border transition-all duration-300 md:card-tilt ${
-                  pkg.popular 
-                    ? 'bg-card border-primary shadow-lg glow-card' 
-                    : 'bg-card/50 border-border hover:border-primary/30'
-                }`}>
+                <div className={`relative h-full p-6 rounded-xl border transition-all duration-300 md:card-tilt ${pkg.popular
+                  ? 'bg-card border-primary shadow-lg glow-card'
+                  : 'bg-card/50 border-border hover:border-primary/30'
+                  }`}>
                   {/* Header */}
                   <div className="text-center mb-6">
                     <h4 className="text-xl font-body font-bold mb-2">{pkg.name}</h4>
@@ -178,7 +177,7 @@ const PricingPreview = () => {
                   </ul>
 
                   {/* CTA */}
-                  <Button 
+                  <Button
                     className={`w-full ${pkg.popular ? 'hero-gradient hover-lift text-white' : ''}`}
                     variant={pkg.popular ? 'default' : 'outline'}
                   >
@@ -199,10 +198,10 @@ const PricingPreview = () => {
           <h3 className="text-2xl font-body font-bold text-center mb-8">
             SEO & GMB Packages
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {seoPackages.map((pkg, index) => (
-              <div 
+              <div
                 key={pkg.name}
                 className={`relative group animate-slide-up ${pkg.popular ? 'transform scale-105' : ''}`}
                 style={{ animationDelay: `${index * 150}ms` }}
@@ -216,11 +215,10 @@ const PricingPreview = () => {
                   </div>
                 )}
 
-                <div className={`relative h-full p-6 rounded-xl border transition-all duration-300 md:card-tilt ${
-                  pkg.popular 
-                    ? 'bg-card border-primary shadow-lg glow-card' 
-                    : 'bg-card/50 border-border hover:border-primary/30'
-                }`}>
+                <div className={`relative h-full p-6 rounded-xl border transition-all duration-300 md:card-tilt ${pkg.popular
+                  ? 'bg-card border-primary shadow-lg glow-card'
+                  : 'bg-card/50 border-border hover:border-primary/30'
+                  }`}>
                   {/* Header */}
                   <div className="text-center mb-6">
                     <h4 className="text-xl font-body font-bold mb-2">{pkg.name}</h4>
@@ -245,7 +243,7 @@ const PricingPreview = () => {
                   </ul>
 
                   {/* CTA */}
-                  <Button 
+                  <Button
                     className={`w-full ${pkg.popular ? 'hero-gradient hover-lift text-white' : ''}`}
                     variant={pkg.popular ? 'default' : 'outline'}
                   >

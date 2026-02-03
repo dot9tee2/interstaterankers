@@ -106,7 +106,7 @@ const HomeScrollNarrative = () => {
                       key={s.id}
                       onClick={() => handleJump(s.id)}
                       aria-current={isActive ? "true" : undefined}
-                      className={`w-full text-left py-4 px-4 flex items-center justify-between gap-4 transition-colors ${isActive ? "text-primary" : "text-foreground hover:text-primary"}`}
+                      className={`w-full text-left py-4 px-4 flex items-center justify-between gap-4 transition-colors ${isActive ? "text-accent-cyan" : "text-foreground hover:text-accent-cyan"}`}
                     >
                       <span className="flex items-center gap-3">
                         <s.icon className="w-4 h-4 opacity-80" />
@@ -128,7 +128,7 @@ const HomeScrollNarrative = () => {
                   <button
                     key={s.id}
                     onClick={() => handleJump(s.id)}
-                    className={`shrink-0 px-4 py-2 rounded-full border text-sm transition-colors ${activeId === s.id ? "border-primary text-primary bg-primary/10" : "border-border text-foreground"}`}
+                    className={`shrink-0 px-4 py-2 rounded-full border text-sm transition-colors ${activeId === s.id ? "border-accent-cyan text-accent-cyan bg-accent-cyan/10" : "border-border text-foreground"}`}
                   >
                     {s.title}
                   </button>
@@ -163,7 +163,7 @@ const HomeScrollNarrative = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary transition-colors">
+                <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground group-hover:text-accent-cyan transition-colors">
                   <span>See how it works</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>

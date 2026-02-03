@@ -26,6 +26,7 @@ import ValueProps from "@/components/sections/ValueProps";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import StatsResults from "@/components/sections/StatsResultsWrapper";
 // import PricingPreview from "@/components/sections/PricingPreview";
+import CRMPreview from "@/components/sections/CRMPreview";
 import Testimonials from "@/components/sections/TestimonialsWrapper";
 import InsightsPreview from "@/components/sections/InsightsPreview";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -44,7 +45,7 @@ export default function HomePage() {
 				<ValueProps />
 				<FeaturedProjects />
 				<StatsResults />
-				{/* <PricingPreview /> */}
+				<CRMPreview />
 				<Testimonials />
 				<InsightsPreview />
 				<FinalCTA />

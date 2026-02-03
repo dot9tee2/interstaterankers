@@ -128,7 +128,7 @@
 	.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 	/* Navbar hover/active helpers */
-	.hover-accent-cyan-dark:hover { color: hsl(187 85% 45%); }
+	.hover-accent-cyan-dark:hover { color: hsl(var(--accent-cyan)); }
 	.active-accent-cyan { color: hsl(var(--accent-cyan)); }
 }
 

@@ -4,6 +4,7 @@ import Providers from "./providers";
 import Preloader from "@/components/layout/Preloader";
 import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { CookieConsent } from "@/components/ui/cookie-consent";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(process.env.SITE_URL || "https://interstaterankers.com"),
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					<Providers>
 						<SpeedInsights />
 						{children}
+						<CookieConsent />
 					</Providers>
 				</div>
 				{process.env.NEXT_PUBLIC_GA4_ID ? (

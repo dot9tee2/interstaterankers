@@ -32,7 +32,19 @@ const FeaturedProjects = async () => {
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Card */}
-              <div className="relative h-full p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-500 card-tilt glow-card">
+              <div className="relative h-full p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-500 card-tilt glow-card flex flex-col">
+                {/* Image */}
+                {project.featuredImage && (
+                  <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
+                    <Image
+                      src={urlFor(project.featuredImage).width(600).height(400).url()}
+                      alt={project.featuredImage.alt || project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                )}
+
                 {/* Header */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">

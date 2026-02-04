@@ -18,9 +18,9 @@ export function middleware(request: NextRequest) {
   if (isAsset) return NextResponse.next()
 
   const host = request.headers.get('host') || ''
-  const siteUrlFromEnv = process.env.SITE_URL || 'https://www.interstaterankers.com'
+  const siteUrlFromEnv = process.env.SITE_URL || 'https://interstaterankers.com'
   const primaryHost = (() => {
-    try { return new URL(siteUrlFromEnv).host } catch { return 'www.interstaterankers.com' }
+    try { return new URL(siteUrlFromEnv).host } catch { return 'interstaterankers.com' }
   })()
   const enableHostRedirect = String(process.env.ENABLE_HOST_REDIRECT || '').toLowerCase() === 'true'
   const isVercelPreview = process.env.VERCEL === '1' && (process.env.VERCEL_ENV === 'preview')

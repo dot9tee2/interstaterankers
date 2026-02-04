@@ -11,13 +11,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Script from "next/script";
-import { 
-	MapPin, 
-	Clock, 
-	Shield, 
-	TrendingUp, 
-	Users, 
-	Globe, 
+import {
+	MapPin,
+	Clock,
+	Shield,
+	TrendingUp,
+	Users,
+	Globe,
 	Star,
 	ArrowRight,
 	CheckCircle,
@@ -31,26 +31,6 @@ export const metadata: Metadata = {
 	title: "About Us: US Digital Marketing Agency | InterStateRankers",
 	description:
 		"InterStateRankers is your trusted US digital growth collective specializing in custom web development, SEO services, and social media marketing—proudly serving businesses across all 50 states. We craft high-quality digital solutions that elevate online visibility and drive measurable results for American businesses.",
-	keywords: [
-		"About InterStateRankers",
-		"US digital marketing agency",
-		"web development USA",
-		"SEO services United States",
-		"social media marketing US",
-		"digital solutions America",
-		"custom websites USA",
-		"online visibility US",
-		"digital growth United States",
-		"local SEO USA",
-		"US business marketing",
-		"American digital agency",
-		"nationwide digital services",
-		"US time zone coverage",
-		"California digital marketing",
-		"New York SEO services",
-		"Texas web development",
-		"Florida social media marketing"
-	],
 	openGraph: {
 		title: "About InterStateRankers | US Digital Marketing Agency",
 		description:
@@ -113,7 +93,7 @@ export default function AboutPage() {
 						<div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent-cyan/5 to-primary/10 rounded-3xl -z-10" />
 						<div className="absolute top-10 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse" />
 						<div className="absolute bottom-10 right-10 w-32 h-32 bg-accent-cyan/10 rounded-full blur-2xl animate-pulse delay-1000" />
-						
+
 						<div className="relative z-10">
 							<h1 className="text-4xl md:text-6xl font-body font-bold mb-8 gradient-text animate-fade-in">
 								Your Trusted Digital Growth Collective for <span className="text-primary">US Businesses</span>
@@ -308,7 +288,7 @@ export default function AboutPage() {
 								Six compelling reasons why American businesses trust us with their digital growth
 							</p>
 						</div>
-						
+
 						<div className="grid md:grid-cols-2 gap-8">
 							<Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
 								<CardContent className="p-6">
@@ -465,7 +445,7 @@ export default function AboutPage() {
 								The principles that guide our work with American businesses
 							</p>
 						</div>
-						
+
 						<div className="grid md:grid-cols-2 gap-6">
 							<Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
 								<CardContent className="p-6">
@@ -553,16 +533,16 @@ export default function AboutPage() {
 						</div>
 					</section>
 
-				{/* Social proof and results */}
-				<Suspense fallback={<div className="animate-pulse bg-muted/20 h-32 rounded-lg mb-8" />}>
-					<StatsResults />
-				</Suspense>
-				{/* <Suspense fallback={<div className="animate-pulse bg-muted/20 h-48 rounded-lg mb-8" />}>
+					{/* Social proof and results */}
+					<Suspense fallback={<div className="animate-pulse bg-muted/20 h-32 rounded-lg mb-8" />}>
+						<StatsResults />
+					</Suspense>
+					{/* <Suspense fallback={<div className="animate-pulse bg-muted/20 h-48 rounded-lg mb-8" />}>
 					<Testimonials compact />
 				</Suspense> */}
 
-				{/* Team */}
-				{/* <section className="max-w-5xl mx-auto mt-12 md:mt-16 mb-16">
+					{/* Team */}
+					{/* <section className="max-w-5xl mx-auto mt-12 md:mt-16 mb-16">
 					<h2 className="text-2xl md:text-3xl font-body font-semibold mb-6 text-center">Meet the Team</h2>
 					<p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">Experienced US-based professionals committed to clarity, craftsmanship, and results.</p>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
@@ -664,7 +644,7 @@ export default function AboutPage() {
 					<section className="relative py-20 overflow-hidden">
 						{/* Background */}
 						<div className="absolute inset-0 hero-gradient" />
-						
+
 						{/* Content */}
 						<div className="relative z-10 container mx-auto px-4">
 							<div className="max-w-4xl mx-auto text-center">
@@ -709,19 +689,19 @@ export default function AboutPage() {
 								{/* CTA Buttons */}
 								<div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8 animate-slide-up" style={{ animationDelay: '600ms' }}>
 									<Link href="/contact">
-										<Button 
-											size="lg" 
+										<Button
+											size="lg"
 											className="bg-white text-primary hover:bg-white/90 hover-lift glow-button text-lg px-8 py-6 h-auto font-bold"
 										>
 											Get Your Free Proposal
 											<ArrowRight className="ml-2 h-6 w-6" />
 										</Button>
 									</Link>
-									
+
 									<Link href="/projects">
-										<Button 
-											variant="outline" 
-											size="lg" 
+										<Button
+											variant="outline"
+											size="lg"
 											className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold"
 										>
 											<Building2 className="mr-2 h-5 w-5" />
@@ -757,162 +737,170 @@ export default function AboutPage() {
 			</main>
 			{/* Enhanced Organization JSON-LD (US-focused) */}
 			<Script id="about-organization-ld" type="application/ld+json" strategy="afterInteractive"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "Organization",
-					name: "InterStateRankers",
-					alternateName: "InterState Rankers",
-					description: "US digital growth collective specializing in custom web development, SEO services, and social media marketing for businesses across all 50 states.",
-					url: "https://interstaterankers.com",
-					logo: "https://interstaterankers.com/InterStateRankerLogo.png",
-					areaServed: [
-						{ "@type": "Country", name: "United States" },
-						{ "@type": "State", name: "California" },
-						{ "@type": "State", name: "New York" },
-						{ "@type": "State", name: "Texas" },
-						{ "@type": "State", name: "Florida" }
-					],
-					foundingLocation: { "@type": "Country", name: "United States" },
-					knowsAbout: [
-						"web development",
-						"SEO services",
-						"local SEO",
-						"social media marketing",
-						"digital solutions",
-						"custom websites",
-						"online visibility",
-						"digital growth",
-						"US business marketing",
-						"local search optimization"
-					],
-					serviceType: [
-						"Web Development",
-						"SEO Services", 
-						"Social Media Marketing",
-						"Local SEO",
-						"Digital Marketing"
-					],
-					contactPoint: {
-						"@type": "ContactPoint",
-						contactType: "customer support",
-						areaServed: "US",
-						availableLanguage: "English"
-					},
-					sameAs: [
-						"https://interstaterankers.com"
-					]
-				}) }} />
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "Organization",
+						name: "InterStateRankers",
+						alternateName: "InterState Rankers",
+						description: "US digital growth collective specializing in custom web development, SEO services, and social media marketing for businesses across all 50 states.",
+						url: "https://interstaterankers.com",
+						logo: "https://interstaterankers.com/InterStateRankerLogo.png",
+						areaServed: [
+							{ "@type": "Country", name: "United States" },
+							{ "@type": "State", name: "California" },
+							{ "@type": "State", name: "New York" },
+							{ "@type": "State", name: "Texas" },
+							{ "@type": "State", name: "Florida" }
+						],
+						foundingLocation: { "@type": "Country", name: "United States" },
+						knowsAbout: [
+							"web development",
+							"SEO services",
+							"local SEO",
+							"social media marketing",
+							"digital solutions",
+							"custom websites",
+							"online visibility",
+							"digital growth",
+							"US business marketing",
+							"local search optimization"
+						],
+						serviceType: [
+							"Web Development",
+							"SEO Services",
+							"Social Media Marketing",
+							"Local SEO",
+							"Digital Marketing"
+						],
+						contactPoint: {
+							"@type": "ContactPoint",
+							contactType: "customer support",
+							areaServed: "US",
+							availableLanguage: "English"
+						},
+						sameAs: [
+							"https://interstaterankers.com"
+						]
+					})
+				}} />
 			{/* LocalBusiness JSON-LD */}
 			<Script id="about-localbusiness-ld" type="application/ld+json" strategy="afterInteractive"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "LocalBusiness",
-					name: "InterStateRankers",
-					description: "Digital marketing agency serving US businesses nationwide with web development, SEO, and social media services.",
-					areaServed: "United States",
-					serviceArea: {
-						"@type": "Country",
-						name: "United States"
-					},
-					hasOfferCatalog: {
-						"@type": "OfferCatalog",
-						name: "Digital Marketing Services",
-						itemListElement: [
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "LocalBusiness",
+						name: "InterStateRankers",
+						description: "Digital marketing agency serving US businesses nationwide with web development, SEO, and social media services.",
+						areaServed: "United States",
+						serviceArea: {
+							"@type": "Country",
+							name: "United States"
+						},
+						hasOfferCatalog: {
+							"@type": "OfferCatalog",
+							name: "Digital Marketing Services",
+							itemListElement: [
+								{
+									"@type": "Offer",
+									itemOffered: {
+										"@type": "Service",
+										name: "Web Development",
+										description: "Custom website development for US businesses"
+									}
+								},
+								{
+									"@type": "Offer",
+									itemOffered: {
+										"@type": "Service",
+										name: "SEO Services",
+										description: "Search engine optimization for local and national US markets"
+									}
+								},
+								{
+									"@type": "Offer",
+									itemOffered: {
+										"@type": "Service",
+										name: "Social Media Marketing",
+										description: "Social media strategies for US businesses"
+									}
+								}
+							]
+						}
+					})
+				}} />
+			{/* Enhanced FAQPage JSON-LD */}
+			<Script id="about-faq-ld" type="application/ld+json" strategy="afterInteractive"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "FAQPage",
+						mainEntity: [
 							{
-								"@type": "Offer",
-								itemOffered: {
-									"@type": "Service",
-									name: "Web Development",
-									description: "Custom website development for US businesses"
+								"@type": "Question",
+								name: "Do you work with businesses across all 50 US states?",
+								acceptedAnswer: {
+									"@type": "Answer",
+									text: "Yes. We partner with companies nationwide, from California to New York, Texas to Florida, and collaborate across all US time zones (EST–PST). Our team understands the unique needs of businesses in different regions and markets."
 								}
 							},
 							{
-								"@type": "Offer",
-								itemOffered: {
-									"@type": "Service",
-									name: "SEO Services",
-									description: "Search engine optimization for local and national US markets"
+								"@type": "Question",
+								name: "Can you improve our local search visibility in US markets?",
+								acceptedAnswer: {
+									"@type": "Answer",
+									text: "Absolutely. We implement technical SEO, content optimization, and local SEO strategies tailored to your specific US service areas. We understand how Americans search for local businesses and optimize accordingly."
 								}
 							},
 							{
-								"@type": "Offer",
-								itemOffered: {
-									"@type": "Service",
-									name: "Social Media Marketing",
-									description: "Social media strategies for US businesses"
+								"@type": "Question",
+								name: "Do you sign NDAs and provide clear project scopes?",
+								acceptedAnswer: {
+									"@type": "Answer",
+									text: "Yes. We're happy to sign NDAs and provide transparent scopes, timelines, and progress updates. We understand the importance of confidentiality in US business relationships."
+								}
+							},
+							{
+								"@type": "Question",
+								name: "What types of US businesses do you work with?",
+								acceptedAnswer: {
+									"@type": "Answer",
+									text: "We work with startups, SMBs, and growing enterprises across all industries—from tech companies in Silicon Valley to manufacturing firms in the Midwest, service providers on the East Coast, and local businesses in rural communities."
+								}
+							},
+							{
+								"@type": "Question",
+								name: "How do you handle different US time zones?",
+								acceptedAnswer: {
+									"@type": "Answer",
+									text: "Our team operates across Eastern, Central, Mountain, and Pacific time zones, ensuring we can collaborate on your schedule. We're available for calls and meetings during your business hours, regardless of your location in the US."
 								}
 							}
 						]
-					}
-				}) }} />
-			{/* Enhanced FAQPage JSON-LD */}
-			<Script id="about-faq-ld" type="application/ld+json" strategy="afterInteractive"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "FAQPage",
-					mainEntity: [
-						{
-							"@type": "Question",
-							name: "Do you work with businesses across all 50 US states?",
-							acceptedAnswer: {
-								"@type": "Answer",
-								text: "Yes. We partner with companies nationwide, from California to New York, Texas to Florida, and collaborate across all US time zones (EST–PST). Our team understands the unique needs of businesses in different regions and markets."
-							}
-						},
-						{
-							"@type": "Question",
-							name: "Can you improve our local search visibility in US markets?",
-							acceptedAnswer: {
-								"@type": "Answer",
-								text: "Absolutely. We implement technical SEO, content optimization, and local SEO strategies tailored to your specific US service areas. We understand how Americans search for local businesses and optimize accordingly."
-							}
-						},
-						{
-							"@type": "Question",
-							name: "Do you sign NDAs and provide clear project scopes?",
-							acceptedAnswer: {
-								"@type": "Answer",
-								text: "Yes. We're happy to sign NDAs and provide transparent scopes, timelines, and progress updates. We understand the importance of confidentiality in US business relationships."
-							}
-						},
-						{
-							"@type": "Question",
-							name: "What types of US businesses do you work with?",
-							acceptedAnswer: {
-								"@type": "Answer",
-								text: "We work with startups, SMBs, and growing enterprises across all industries—from tech companies in Silicon Valley to manufacturing firms in the Midwest, service providers on the East Coast, and local businesses in rural communities."
-							}
-						},
-						{
-							"@type": "Question",
-							name: "How do you handle different US time zones?",
-							acceptedAnswer: {
-								"@type": "Answer",
-								text: "Our team operates across Eastern, Central, Mountain, and Pacific time zones, ensuring we can collaborate on your schedule. We're available for calls and meetings during your business hours, regardless of your location in the US."
-							}
-						}
-					]
-				}) }} />
+					})
+				}} />
 			{/* BreadcrumbList JSON-LD */}
 			<Script id="about-breadcrumb-ld" type="application/ld+json" strategy="afterInteractive"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify({
-					"@context": "https://schema.org",
-					"@type": "BreadcrumbList",
-					itemListElement: [
-						{
-							"@type": "ListItem",
-							position: 1,
-							name: "Home",
-							item: "/"
-						},
-						{
-							"@type": "ListItem",
-							position: 2,
-							name: "About",
-							item: "/about"
-						}
-					]
-				}) }} />
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BreadcrumbList",
+						itemListElement: [
+							{
+								"@type": "ListItem",
+								position: 1,
+								name: "Home",
+								item: "https://interstaterankers.com/"
+							},
+							{
+								"@type": "ListItem",
+								position: 2,
+								name: "About",
+								item: "https://interstaterankers.com/about"
+							}
+						]
+					})
+				}} />
 			<Footer />
 		</div>
 	);

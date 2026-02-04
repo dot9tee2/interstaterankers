@@ -4,7 +4,7 @@ import { ProjectPreview } from '@/types/project'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.SITE_URL || 'https://interstaterankers.com'
-  
+
   // Static pages
   const staticPages = [
     {
@@ -31,6 +31,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
+    // Service Subpages
+    ...['seo', 'web-development', 'social-media', 'ppc', 'content-marketing'].map(slug => ({
+      url: `${baseUrl}/services/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    })),
     {
       url: `${baseUrl}/pricing`,
       lastModified: new Date(),
@@ -89,6 +96,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const allPages = [...staticPages, ...blogPostPages, ...projectPages]
   console.log(`✅ Generated sitemap with ${allPages.length} URLs`)
-  
+
   return allPages
 }

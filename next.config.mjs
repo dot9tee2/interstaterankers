@@ -9,7 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   // This empty object tells Next.js it's okay to run Turbopack 
   // even though you have a custom webpack config below.
-  turbopack: {}, 
+  turbopack: {},
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 640, 768, 1024, 1280, 1536, 1920],
@@ -23,11 +23,6 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: '/insights/category/:slug',
-        destination: '/insights',
-        permanent: true,
-      },
     ];
   },
   webpack: (config) => {

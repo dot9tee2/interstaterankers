@@ -13,6 +13,8 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
+import { pricingPackages } from "@/data/pricing";
+import PricingCard from "@/components/pricing/PricingCard";
 
 export const metadata: Metadata = {
 	title: "SEO & Digital Growth Packages Pricing",
@@ -29,63 +31,6 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
-	const packages = [
-		{
-			name: "Local Ranker",
-			price: "399.00",
-			description: "Essential growth foundation for local reach.",
-			features: [
-				"Target any 5 areas of your choice",
-				"5 one page webpages",
-				"4k UHD video to showcase your business",
-				"50 high ranking keywords",
-				"Digital Presence",
-				"Monthly Reporting"
-			],
-			popular: false,
-			gradient: "from-blue-500/20 to-cyan-500/20"
-		},
-		{
-			name: "Growth Ranker",
-			price: "499.00",
-			description: "Enhanced visibility with AI & GBP optimization.",
-			features: [
-				"Target any 5 areas of your choice",
-				"5 one page webpages",
-				"50 high ranking keywords",
-				"Complimentary GBP prioritization",
-				"GBP AI Optimization",
-				"4k UHD video to showcase your business",
-				"Complimentary Business Cards",
-				"Complimentary Flyers",
-				"Monthly Reporting"
-			],
-			popular: false,
-			gradient: "from-purple-500/20 to-pink-500/20"
-		},
-		{
-			name: "InterState Omni",
-			price: "599.00",
-			description: "Complete domination with full-suite marketing.",
-			features: [
-				"Target any 10 areas of your choice",
-				"10 one page webpages",
-				"100 high ranking keywords",
-				"Complimentary GBP optimization",
-				"GBP Creation",
-				"4k UHD video to showcase your business",
-				"Complimentary Business Cards",
-				"Complimentary Flyers",
-				"Website SEO / Revamp",
-				"Social media management",
-				"Free QR Code",
-				"Monthly Reporting"
-			],
-			popular: true,
-			gradient: "from-amber-500/20 to-orange-500/20"
-		}
-	];
-
 	return (
 		<div className="min-h-screen flex flex-col">
 			<Navbar />
@@ -96,7 +41,7 @@ export default function PricingPage() {
 					<div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
 					<div className="container relative mx-auto px-4 text-center">
 						<div className="animate-fade-in-up">
-							<Badge variant="outline" className="mb-6 bg-primary/10 border-primary/40 text-white px-6 py-1.5 text-sm font-medium backdrop-blur-md">
+							<Badge variant="outline" className="mb-6 bg-cyan-500/10 border-cyan-500/40 text-cyan-500 px-6 py-1.5 text-sm font-medium backdrop-blur-md">
 								Transparent Pricing
 							</Badge>
 							<h1 className="text-5xl md:text-6xl font-body font-bold mb-6 gradient-text tracking-tight pb-2 leading-tight">
@@ -111,7 +56,7 @@ export default function PricingPage() {
 
 				<div className="container mx-auto px-4 py-12">
 					{/* Breadcrumb */}
-					<div className="mb-12">
+					<div className="mb-16">
 						<Breadcrumb>
 							<BreadcrumbList>
 								<BreadcrumbItem>
@@ -128,61 +73,9 @@ export default function PricingPage() {
 					</div>
 
 					{/* Packages Grid */}
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-						{packages.map((pkg) => (
-							<div key={pkg.name} className="relative group">
-								{pkg.popular && (
-									<div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10 w-full text-center">
-										<Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold px-4 py-1.5 shadow-lg border-0">
-											<Star className="w-3 h-3 mr-1 fill-current" />
-											BEST VALUE
-										</Badge>
-									</div>
-								)}
-
-								<div className={`
-								relative h-full flex flex-col p-8 rounded-2xl border transition-all duration-300
-								${pkg.popular
-										? 'bg-card border-primary/50 shadow-2xl shadow-primary/10 scale-105 z-0'
-										: 'bg-card/50 border-border hover:border-primary/30 hover:shadow-xl'
-									}
-							`}>
-									{/* Header */}
-									<div className="text-center mb-8">
-										<h2 className="text-2xl font-bold mb-2">{pkg.name}</h2>
-										<p className="text-muted-foreground text-sm mb-6 h-10">{pkg.description}</p>
-										<div className="flex justify-center items-baseline gap-1">
-											<span className="text-4xl font-bold gradient-text">${pkg.price}</span>
-											<span className="text-muted-foreground">/mo</span>
-										</div>
-									</div>
-
-									{/* Divider */}
-									<div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
-
-									{/* Features */}
-									<ul className="space-y-4 mb-8 flex-grow">
-										{pkg.features.map((feature, i) => (
-											<li key={i} className="flex items-start gap-3 text-sm">
-												<div className={`mt-0.5 rounded-full p-1 bg-gradient-to-br ${pkg.gradient}`}>
-													<Check className="w-3 h-3 text-foreground" />
-												</div>
-												<span className="text-muted-foreground group-hover:text-foreground transition-colors">
-													{feature}
-												</span>
-											</li>
-										))}
-									</ul>
-
-									{/* CTA */}
-									<Button className={`w-full ${pkg.popular ? 'hero-gradient text-white shadow-lg' : ''}`} size="lg" asChild>
-										<a href="tel:+12816195295">
-											<Phone className="w-4 h-4 mr-2" />
-											Call Now
-										</a>
-									</Button>
-								</div>
-							</div>
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+						{pricingPackages.map((pkg) => (
+							<PricingCard key={pkg.name} pkg={pkg} />
 						))}
 					</div>
 				</div>
@@ -306,7 +199,7 @@ export default function PricingPage() {
 						<div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,transparent,white,transparent)] opacity-20" />
 
 						<div className="relative z-10">
-							<h2 className="text-4xl font-bold mb-6">Need something custom?</h2>
+							<h2 className="text-4xl font-bold mb-6">Need Something Customized?</h2>
 							<p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
 								We know one size doesn't fit all. We build bespoke **Custom Plans** tailored to your specific industry, competition, and aggressive growth goals.
 							</p>

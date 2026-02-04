@@ -25,7 +25,7 @@ import KeyDifferentiators from "@/components/sections/KeyDifferentiators";
 import ValueProps from "@/components/sections/ValueProps";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import StatsResults from "@/components/sections/StatsResultsWrapper";
-// import PricingPreview from "@/components/sections/PricingPreview";
+import PricingPreview from "@/components/sections/PricingPreview";
 import CRMPreview from "@/components/sections/CRMPreview";
 import Testimonials from "@/components/sections/TestimonialsWrapper";
 import InsightsPreview from "@/components/sections/InsightsPreview";
@@ -43,6 +43,7 @@ export default function HomePage() {
 				<KeyDifferentiators />
 				<CRMPreview />
 				<HomeScrollNarrative />
+				<PricingPreview />
 				<ValueProps />
 				<FeaturedProjects />
 				<StatsResults />

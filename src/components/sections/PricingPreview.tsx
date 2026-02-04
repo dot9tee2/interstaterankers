@@ -1,271 +1,105 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Star } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Check, Phone, Star } from "lucide-react";
+import { pricingPackages } from "@/data/pricing";
 
 const PricingPreview = () => {
-  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
-
-  const answeringPackages = [
-    {
-      name: "Starter",
-      price: 299,
-      period: "/month",
-      description: "Perfect for small businesses getting started",
-      features: [
-        "Up to 100 calls/month",
-        "Basic call screening",
-        "Message taking",
-        "Email notifications"
-      ],
-      popular: false
-    },
-    {
-      name: "Growth",
-      price: 599,
-      period: "/month",
-      description: "Ideal for growing businesses",
-      features: [
-        "Up to 500 calls/month",
-        "Lead qualification",
-        "Appointment booking",
-        "CRM integration",
-        "Call analytics dashboard"
-      ],
-      popular: true
-    },
-    {
-      name: "Scale",
-      price: 999,
-      period: "/month",
-      description: "For high-volume businesses",
-      features: [
-        "Unlimited calls",
-        "Dedicated account manager",
-        "Custom scripts",
-        "Advanced reporting",
-        "Priority support"
-      ],
-      popular: false
-    }
-  ];
-
-  const seoPackages = [
-    {
-      name: "Local SEO",
-      price: 1299,
-      period: "/month",
-      description: "Dominate your local market",
-      features: [
-        "Google Business Profile optimization",
-        "Local keyword targeting",
-        "Citation management",
-        "Review management"
-      ],
-      popular: false
-    },
-    {
-      name: "Growth SEO + GMB",
-      price: 2499,
-      period: "/month",
-      description: "Complete digital presence",
-      features: [
-        "Everything in Local SEO",
-        "Google Business Profile optimization",
-        "Technical SEO audit",
-        "Content strategy",
-        "Conversion optimization"
-      ],
-      popular: true
-    }
-  ];
-
-  const discountLabel = useMemo(() => billing === "yearly" ? "Save 20%" : undefined, [billing]);
-
-  const computePrice = (baseMonthly: number) => {
-    if (billing === "monthly") return baseMonthly;
-    // Yearly: show effective monthly with 20% off
-    return Math.round(baseMonthly * 0.8);
-  };
+  // Filter for the 3 specific packages requested
+  const displayedPackages = pricingPackages.filter(pkg =>
+    pkg.name === "Google Maps Growth Package" ||
+    pkg.name === "Google/Meta Ads Growth Package" ||
+    pkg.name === "Lead Capture & Booking Suite"
+  );
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Background Gradients */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-500/5 rounded-full blur-3xl opacity-50" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
+          <Badge variant="outline" className="mb-6 bg-cyan-500/10 border-cyan-500/40 text-cyan-500 px-6 py-1.5 text-sm font-medium backdrop-blur-md">
+            Growth Packages
+          </Badge>
           <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
-            Transparent Pricing
+            Choose Your Growth Engine
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choose the perfect package to accelerate your business growth. No hidden fees, no surprises.
+            Scalable solutions designed to dominate your local market and automate your lead generation.
           </p>
         </div>
 
-        {/* Billing Toggle */}
-        <div className="flex items-center justify-center mb-12">
-          <div className="inline-flex items-center rounded-full border border-border bg-card p-1 glow-card" role="tablist" aria-label="Billing cycle">
-            <button
-              role="tab"
-              aria-selected={billing === "monthly"}
-              className={`px-4 py-2 text-sm rounded-full transition-colors ${billing === "monthly" ? "bg-primary text-white" : "text-foreground hover:text-primary-glow"}`}
-              onClick={() => setBilling("monthly")}
-            >
-              Monthly
-            </button>
-            <button
-              role="tab"
-              aria-selected={billing === "yearly"}
-              className={`px-4 py-2 text-sm rounded-full transition-colors ${billing === "yearly" ? "bg-primary text-white" : "text-foreground hover:text-primary-glow"}`}
-              onClick={() => setBilling("yearly")}
-            >
-              Yearly
-            </button>
-          </div>
-          {discountLabel && (
-            <span className="ml-3 text-xs font-medium text-accent-amber">{discountLabel}</span>
-          )}
-        </div>
-
-        {/* Answering Services */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-body font-bold text-center mb-8">
-            Answering & Calling Services
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {answeringPackages.map((pkg, index) => (
-              <div
-                key={pkg.name}
-                className={`relative group animate-slide-up ${pkg.popular ? 'transform scale-105' : ''}`}
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-accent-amber text-background font-semibold px-4 py-1">
-                      <Star className="w-3 h-3 mr-1" />
-                      Most Popular
-                    </Badge>
-                  </div>
-                )}
-
-                <div className={`relative h-full p-6 rounded-xl border transition-all duration-300 md:card-tilt ${pkg.popular
-                  ? 'bg-card border-primary shadow-lg glow-card'
-                  : 'bg-card/50 border-border hover:border-primary/30'
-                  }`}>
-                  {/* Header */}
-                  <div className="text-center mb-6">
-                    <h4 className="text-xl font-body font-bold mb-2">{pkg.name}</h4>
-                    <div className="flex items-baseline justify-center space-x-1">
-                      <span className="text-3xl font-bold gradient-text">${computePrice(pkg.price)}</span>
-                      <span className="text-muted-foreground">/month</span>
-                    </div>
-                    {billing === "yearly" && (
-                      <p className="text-xs text-accent-amber mt-1">Billed yearly • Save 20%</p>
-                    )}
-                    <p className="text-sm text-muted-foreground mt-2">{pkg.description}</p>
-                  </div>
-
-                  {/* Features */}
-                  <ul className="space-y-3 mb-8">
-                    {pkg.features.map((feature) => (
-                      <li key={feature} className="flex items-start space-x-3">
-                        <Check className="w-5 h-5 text-accent-cyan mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <Button
-                    className={`w-full ${pkg.popular ? 'hero-gradient hover-lift text-white' : ''}`}
-                    variant={pkg.popular ? 'default' : 'outline'}
-                  >
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-
-                  {/* Hover spotlight */}
-                  <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'radial-gradient(600px circle at 50% 30%, hsl(var(--primary)/0.08), transparent 40%)' }} />
+        {/* Packages Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {displayedPackages.map((pkg, index) => (
+            <div key={pkg.name} className="relative group flex flex-col h-full">
+              {pkg.popular && (
+                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-20 w-max pointer-events-none">
+                  <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold px-6 py-1.5 shadow-lg border-0 text-sm">
+                    <Star className="w-3.5 h-3.5 mr-1.5 fill-current" />
+                    BEST VALUE
+                  </Badge>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
+              )}
 
-        {/* SEO & GMB */}
-        <div>
-          <h3 className="text-2xl font-body font-bold text-center mb-8">
-            SEO & GMB Packages
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {seoPackages.map((pkg, index) => (
-              <div
-                key={pkg.name}
-                className={`relative group animate-slide-up ${pkg.popular ? 'transform scale-105' : ''}`}
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                {pkg.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-accent-amber text-background font-semibold px-4 py-1">
-                      <Star className="w-3 h-3 mr-1" />
-                      Best Value
-                    </Badge>
+              <div className={`
+                        relative h-full flex flex-col p-8 rounded-3xl border transition-all duration-300
+                        ${pkg.popular
+                  ? 'bg-card border-primary/50 shadow-2xl shadow-primary/10 scale-105 z-10'
+                  : 'bg-card/40 border-border hover:border-primary/30 hover:shadow-xl hover:-translate-y-1'
+                }
+                    `}>
+                {/* Header */}
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-3 min-h-[64px] flex items-center justify-center leading-tight">{pkg.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-6 h-10 flex items-center justify-center">{pkg.description}</p>
+                  <div className="flex justify-center items-baseline gap-1">
+                    <span className="text-5xl font-bold text-foreground">${pkg.price}</span>
+                    <span className="text-muted-foreground text-lg">/mo</span>
                   </div>
-                )}
-
-                <div className={`relative h-full p-6 rounded-xl border transition-all duration-300 md:card-tilt ${pkg.popular
-                  ? 'bg-card border-primary shadow-lg glow-card'
-                  : 'bg-card/50 border-border hover:border-primary/30'
-                  }`}>
-                  {/* Header */}
-                  <div className="text-center mb-6">
-                    <h4 className="text-xl font-body font-bold mb-2">{pkg.name}</h4>
-                    <div className="flex items-baseline justify-center space-x-1">
-                      <span className="text-3xl font-bold gradient-text">${computePrice(pkg.price)}</span>
-                      <span className="text-muted-foreground">/month</span>
-                    </div>
-                    {billing === "yearly" && (
-                      <p className="text-xs text-accent-amber mt-1">Billed yearly • Save 20%</p>
-                    )}
-                    <p className="text-sm text-muted-foreground mt-2">{pkg.description}</p>
-                  </div>
-
-                  {/* Features */}
-                  <ul className="space-y-3 mb-8">
-                    {pkg.features.map((feature) => (
-                      <li key={feature} className="flex items-start space-x-3">
-                        <Check className="w-5 h-5 text-accent-cyan mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <Button
-                    className={`w-full ${pkg.popular ? 'hero-gradient hover-lift text-white' : ''}`}
-                    variant={pkg.popular ? 'default' : 'outline'}
-                  >
-                    Get Started
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-
-                  {/* Hover spotlight */}
-                  <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'radial-gradient(600px circle at 50% 30%, hsl(var(--primary)/0.08), transparent 40%)' }} />
                 </div>
+
+                {/* Divider */}
+                <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
+
+                {/* Features */}
+                <ul className="space-y-4 mb-8 flex-grow">
+                  {pkg.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3 text-sm group/item">
+                      <div className={`mt-0.5 rounded-full p-1 bg-gradient-to-br ${pkg.gradient || "from-blue-500/20 to-cyan-500/20"} flex-shrink-0`}>
+                        <Check className="w-3.5 h-3.5 text-foreground" />
+                      </div>
+                      <span className="text-muted-foreground group-hover/item:text-foreground transition-colors">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Button className={`w-full h-12 text-base font-semibold rounded-xl ${pkg.popular ? 'hero-gradient text-white shadow-lg shadow-primary/25 hover:shadow-primary/40' : 'bg-secondary hover:bg-secondary/80 text-foreground'}`} asChild>
+                  <a href="tel:+12816195295">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Get Started Now
+                  </a>
+                </Button>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-muted-foreground mb-4">
-            Need a custom solution? We've got you covered.
+        <div className="text-center mt-20">
+          <p className="text-muted-foreground text-lg">
+            Not sure which package is right for you?
           </p>
-          <Button variant="outline" size="lg" className="animate-underline">
-            Talk to Our Experts About Custom Pricing
+          <Button variant="link" size="lg" className="text-cyan-500 hover:text-cyan-500/80" asChild>
+            <a href="/pricing">View All Packages &rarr;</a>
           </Button>
         </div>
       </div>

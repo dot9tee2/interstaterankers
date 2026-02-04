@@ -75,12 +75,20 @@ export default function CRMPreview() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.4 }}
                         >
-                            <Link
-                                href="/contact"
-                                className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow-button transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                            >
-                                Get Your Demo
-                            </Link>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow-button transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                                >
+                                    Get Your Demo
+                                </Link>
+                                <Link
+                                    href="/pricing"
+                                    className="inline-flex h-12 items-center justify-center rounded-lg border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                                >
+                                    See Pricing
+                                </Link>
+                            </div>
                         </motion.div>
                     </div>
 

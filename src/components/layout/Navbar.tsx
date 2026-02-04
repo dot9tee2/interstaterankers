@@ -121,16 +121,16 @@ const Navbar = () => {
   ];
 
   const services = [
-    { name: "Search Engine Optimization", href: "/services?focus=1#seo", icon: TrendingUp, description: "Search optimization & ranking" },
-    { name: "Google My Business Optimization", href: "/services?focus=1#gmb", icon: Globe, description: "Own your local map pack" },
-    { name: "Web Development", href: "/services?focus=1#web-development", icon: Code, description: "Fast, modern, conversion-focused sites" },
-    { name: "Answering Services", href: "/services?focus=1#answering", icon: Headphones, description: "24/7 professional call answering" },
-    { name: "Calling Services", href: "/services?focus=1#calling", icon: Phone, description: "Outbound calling & follow-ups" },
-    { name: "Content Marketing", href: "/services?focus=1#content-marketing", icon: Share2, description: "Content that attracts and converts" },
-    { name: "Social Media Marketing", href: "/services?focus=1#social-media-marketing", icon: Globe, description: "Grow reach across social platforms" },
-    { name: "PPC Management", href: "/services?focus=1#ppc-management", icon: Globe, description: "Paid traffic that delivers ROI" },
-    { name: "Graphic Designing", href: "/services?focus=1#graphic-designing", icon: Palette, description: "Brand-first creative that stands out" },
-    { name: "App Development", href: "/services?focus=1#app-development", icon: Smartphone, description: "iOS & Android apps that scale" },
+    { name: "Search Engine Optimization", href: "/services/seo", icon: TrendingUp, description: "Search optimization & ranking" },
+    { name: "Google My Business Optimization", href: "/services/gmb", icon: Globe, description: "Own your local map pack" },
+    { name: "Web Development", href: "/services/web-development", icon: Code, description: "Fast, modern, conversion-focused sites" },
+    { name: "Answering Services", href: "/services/answering", icon: Headphones, description: "24/7 professional call answering" },
+    { name: "Calling Services", href: "/services/calling", icon: Phone, description: "Outbound calling & follow-ups" },
+    { name: "Content Marketing", href: "/services/content-marketing", icon: Share2, description: "Content that attracts and converts" },
+    { name: "Social Media Marketing", href: "/services/social-media", icon: Globe, description: "Grow reach across social platforms" },
+    { name: "PPC Management", href: "/services/ppc", icon: Globe, description: "Paid traffic that delivers ROI" },
+    { name: "Graphic Designing", href: "/services/graphic-design", icon: Palette, description: "Brand-first creative that stands out" },
+    { name: "App Development", href: "/services/app-development", icon: Smartphone, description: "iOS & Android apps that scale" },
   ];
 
   return (

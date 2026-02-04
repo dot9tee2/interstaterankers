@@ -6,14 +6,14 @@ const StatsResults = () => {
 
   const stats = [
     {
-      value: "95 - 98",
+      value: 95,
       suffix: "%",
       label: "Calls Answered",
       description: "Never miss another lead"
     },
     {
-      value: "30 - 50",
-      suffix: "%", 
+      value: 60,
+      suffix: "%",
       prefix: "+",
       label: "Lead Conversion",
       description: "From Google My Business"
@@ -26,7 +26,7 @@ const StatsResults = () => {
       description: "Time to first page rankings"
     },
     {
-      value: 100,
+      value: 50,
       suffix: "+",
       label: "Growing Businesses",
       description: "Trust InterStateRankers"
@@ -110,14 +110,14 @@ const StatsResults = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
-            <div 
+            <div
               key={stat.label}
               className="group text-center animate-slide-up"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Number */}
               <div className="mb-4">
-                <AnimatedCounter 
+                <AnimatedCounter
                   value={stat.value}
                   prefix={stat.prefix}
                   suffix={stat.suffix}
@@ -127,7 +127,7 @@ const StatsResults = () => {
 
               {/* Label */}
               <h3 className="text-lg font-body font-semibold mb-2">{stat.label}</h3>
-              
+
               {/* Description */}
               <p className="text-sm text-muted-foreground">{stat.description}</p>
 

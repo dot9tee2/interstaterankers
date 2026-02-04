@@ -41,11 +41,11 @@ export default function HomePage() {
 			<main>
 				<Hero />
 				<KeyDifferentiators />
+				<CRMPreview />
 				<HomeScrollNarrative />
 				<ValueProps />
 				<FeaturedProjects />
 				<StatsResults />
-				<CRMPreview />
 				<Testimonials />
 				<InsightsPreview />
 				<FinalCTA />

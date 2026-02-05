@@ -122,6 +122,9 @@ export default {
 					'50%': {
 						boxShadow: '0 0 40px hsl(var(--primary-glow) / 0.6)'
 					}
+				},
+				'border': {
+					to: { '--border-angle': '360deg' },
 				}
 			},
 			animation: {
@@ -129,7 +132,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-up': 'slide-up 0.8s ease-out',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite'
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'border': 'border 3.5s linear infinite',
 			}
 		}
 	},

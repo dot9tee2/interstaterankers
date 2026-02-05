@@ -43,11 +43,11 @@ export default function HomePage() {
 				<KeyDifferentiators />
 				<CRMPreview />
 				<HomeScrollNarrative />
-				<PricingPreview />
 				<ValueProps />
 				<FeaturedProjects />
 				<StatsResults />
 				<Testimonials />
+				<PricingPreview />
 				<InsightsPreview />
 				<FinalCTA />
 			</main>

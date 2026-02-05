@@ -112,51 +112,57 @@ function LogoCube() {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      <div className="relative z-10 container mx-auto px-4 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 text-center lg:text-left">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-slate-950 via-[#0B0F19] to-slate-950">
+      <div className="relative z-10 container mx-auto px-4 pt-44 pb-20 lg:pt-48 lg:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
             <h1 className="text-5xl md:text-7xl font-body font-bold text-white leading-tight">
               Minimal. Fast.
               <br />
               <span className="accent-gradient-text">Seriously Effective.</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/80 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
               AI answering and SEO-first experiences built to convert. A modern stack that works while you sleep.
             </p>
-            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-4">
               <a href="/contact">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 glow-button text-lg px-8 py-6 h-auto font-semibold rounded-full">
+                <Button size="lg" className="bg-white text-primary hover:bg-white/90 glow-button text-lg px-8 py-6 h-auto font-semibold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-105">
                   Get a Proposal
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
               <a href="tel:+12816195295">
-                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold rounded-full">
-                  <Play className="mr-2 h-5 w-5" />
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold rounded-full hover:border-white/40 transition-all duration-300">
+                  <Play className="mr-2 h-5 w-5 fill-current" />
                   Talk to an Expert
                 </Button>
               </a>
             </div>
           </div>
 
-          <div className="relative aspect-square lg:aspect-[4/3] w-full max-w-xl mx-auto lg:max-w-none">
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-cyan-500/10 via-fuchsia-500/10 to-amber-500/10 blur-3xl" />
-            <div className="absolute inset-0 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_80px_rgba(56,189,248,0.15)]">
-              <Canvas shadows dpr={[1, 1.8]} camera={{ position: [0, 0, 4], fov: 45 }}>
-                <ambientLight intensity={0.6} />
-                <directionalLight position={[3, 3, 3]} intensity={1.2} castShadow />
-                <directionalLight position={[-3, -2, 2]} intensity={0.3} />
-                <LogoCube />
-                <CameraControls />
-              </Canvas>
+          <div className="relative w-full max-w-xl mx-auto lg:max-w-xl order-1 lg:order-2 perspective-1000">
+            {/* Premium multi-layered glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-purple/20 blur-[100px] rounded-full opacity-60" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent-cyan/20 blur-[60px] rounded-full opacity-60" />
+
+            <div className="relative aspect-[4/3] w-full">
+              <div className="absolute inset-0 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl overflow-hidden ring-1 ring-white/5">
+                <Canvas shadows dpr={[1, 1.8]} camera={{ position: [0, 0, 4.2], fov: 45 }}>
+                  <ambientLight intensity={0.7} />
+                  <directionalLight position={[3, 3, 3]} intensity={1.5} castShadow />
+                  <directionalLight position={[-3, -2, 2]} intensity={0.5} />
+                  <LogoCube />
+                  <CameraControls />
+                </Canvas>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* subtle vignette */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.06)_0%,rgba(0,0,0,0)_60%)]" />
+      {/* subtle vignette & grain overlay if desired */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0)_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
     </section>
   );
 };

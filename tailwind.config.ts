@@ -123,8 +123,13 @@ export default {
 						boxShadow: '0 0 40px hsl(var(--primary-glow) / 0.6)'
 					}
 				},
-				'border': {
+				'border-spin': {
 					to: { '--border-angle': '360deg' },
+				},
+				'dash': {
+					to: {
+						'stroke-dashoffset': '-100'
+					}
 				}
 			},
 			animation: {
@@ -133,7 +138,9 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-up': 'slide-up 0.8s ease-out',
 				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
-				'border': 'border 3.5s linear infinite',
+				'border-spin': 'border-spin 3.5s linear infinite',
+				'dash': 'dash 1s linear infinite',
+				'dash-reverse': 'dash 1s linear infinite reverse',
 			}
 		}
 	},

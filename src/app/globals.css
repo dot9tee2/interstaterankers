@@ -16,7 +16,7 @@
 		--popover: 220 23% 7%;
 		--popover-foreground: 210 40% 98%;
 		/* Primary Brand Gradient - Indigo to Electric Violet */
-		--primary: 243 55% 18%;
+		--primary: 265 90% 15%;
 		--primary-foreground: 210 40% 98%;
 		--primary-glow: 262 83% 65%;
 		/* Secondary Surfaces */
@@ -370,4 +370,10 @@
 	inherits: false;
 	initial-value: 0deg;
 	syntax: '<angle>';
+}
+
+@keyframes border-spin {
+	to {
+		--border-angle: 360deg;
+	}
 }

@@ -22,6 +22,7 @@ export const revalidate = 60;
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import KeyDifferentiators from "@/components/sections/KeyDifferentiators";
+import ProblemSolution from "@/components/sections/ProblemSolution";
 import ValueProps from "@/components/sections/ValueProps";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import StatsResults from "@/components/sections/StatsResultsWrapper";
@@ -41,6 +42,7 @@ export default function HomePage() {
 			<main>
 				<Hero />
 				<KeyDifferentiators />
+				<ProblemSolution />
 				<CRMPreview />
 				<HomeScrollNarrative />
 				<ValueProps />

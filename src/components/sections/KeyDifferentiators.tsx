@@ -1,172 +1,169 @@
 "use client";
-import { Headphones, TrendingUp, Clock, Zap } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import { Headphones, TrendingUp, Zap, Radio, Globe, BarChart4, ChevronRight, Smartphone } from "lucide-react";
+import React from "react";
+import { cn } from "@/lib/utils";
+import { AnimatedBorder } from "@/components/ui/animated-border";
 
-type Pillar = {
+// --- Components ---
+
+const PillarCard = ({
+  title,
+  description,
+  features,
+  index,
+  icon: Icon
+}: {
+  title: string;
+  description: string;
+  features: { text: string; icon: React.ComponentType<{ className?: string }> }[];
+  index: number;
   icon: React.ComponentType<{ className?: string }>
-  title: string
-  description: string
-  features: string[]
-};
-
-const InteractivePillarCard: React.FC<{
-  pillar: Pillar
-  index: number
-}> = ({ pillar, index }) => {
-  const cardRef = useRef<HTMLDivElement | null>(null);
-  const iconRef = useRef<HTMLDivElement | null>(null);
-  const [spotlightStyle, setSpotlightStyle] = useState<React.CSSProperties>({});
-  const [isTouch, setIsTouch] = useState(false);
-  const rafRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-      setIsTouch(coarse);
-    }
-  }, []);
-
-  const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
-    if (isTouch || !cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const px = x / rect.width;
-    const py = y / rect.height;
-
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    rafRef.current = requestAnimationFrame(() => {
-      setSpotlightStyle({
-        background: `radial-gradient(500px circle at ${px * 100}% ${py * 100}%, hsl(var(--primary)/0.12), transparent 40%)`
-      });
-      if (iconRef.current) {
-        const translateX = (px - 0.5) * 10; // subtle parallax
-        const translateY = (py - 0.5) * 10;
-        iconRef.current.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
-      }
-    });
-  };
-
-  const handleMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
-    if (isTouch) return;
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    setSpotlightStyle({});
-    if (iconRef.current) {
-      iconRef.current.style.transform = "translate3d(0,0,0)";
-    }
-  };
-
-  // Simulate hover feedback on touch: brief active state
-  const [isActive, setIsActive] = useState(false);
-  const handleTouchStart: React.TouchEventHandler<HTMLDivElement> = () => {
-    setIsActive(true);
-  };
-  const handleTouchEnd: React.TouchEventHandler<HTMLDivElement> = () => {
-    // Keep feedback very brief
-    setTimeout(() => setIsActive(false), 150);
-  };
-
+}) => {
   return (
-    <div 
-      className="relative group animate-slide-up"
-      style={{ animationDelay: `${index * 200}ms` }}
+    <AnimatedBorder
+      borderRadius="rounded-[2rem]"
+      borderWidth={2}
+      speed={4}
+      className="w-full h-full group bg-slate-950 relative z-10"
+      innerClassName="h-full relative overflow-hidden p-8 md:p-12 flex flex-col"
     >
-      {/* Card */}
-      <div
-        ref={cardRef}
-        role="button"
-        tabIndex={0}
-        aria-label={pillar.title}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        className={
-          `relative p-8 rounded-2xl bg-card border transition-all duration-500 glow-card ` +
-          `hover:border-primary/30 md:card-tilt hover-lift ` +
-          (isActive ? " border-primary/40 ring-1 ring-primary/20" : " border-border")
-        }
-        style={{ touchAction: "manipulation" }}
-      >
-        {/* Icon */}
-        <div ref={iconRef} className="flex items-center justify-center w-16 h-16 rounded-xl hero-gradient mb-6 group-hover:animate-glow-pulse will-change-transform">
-          <pillar.icon className="w-8 h-8 text-white" />
+      {/* Background Watermark Number */}
+      <div className="absolute -right-6 -top-10 text-[12rem] font-bold text-slate-900/50 select-none z-0 leading-none group-hover:transform group-hover:translate-x-2 transition-transform duration-700">
+        0{index + 1}
+      </div>
+
+      {/* Content Container */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Header */}
+        <div className="flex items-center gap-6 mb-8">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent-cyan flex items-center justify-center shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-500">
+            <Icon className="w-8 h-8 text-white relative z-10" />
+          </div>
+          <h3 className="text-3xl md:text-3xl font-heading font-bold text-white leading-tight uppercase tracking-tight">
+            {title}
+          </h3>
         </div>
 
-        {/* Content */}
-        <h3 className="text-2xl font-body font-bold mb-4">{pillar.title}</h3>
-        <p className="text-muted-foreground mb-6 leading-relaxed">{pillar.description}</p>
+        <p className="text-lg text-slate-300 leading-relaxed mb-10 border-l-2 border-accent-cyan/30 pl-6">
+          {description}
+        </p>
 
-        {/* Features */}
-        <ul className="space-y-3">
-          {pillar.features.map((feature, featureIndex) => (
-            <li key={featureIndex} className="flex items-center space-x-3">
-              <div className="w-2 h-2 bg-accent-cyan rounded-full" />
-              <span className="text-sm font-medium">{feature}</span>
+        {/* Features List */}
+        <ul className="space-y-4 mt-auto">
+          {features.map((feature, i) => (
+            <li key={i} className="flex items-start gap-4 group/item">
+              <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-slate-900/50 border border-slate-700 flex items-center justify-center transition-colors">
+                <feature.icon className="w-3.5 h-3.5 text-accent-cyan transition-colors" />
+              </div>
+              <span className="text-base font-medium text-slate-300 transition-colors">
+                {feature.text}
+              </span>
             </li>
           ))}
         </ul>
-
-        {/* Hover Accent */}
-        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="w-3 h-3 bg-accent-amber rounded-full animate-pulse" />
-        </div>
-
-        {/* Spotlight overlay (desktop only) */}
-        <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 md:group-hover:opacity-100 transition-opacity duration-300" style={spotlightStyle} />
       </div>
 
-      {/* Background Glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-accent-cyan/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-    </div>
+      {/* Hover Glow Effect */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    </AnimatedBorder>
   );
 };
 
 const KeyDifferentiators = () => {
-  const pillars: Pillar[] = [
-    {
-      icon: Headphones,
-      title: "B2B/B2C Lead Generation",
-      description: "Comprehensive lead generation solutions for both B2B and B2C markets. AI-powered qualification and multi-channel outreach.",
-      features: ["Live call answering", "Lead qualification", "Appointment booking", "Call analytics dashboard"]
-    },
-    {
-      icon: TrendingUp,
-      title: "Google My Business Optimization",
-      description: "Local visibility and search optimization that drives measurable business growth.",
-      features: ["Profile optimization", "Local SEO", "Review strategy", "Performance reporting"]
-    }
-  ];
-
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Dark Tech Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-[0.15] -z-20" />
+
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
-            Two Pillars of Growth
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          {/* Badge: Cyan */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan text-sm font-bold uppercase tracking-wider mb-6">
+            <Zap className="w-4 h-4" />
+            Dominating The Market
+          </div>
+          {/* H2: Solid Primary Color for 'Dominance' */}
+          <h2 className="text-4xl md:text-6xl font-heading font-black gradient-text mb-6 uppercase tracking-tight">
+            The Two Pillars of Dominance
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Complete business growth solutions combining human expertise with AI-driven technology.
+          <p className="text-xl text-slate-100 max-w-2xl mx-auto leading-relaxed">
+            We don't just "do marketing". We build infrastructure that forces growth.
           </p>
         </div>
 
-        {/* Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {pillars.map((pillar, index) => (
-            <InteractivePillarCard key={pillar.title} pillar={pillar} index={index} />
-          ))}
-        </div>
+        {/* Pillars Grid - 3 Column Layout */}
+        <div className="hidden lg:grid grid-cols-[0.5fr_auto_0.5fr] gap-0 max-w-7xl mx-auto items-center">
 
-        {/* Connection Line */}
-        <div className="relative mt-16 flex items-center justify-center">
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 -top-8">
-            <div className="flex items-center space-x-4">
-              <Clock className="w-5 h-5 text-accent-cyan" />
-              <div className="w-32 h-px bg-gradient-to-r from-accent-cyan to-accent-amber" />
-              <Zap className="w-5 h-5 text-accent-amber" />
+          {/* Left Card */}
+          <PillarCard
+            index={0}
+            icon={Headphones}
+            title="B2B/B2C Lead Generation"
+            description="Stop chasing leads. Our AI infrastructure captures, qualifies, and books appointments for you—24/7."
+            features={[
+              { text: "Instant Response AI Voice Agents", icon: Smartphone },
+              { text: "Multi-Channel Outreach (SMS, Email, Voice)", icon: Radio },
+              { text: "Live CRM Dashboard to Track Every Dollar", icon: BarChart4 },
+              { text: "Automated Appointment Booking", icon: ChevronRight },
+            ]}
+          />
+
+          {/* Center Hub */}
+          <div className="flex items-center justify-center px-4 relative h-full">
+            {/* Logo Hub */}
+            <div className="relative z-10 shrink-0">
+              <div className="relative w-24 h-24 bg-slate-950 rounded-full border-2 border-accent-cyan/50 shadow-[0_0_40px_rgba(var(--accent-cyan),0.4)] flex items-center justify-center p-3">
+                <img
+                  src="/logo-preloader.png"
+                  alt="Interstate Rankers Hub"
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
           </div>
+
+          {/* Right Card */}
+          <PillarCard
+            index={1}
+            icon={Globe}
+            title="Google My Business Optimization"
+            description="Own your backyard. We deploy aggressive SEO strategies that push competitors off the map."
+            features={[
+              { text: "Google Map Pack Dominance", icon: Globe },
+              { text: "Competitor Displacement Strategy", icon: Zap },
+              { text: "Review Generation System", icon: Smartphone },
+              { text: "Hyper-Local SEO Ranking", icon: TrendingUp },
+            ]}
+          />
+        </div>
+
+        {/* Mobile Layout - Cards stacked */}
+        <div className="lg:hidden space-y-8">
+          <PillarCard
+            index={0}
+            icon={Headphones}
+            title="B2B/B2C Lead Generation"
+            description="Stop chasing leads. Our AI infrastructure captures, qualifies, and books appointments for you—24/7."
+            features={[
+              { text: "Instant Response AI Voice Agents", icon: Smartphone },
+              { text: "Multi-Channel Outreach (SMS, Email, Voice)", icon: Radio },
+              { text: "Live CRM Dashboard to Track Every Dollar", icon: BarChart4 },
+              { text: "Automated Appointment Booking", icon: ChevronRight },
+            ]}
+          />
+          <PillarCard
+            index={1}
+            icon={Globe}
+            title="Google My Business Optimization"
+            description="Own your backyard. We deploy aggressive SEO strategies that push competitors off the map."
+            features={[
+              { text: "Google Map Pack Dominance", icon: Globe },
+              { text: "Competitor Displacement Strategy", icon: Zap },
+              { text: "Review Generation System", icon: Smartphone },
+              { text: "Hyper-Local SEO Ranking", icon: TrendingUp },
+            ]}
+          />
         </div>
       </div>
     </section>

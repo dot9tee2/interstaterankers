@@ -148,13 +148,13 @@ const ProblemSolution = () => {
                                 Guaranteed
                             </div>
                             <div className="flex gap-4 pt-1">
-                                <ShieldCheck className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                                <ShieldCheck className="w-6 h-6 text-cyan flex-shrink-0 mt-1" />
                                 <p className="text-sm text-slate-300 leading-relaxed font-medium">
                                     If you don't see significant growth within 180 days, we'll keep working with you at no additional cost until you do. That's our guarantee.
                                 </p>
                             </div>
                             {/* Star accent */}
-                            <svg className="absolute bottom-4 right-4 w-12 h-12 text-white/10" viewBox="0 0 24 24" fill="currentColor">
+                            <svg className="absolute bottom-4 right-4 w-12 h-12 text-white/20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                             </svg>
                         </div>

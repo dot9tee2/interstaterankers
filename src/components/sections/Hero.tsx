@@ -113,10 +113,10 @@ function LogoCube() {
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-slate-950 via-[#0B0F19] to-slate-950">
-      <div className="relative z-10 container mx-auto px-4 pt-44 pb-20 lg:pt-48 lg:pb-32">
+      <div className="relative z-10 container mx-auto px-4 pt-32 pb-20 lg:pt-48 lg:pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="space-y-8 text-center lg:text-left order-2 lg:order-1">
-            <h1 className="text-5xl md:text-7xl font-body font-bold text-white leading-tight">
+          <div className="space-y-8 text-center lg:text-left order-1 lg:order-1">
+            <h1 className="text-4xl md:text-7xl font-body font-bold text-white leading-tight">
               Minimal. Fast.
               <br />
               <span className="accent-gradient-text">Seriously Effective.</span>
@@ -140,7 +140,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative w-full max-w-xl mx-auto lg:max-w-xl order-1 lg:order-2 perspective-1000">
+          <div className="relative w-full max-w-xl mx-auto lg:max-w-xl order-2 lg:order-2 perspective-1000">
             {/* Premium multi-layered glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-purple/20 blur-[100px] rounded-full opacity-60" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent-cyan/20 blur-[60px] rounded-full opacity-60" />

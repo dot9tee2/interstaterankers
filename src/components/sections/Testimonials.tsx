@@ -12,7 +12,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
       quote: "We never miss leads anymore. The 24/7 answering service transformed our business overnight. Revenue increased 300% in just 6 months.",
       author: "Sarah Mitchell",
       title: "Owner",
-      company: "Mitchell Law Firm", 
+      company: "Mitchell Law Firm",
       industry: "Legal Services",
       rating: 5,
       results: "300% revenue increase"
@@ -22,14 +22,14 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
       author: "Mike Rodriguez",
       title: "Founder",
       company: "Rodriguez HVAC",
-      industry: "Home Services", 
+      industry: "Home Services",
       rating: 5,
       results: "Zero missed appointments"
     },
     {
       quote: "The SEO results speak for themselves. We went from page 10 to #1 in local search within 90 days. The phone hasn't stopped ringing.",
       author: "Dr. Jennifer Park",
-      title: "Practice Owner", 
+      title: "Practice Owner",
       company: "Park Family Dental",
       industry: "Healthcare",
       rating: 5,
@@ -39,7 +39,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
       quote: "Professional, reliable, and results-driven. Their calling services helped us follow up on every lead - our conversion rate doubled.",
       author: "David Chen",
       title: "Sales Director",
-      company: "Chen Construction", 
+      company: "Chen Construction",
       industry: "Construction",
       rating: 5,
       results: "2x conversion rate"
@@ -62,6 +62,27 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - e.changedTouches[0].clientX;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    if (isLeftSwipe) {
+      goToNext();
+    }
+    if (isRightSwipe) {
+      goToPrev();
+    }
+  };
+
   return (
     <section className={cn("bg-card/30", compact ? "pt-16 pb-10" : "py-20", className)}>
       <div className="container mx-auto px-4">
@@ -76,7 +97,11 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
         </div>
 
         {/* Testimonial Carousel */}
-        <div className="relative max-w-4xl mx-auto">
+        <div
+          className="relative max-w-4xl mx-auto"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="relative bg-background/80 backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12 glow-card">
             {/* Quote Icon */}
             <div className="absolute top-6 left-6">
@@ -140,9 +165,8 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/30'
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/30'
+                      }`}
                   />
                 ))}
               </div>

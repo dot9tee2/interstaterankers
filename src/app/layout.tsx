@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Providers from "./providers";
 import Preloader from "@/components/layout/Preloader";
+import { BackToTop } from "@/components/ui/back-to-top";
 import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { CookieConsent } from "@/components/ui/cookie-consent";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<SpeedInsights />
 						{children}
 						<CookieConsent />
+						<BackToTop />
 					</Providers>
 				</div>
 				{process.env.NEXT_PUBLIC_GA4_ID ? (

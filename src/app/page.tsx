@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 	robots: { index: true, follow: true }
 };
 
-// Revalidate the home page periodically to show new featured projects/insights
+// Revalidate the home page periodically to show new insights
 export const revalidate = 60;
 
 import Navbar from "@/components/layout/Navbar";

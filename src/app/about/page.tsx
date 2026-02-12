@@ -249,12 +249,12 @@ export default function AboutPage() {
 								</Link>
 							</Card>
 							<Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 hover:-translate-y-1">
-								<Link href="/projects" className="block p-6 text-center">
+								<Link href="/contact" className="block p-6 text-center">
 									<div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
 										<Building2 className="w-6 h-6 text-white" />
 									</div>
-									<h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">View Our Work</h3>
-									<p className="text-sm text-muted-foreground">Success stories & case studies</p>
+									<h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors duration-300">Get In Touch</h3>
+									<p className="text-sm text-muted-foreground">Start your growth journey</p>
 								</Link>
 							</Card>
 							<Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-sm hover:shadow-xl hover:shadow-accent-cyan/5 transition-all duration-300 hover:-translate-y-1">
@@ -319,7 +319,7 @@ export default function AboutPage() {
 												Quality Over Hype
 											</h3>
 											<p className="text-muted-foreground leading-relaxed">
-												We're focused on delivering real, measurable outcomes that align with your goals, not empty promises. See our <Link href="/projects" className="text-primary hover:underline">success stories</Link>.
+												We're focused on delivering real, measurable outcomes that align with your goals, not empty promises. <Link href="/contact" className="text-primary hover:underline">Talk to us</Link> about our results.
 											</p>
 										</div>
 									</div>
@@ -528,7 +528,7 @@ export default function AboutPage() {
 						</p>
 						<div className="mt-6">
 							<p className="text-muted-foreground mb-4">
-								<strong>Ready to grow your US business online?</strong> Explore our <Link href="/projects" className="text-primary hover:underline">successful case studies</Link> or <Link href="/contact" className="text-primary hover:underline">schedule a consultation</Link> to discuss your digital growth strategy.
+								<strong>Ready to grow your US business online?</strong> Explore our <Link href="/services" className="text-primary hover:underline">services</Link> or <Link href="/contact" className="text-primary hover:underline">schedule a consultation</Link> to discuss your digital growth strategy.
 							</p>
 						</div>
 					</section>
@@ -628,7 +628,7 @@ export default function AboutPage() {
 							<AccordionItem value="q4">
 								<AccordionTrigger>What types of US businesses do you work with?</AccordionTrigger>
 								<AccordionContent>
-									We work with <strong>startups, SMBs, and growing enterprises</strong> across all industries—from tech companies in Silicon Valley to manufacturing firms in the Midwest, service providers on the East Coast, and local businesses in rural communities. <Link href="/projects" className="text-primary hover:underline">View our case studies</Link> to see our diverse client portfolio.
+									We work with <strong>startups, SMBs, and growing enterprises</strong> across all industries—from tech companies in Silicon Valley to manufacturing firms in the Midwest, service providers on the East Coast, and local businesses in rural communities. <Link href="/contact" className="text-primary hover:underline">Contact us</Link> to see how we can help your business.
 								</AccordionContent>
 							</AccordionItem>
 							<AccordionItem value="q5">
@@ -698,14 +698,14 @@ export default function AboutPage() {
 										</Button>
 									</Link>
 
-									<Link href="/projects">
+									<Link href="/services">
 										<Button
 											variant="outline"
 											size="lg"
 											className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold"
 										>
 											<Building2 className="mr-2 h-5 w-5" />
-											View Our Work
+											Explore Services
 										</Button>
 									</Link>
 								</div>

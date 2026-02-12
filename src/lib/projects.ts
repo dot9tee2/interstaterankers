@@ -9,18 +9,13 @@ const previewFields = `
   summary,
   liveUrl,
   industry,
-  servicesProvided,
   tags,
-  featured,
-  featuredImage
+  featured
 `
 
 const fullFields = `
   ${previewFields},
-  gallery,
   stats,
-  content,
-  links,
   seo
 `
 

@@ -24,7 +24,7 @@ import Hero from "@/components/sections/Hero";
 import KeyDifferentiators from "@/components/sections/KeyDifferentiators";
 import ProblemSolution from "@/components/sections/ProblemSolution";
 import ValueProps from "@/components/sections/ValueProps";
-import FeaturedProjects from "@/components/sections/FeaturedProjects";
+
 import StatsResults from "@/components/sections/StatsResultsWrapper";
 import PricingPreview from "@/components/sections/PricingPreview";
 import CRMPreview from "@/components/sections/CRMPreview";
@@ -46,7 +46,7 @@ export default function HomePage() {
 				<CRMPreview />
 				<HomeScrollNarrative />
 				<ValueProps />
-				<FeaturedProjects />
+
 				<StatsResults />
 				<Testimonials />
 				<PricingPreview />

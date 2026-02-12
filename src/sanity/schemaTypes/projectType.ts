@@ -47,49 +47,15 @@ export const projectType: SchemaTypeDefinition = {
       title: 'Industry',
       type: 'string',
     },
-    {
-      name: 'servicesProvided',
-      title: 'Services Provided',
-      type: 'array',
-      of: [{ type: 'string' }],
-    },
+
     {
       name: 'tags',
       title: 'Tags',
       type: 'array',
       of: [{ type: 'string' }],
     },
-    {
-      name: 'featuredImage',
-      title: 'Featured Image',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          title: 'Alt text',
-          type: 'string',
-        },
-      ],
-    },
-    {
-      name: 'gallery',
-      title: 'Gallery',
-      type: 'array',
-      of: [
-        {
-          type: 'image',
-          options: { hotspot: true },
-          fields: [
-            {
-              name: 'alt',
-              title: 'Alt text',
-              type: 'string',
-            },
-          ],
-        },
-      ],
-    },
+
+
     {
       name: 'stats',
       title: 'Stats',
@@ -104,17 +70,8 @@ export const projectType: SchemaTypeDefinition = {
         },
       ],
     },
-    {
-      name: 'content',
-      title: 'Content',
-      type: 'blockContent',
-    },
-    {
-      name: 'links',
-      title: 'Deep Links',
-      type: 'array',
-      of: [{ type: 'projectLink' }],
-    },
+
+
     {
       name: 'seo',
       title: 'SEO',
@@ -128,7 +85,6 @@ export const projectType: SchemaTypeDefinition = {
   preview: {
     select: {
       title: 'title',
-      media: 'featuredImage',
       subtitle: 'clientName',
     },
   },

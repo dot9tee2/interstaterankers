@@ -19,17 +19,11 @@ export type ProjectPreview = {
   summary?: string
   liveUrl?: string
   industry?: string
-  servicesProvided?: string[]
-  tags?: string[]
   featured?: boolean
-  featuredImage?: SanityImageSource & { alt?: string }
 }
 
 export type Project = ProjectPreview & {
-  gallery?: (SanityImageSource & { alt?: string })[]
   stats?: ProjectStat[]
-  content?: PortableTextBlock[]
-  links?: ProjectLink[]
   seo?: {
     title?: string
     description?: string

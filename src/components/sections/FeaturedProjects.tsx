@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Phone, TrendingUp } from "lucide-react";
 import { getFeaturedProjects } from "@/lib/projects";
-import { urlFor } from "@/lib/sanity";
+
 
 const FeaturedProjects = async () => {
   const projects = await getFeaturedProjects(3);
@@ -34,18 +34,7 @@ const FeaturedProjects = async () => {
               {/* Card */}
               <div className="relative h-full p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-500 card-tilt glow-card flex flex-col">
                 {/* Image */}
-                {project.featuredImage && (
-                  <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
-                    <Image
-                      src={urlFor(project.featuredImage).width(600).height(400).url()}
-                      alt={project.featuredImage.alt || project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      priority={index === 0}
-                    />
-                  </div>
-                )}
+
 
                 {/* Header */}
                 <div className="mb-4">
@@ -59,11 +48,7 @@ const FeaturedProjects = async () => {
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {(project.servicesProvided || []).slice(0, 4).map((service) => (
-                      <Badge key={service} variant="outline" className="text-xs border-accent-cyan/30 text-accent-cyan">
-                        {service}
-                      </Badge>
-                    ))}
+
                   </div>
                 </div>
 

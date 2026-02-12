@@ -93,7 +93,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-            <p>&copy; 2024 InterStateRankers. All rights reserved.</p>
+            <p>&copy; 2026 InterStateRankers. All rights reserved.</p>
             <div className="flex items-center space-x-4 mt-2 md:mt-0">
               <Link href="/sitemap.xml" className="hover:text-foreground transition-colors" rel="sitemap">
                 XML Sitemap

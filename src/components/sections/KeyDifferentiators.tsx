@@ -25,7 +25,7 @@ const PillarCard = ({
       borderWidth={2}
       speed={4}
       className="w-full h-full group bg-slate-950 relative z-10"
-      innerClassName="h-full relative overflow-hidden p-8 md:p-12 flex flex-col"
+      innerClassName="h-full relative overflow-hidden p-6 md:p-12 flex flex-col"
     >
       {/* Background Watermark Number */}
       <div className="absolute -right-6 -top-10 text-[12rem] font-bold text-slate-900/50 select-none z-0 leading-none group-hover:transform group-hover:translate-x-2 transition-transform duration-700">
@@ -35,11 +35,11 @@ const PillarCard = ({
       {/* Content Container */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Header */}
-        <div className="flex items-center gap-6 mb-8">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent-cyan flex items-center justify-center shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-500">
-            <Icon className="w-8 h-8 text-white relative z-10" />
+        <div className="flex items-center gap-4 md:gap-6 mb-8">
+          <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary to-accent-cyan flex items-center justify-center shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-500">
+            <Icon className="w-6 h-6 md:w-8 md:h-8 text-white relative z-10" />
           </div>
-          <h3 className="text-3xl md:text-3xl font-heading font-bold text-white leading-tight uppercase tracking-tight">
+          <h3 className="text-xl md:text-3xl font-heading font-bold text-white leading-tight uppercase tracking-tight">
             {title}
           </h3>
         </div>
@@ -84,7 +84,7 @@ const KeyDifferentiators = () => {
             Dominating The Market
           </div>
           {/* H2: Solid Primary Color for 'Dominance' */}
-          <h2 className="text-4xl md:text-6xl font-heading font-black gradient-text mb-6 uppercase tracking-tight">
+          <h2 className="text-3xl md:text-6xl font-heading font-black gradient-text mb-6 uppercase tracking-tight">
             The Two Pillars of Dominance
           </h2>
           <p className="text-xl text-slate-100 max-w-2xl mx-auto leading-relaxed">

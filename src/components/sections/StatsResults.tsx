@@ -88,8 +88,9 @@ const StatsResults = () => {
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
     return (
-      <span className={`stats-counter ${isAnimating ? 'animate-pulse' : ''}`}>
+      <span className={`stats-counter ${isAnimating ? 'animate-pulse' : ''}`} aria-hidden="true">
         {displayValue}
+        <span className="sr-only">{prefix}{value}{suffix}</span>
       </span>
     );
   };

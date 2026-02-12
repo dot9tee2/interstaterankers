@@ -36,7 +36,7 @@ const ProblemSolution = () => {
                     </div>
 
                     {/* Matches Screenshot: Light Appearance (Problem) */}
-                    <div className="bg-white text-slate-900 rounded-3xl p-8 md:p-12 shadow-xl border border-slate-200 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-300">
+                    <div className="bg-white text-slate-900 rounded-3xl p-6 md:p-12 shadow-xl border border-slate-200 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-300">
                         {/* Decorative scribbles */}
                         <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-slate-100 rounded-full blur-3xl opacity-50" />
 
@@ -99,7 +99,7 @@ const ProblemSolution = () => {
                     </div>
 
                     {/* Matches Screenshot: Dark Appearance (Solution) */}
-                    <div className="bg-slate-950 text-white rounded-3xl p-8 md:p-12 shadow-2xl shadow-primary/20 border-2 border-primary/20 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-300">
+                    <div className="bg-slate-950 text-white rounded-3xl p-6 md:p-12 shadow-2xl shadow-primary/20 border-2 border-primary/20 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-300">
                         {/* Decorative accent */}
                         <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-bl-full blur-3xl" />
                         <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/10 rounded-tr-full blur-2xl" />

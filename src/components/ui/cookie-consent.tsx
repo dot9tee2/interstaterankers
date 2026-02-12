@@ -24,7 +24,7 @@ export function CookieConsent() {
     return (
         <div
             className={cn(
-                "fixed bottom-4 left-4 z-50 w-full max-w-sm rounded-lg border bg-background p-4 shadow-lg transition-all duration-300 ease-in-out md:max-w-md",
+                "fixed bottom-4 left-4 right-4 z-50 w-auto md:left-4 md:right-auto md:w-full md:max-w-sm rounded-lg border bg-background p-4 shadow-lg transition-all duration-300 ease-in-out",
                 "animate-in slide-in-from-bottom-5 fade-in-0"
             )}
         >

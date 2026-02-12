@@ -48,7 +48,7 @@ const PricingPreview = () => {
               )}
 
               <div className={`
-                        relative h-full flex flex-col p-8 rounded-3xl border transition-all duration-300
+                        relative h-full flex flex-col p-6 md:p-8 rounded-3xl border transition-all duration-300
                         ${pkg.popular
                   ? 'bg-card border-primary/50 shadow-2xl shadow-primary/10 scale-105 z-10'
                   : 'bg-card/40 border-border hover:border-primary/30 hover:shadow-xl hover:-translate-y-1'

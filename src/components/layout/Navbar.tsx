@@ -140,7 +140,7 @@ const Navbar = () => {
     <AnimatedBorder
       borderWidth={1}
       borderRadius="rounded-full"
-      className="fixed top-4 left-0 right-0 z-50 mx-auto w-[95%] max-w-7xl shadow-2xl"
+      className="fixed top-4 left-0 right-0 z-50 mx-auto w-[calc(100%-2rem)] md:w-[95%] max-w-7xl shadow-2xl"
       innerClassName="bg-slate-950/95 backdrop-blur-lg"
     >
       <nav className="w-full h-full">

@@ -102,7 +102,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="relative bg-background/80 backdrop-blur-sm rounded-2xl border border-border p-8 md:p-12 glow-card">
+          <div className="relative bg-background/80 backdrop-blur-sm rounded-2xl border border-border p-6 md:p-12 glow-card">
             {/* Quote Icon */}
             <div className="absolute top-6 left-6">
               <Quote className="w-8 h-8 text-accent-cyan/30" />
@@ -155,6 +155,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
                 size="icon"
                 onClick={goToPrev}
                 className="hover:bg-primary/10"
+                aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
               </Button>
@@ -176,6 +177,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
                 size="icon"
                 onClick={goToNext}
                 className="hover:bg-primary/10"
+                aria-label="Next testimonial"
               >
                 <ChevronRight className="w-5 h-5" />
               </Button>

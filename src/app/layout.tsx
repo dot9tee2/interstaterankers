@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en-US">
 			<body>
 				<Preloader />
-				<div className="site-root">
+				<div className="site-root overflow-x-hidden w-full">
 					<Providers>
 						<SpeedInsights />
 						{children}

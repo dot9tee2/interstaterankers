@@ -10,6 +10,7 @@ const nextConfig = {
   // This empty object tells Next.js it's okay to run Turbopack 
   // even though you have a custom webpack config below.
   turbopack: {},
+  serverExternalPackages: ['isomorphic-dompurify', 'jsdom'],
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 640, 768, 1024, 1280, 1536, 1920],

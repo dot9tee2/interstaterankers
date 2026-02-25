@@ -52,10 +52,10 @@ export default function PrivacyPolicyPage() {
                         <section className="mb-8">
                             <h2 className="text-2xl font-bold mb-4 text-foreground">1. Introduction</h2>
                             <p className="text-muted-foreground mb-4">
-                                Welcome to InterStateRankers! We are a digital marketing agency committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, https://interstaterankers.com, and use our services.
+                                Welcome to InterStateRankers! We are a digital marketing agency committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, https://interstaterankers.com, use our services, or interact with our lead generation tools on third-party platforms like Facebook and Instagram.
                             </p>
                             <p className="text-muted-foreground">
-                                Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+                                Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or provide your information through our lead generation tools.
                             </p>
                         </section>
 
@@ -71,6 +71,7 @@ export default function PrivacyPolicyPage() {
                             </p>
                             <ul className="list-disc pl-6 text-muted-foreground mb-4">
                                 <li><strong>Contact Data:</strong> such as your name, email address, and phone number, which you provide when you fill out a contact form, subscribe to our newsletter, or request a quote.</li>
+                                <li><strong>Lead Data:</strong> information you provide via our lead generation forms on third-party platforms (e.g., Facebook Lead Ads), which may include your name, email, phone number, and business details.</li>
                                 <li><strong>Billing Data:</strong> such as your billing name, billing address, and payment information, when you purchase our services. Please note that we use a third-party payment processor, and we do not store or process your credit card information on our servers.</li>
                             </ul>
 

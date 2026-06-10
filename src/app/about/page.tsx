@@ -741,8 +741,8 @@ export default function AboutPage() {
 					__html: JSON.stringify({
 						"@context": "https://schema.org",
 						"@type": "Organization",
-						name: "InterStateRankers",
-						alternateName: "InterState Rankers",
+						name: "Interstate Rankers",
+						alternateName: "Interstate Rankers",
 						description: "US digital growth collective specializing in custom web development, SEO services, and social media marketing for businesses across all 50 states.",
 						url: "https://interstaterankers.com",
 						logo: "https://interstaterankers.com/InterStateRankerLogo.png",

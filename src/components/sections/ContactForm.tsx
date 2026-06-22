@@ -31,6 +31,7 @@ const contactSchema = z.object({
 	company: z.string().optional(),
 	message: z.string().min(10, "Please enter at least 10 characters."),
 	interestedIn: z.array(z.string()).optional(),
+	fax: z.string().optional(), // Honeypot field
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -48,6 +49,7 @@ export default function ContactForm() {
 			company: "",
 			message: "",
 			interestedIn: [],
+			fax: "",
 		},
 	});
 
@@ -105,6 +107,19 @@ export default function ContactForm() {
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
 						
+						{/* Honeypot field - visually hidden */}
+						<FormField
+							control={form.control}
+							name="fax"
+							render={({ field }) => (
+								<FormItem className="hidden absolute opacity-0 -z-50 h-0 w-0 overflow-hidden" aria-hidden="true">
+									<FormControl>
+										<Input tabIndex={-1} autoComplete="off" placeholder="Fax Number" {...field} />
+									</FormControl>
+								</FormItem>
+							)}
+						/>
+
 						{/* Services Selection */}
 						<FormField
 							control={form.control}

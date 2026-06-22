@@ -21,7 +21,13 @@ export async function sendContactEmailAction(values: any) {
 	}
 
 	try {
-		const { fullName, email, phone, company, message, interestedIn } = values;
+		const { fullName, email, phone, company, message, interestedIn, fax } = values;
+
+		// Honeypot check
+		if (fax) {
+			console.warn("Spam bot detected via honeypot. Discarding submission quietly.");
+			return { success: true, data: { id: "honeypot-dropped" } };
+		}
 
 		const { data, error } = await resend.emails.send({
 			from: "Contact Form <siteform@mail.interstaterankers.com>",

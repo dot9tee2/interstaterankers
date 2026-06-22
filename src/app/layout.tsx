@@ -5,6 +5,7 @@ import Preloader from "@/components/layout/Preloader";
 import { BackToTop } from "@/components/ui/back-to-top";
 import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 
 export const metadata: Metadata = {
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<div className="site-root overflow-x-hidden w-full">
 					<Providers>
 						<SpeedInsights />
+						<Analytics />
 						{children}
 						<CookieConsent />
 						<BackToTop />

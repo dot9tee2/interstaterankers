@@ -89,10 +89,10 @@ const service = {
 };
 
 export const metadata: Metadata = {
-    title: `${service.title} | InterStateRankers`,
+    title: `${service.title} | Interstate Rankers`,
     description: service.description,
     openGraph: {
-        title: `${service.title} | InterStateRankers`,
+        title: `${service.title} | Interstate Rankers`,
         description: service.description,
         url: `/services/ppc`,
         type: "website",
@@ -325,7 +325,7 @@ export default function PPCPage() {
                         description: service.description,
                         provider: {
                             "@type": "Organization",
-                            name: "InterStateRankers",
+                            name: "Interstate Rankers",
                             url: "https://interstaterankers.com"
                         },
                         areaServed: {
@@ -335,7 +335,7 @@ export default function PPCPage() {
                         url: `https://interstaterankers.com/services/ppc`,
                         brand: {
                             "@type": "Brand",
-                            name: "InterStateRankers"
+                            name: "Interstate Rankers"
                         }
                     })
                 }}

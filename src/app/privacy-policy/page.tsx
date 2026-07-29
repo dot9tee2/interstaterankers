@@ -6,11 +6,11 @@ import Link from "next/link";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | InterStateRankers",
-    description: "Privacy Policy for InterStateRankers. Learn how we collect, use, and protect your personal information.",
+    title: "Privacy Policy | Interstate Rankers",
+    description: "Privacy Policy for Interstate Rankers. Learn how we collect, use, and protect your personal information.",
     openGraph: {
-        title: "Privacy Policy | InterStateRankers",
-        description: "Learn how InterStateRankers collects, uses, and protects your personal information.",
+        title: "Privacy Policy | Interstate Rankers",
+        description: "Learn how Interstate Rankers collects, uses, and protects your personal information.",
         url: "/privacy-policy",
         type: "website",
     },
@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
                         <section className="mb-8">
                             <h2 className="text-2xl font-bold mb-4 text-foreground">1. Introduction</h2>
                             <p className="text-muted-foreground mb-4">
-                                Welcome to InterStateRankers! We are a digital marketing agency committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, https://interstaterankers.com, use our services, or interact with our lead generation tools on third-party platforms like Facebook and Instagram.
+                                Welcome to Interstate Rankers! We are a digital marketing agency committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, https://interstaterankers.com, use our services, or interact with our lead generation tools on third-party platforms like Facebook and Instagram.
                             </p>
                             <p className="text-muted-foreground">
                                 Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or provide your information through our lead generation tools.
@@ -192,7 +192,7 @@ export default function PrivacyPolicyPage() {
                                 If you have any questions about this Privacy Policy, please contact us.
                             </p>
                             <div className="mt-4">
-                                <p className="font-semibold text-foreground">InterStateRankers</p>
+                                <p className="font-semibold text-foreground">Interstate Rankers</p>
                                 <p className="text-muted-foreground"><a href="mailto:info@interstaterankers.com" className="hover:underline">info@interstaterankers.com</a></p>
                                 <p className="text-muted-foreground">
                                     <a href="tel:+12816195295" className="hover:underline">(281) 619-5295</a>
@@ -209,11 +209,11 @@ export default function PrivacyPolicyPage() {
                         "@context": "https://schema.org",
                         "@type": "WebPage",
                         name: "Privacy Policy",
-                        description: "Privacy Policy regarding data collection and usage at InterStateRankers.",
+                        description: "Privacy Policy regarding data collection and usage at Interstate Rankers.",
                         url: "https://interstaterankers.com/privacy-policy",
                         publisher: {
                             "@type": "Organization",
-                            name: "InterStateRankers",
+                            name: "Interstate Rankers",
                             logo: "https://interstaterankers.com/InterStateRankerLogo.png"
                         }
                     })

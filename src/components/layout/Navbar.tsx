@@ -150,7 +150,7 @@ const Navbar = () => {
           <Link href="/" className="flex items-center">
             <Image
               src="/InterStateRankerLogo.png"
-              alt="InterStateRankers logo"
+              alt="Interstate Rankers logo"
               width={160}
               height={32}
               priority

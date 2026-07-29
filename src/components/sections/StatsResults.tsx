@@ -29,7 +29,7 @@ const StatsResults = () => {
       value: 50,
       suffix: "+",
       label: "Growing Businesses",
-      description: "Trust InterStateRankers"
+      description: "Trust Interstate Rankers"
     }
   ];
 

@@ -34,10 +34,10 @@ const service = {
 };
 
 export const metadata: Metadata = {
-    title: `${service.title} | InterStateRankers`,
+    title: `${service.title} | Interstate Rankers`,
     description: service.description,
     openGraph: {
-        title: `${service.title} | InterStateRankers`,
+        title: `${service.title} | Interstate Rankers`,
         description: service.description,
         url: `/services/content-marketing`,
         type: "website",
@@ -270,7 +270,7 @@ export default function ContentMarketingPage() {
                         description: service.description,
                         provider: {
                             "@type": "Organization",
-                            name: "InterStateRankers",
+                            name: "Interstate Rankers",
                             url: "https://interstaterankers.com"
                         },
                         areaServed: {
@@ -280,7 +280,7 @@ export default function ContentMarketingPage() {
                         url: `https://interstaterankers.com/services/content-marketing`,
                         brand: {
                             "@type": "Brand",
-                            name: "InterStateRankers"
+                            name: "Interstate Rankers"
                         }
                     })
                 }}

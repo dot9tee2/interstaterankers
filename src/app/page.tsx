@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "AI Answering & SEO for US Businesses",
-	description: "InterStateRankers delivers AI-driven answering services and SEO solutions across the United States.",
+	description: "Interstate Rankers delivers AI-driven answering services and SEO solutions across the United States.",
 	openGraph: {
 		title: "AI Answering & SEO for US Businesses",
-		description: "InterStateRankers delivers AI-driven answering services and SEO solutions across the United States.",
+		description: "Interstate Rankers delivers AI-driven answering services and SEO solutions across the United States.",
 		url: "/",
 		locale: "en_US",
 		images: [
-			{ url: "/favicon.ico", width: 1200, height: 630, alt: "InterStateRankers" }
+			{ url: "/favicon.ico", width: 1200, height: 630, alt: "Interstate Rankers" }
 		]
 	},
 	alternates: { canonical: "/" },

@@ -1,4 +1,4 @@
-# InterStateRankers
+# Interstate Rankers
 
 Marketing site and lead-gen app for AI-driven answering services, SEO, PPC, and web development. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and shadcn/ui.
 

@@ -179,10 +179,10 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     }
 
     return {
-        title: `${service.title} | InterStateRankers`,
+        title: `${service.title} | Interstate Rankers`,
         description: service.description,
         openGraph: {
-            title: `${service.title} | InterStateRankers`,
+            title: `${service.title} | Interstate Rankers`,
             description: service.description,
             url: `/services/${slug}`,
             type: "website",
@@ -423,7 +423,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                         description: service.description,
                         provider: {
                             "@type": "Organization",
-                            name: "InterStateRankers",
+                            name: "Interstate Rankers",
                             url: "https://interstaterankers.com"
                         },
                         areaServed: {
@@ -433,7 +433,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                         url: `https://interstaterankers.com/services/${slug}`,
                         brand: {
                             "@type": "Brand",
-                            name: "InterStateRankers"
+                            name: "Interstate Rankers"
                         }
                     })
                 }}

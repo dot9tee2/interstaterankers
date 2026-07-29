@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = {
-    title: "Cancellation and Refund Policy | InterStateRankers",
+    title: "Cancellation and Refund Policy | Interstate Rankers",
     description: "Read our cancellation and refund policy.",
 };
 
@@ -26,7 +26,7 @@ export default function CancellationRefundPolicy() {
                                 For standard, ongoing services (e.g., SEO, GBP Optimization, PPC, web development, content marketing, social media marketing, and answering services), clients have the right to discontinue at any time by providing at least 15 days&apos; written notice via email or text message. If less than 15 days&apos; notice is given, the client will be charged a cancellation fee equal to one month of service in lieu of notice. If the contract is terminated within an ongoing month, no partial refunds will be issued for that month, though future billing will stop once the notice period (or fee) has been satisfied.
                             </li>
                             <li>
-                                Refunds will not be granted if the client disregards InterStateRankers’ recommendations and approvals regarding SEO strategies (White Hat only), including research techniques, content modifications, keyword enhancement, website evaluation, connectivity, and structure.
+                                Refunds will not be granted if the client disregards Interstate Rankers’ recommendations and approvals regarding SEO strategies (White Hat only), including research techniques, content modifications, keyword enhancement, website evaluation, connectivity, and structure.
                             </li>
                             <li>
                                 No reimbursement will be given if the client hires another SEO agency during our contract period or independently implements SEO changes on their website or Google listings.

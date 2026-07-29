@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Projects & Case Studies (US)",
-	description: "Explore InterStateRankers projects and case studies for US businesses.",
+	description: "Explore Interstate Rankers projects and case studies for US businesses.",
 	openGraph: {
 		title: "Projects & Case Studies (US)",
-		description: "Explore InterStateRankers projects and case studies for US businesses.",
+		description: "Explore Interstate Rankers projects and case studies for US businesses.",
 		url: "/projects",
 		locale: "en_US"
 	},

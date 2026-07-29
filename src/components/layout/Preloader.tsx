@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
  * Fullscreen preloader with brand background and staged logo/text animations.
  * Sequence:
  * 1) Logo appears, blinks and glows
- * 2) "InterState" text reveals from left to right behind logo
+ * 2) "Interstate" text reveals from left to right behind logo
  * 3) "Rankers" text slides in below
  * Auto-hides after the sequence or when page is interactive.
  */
@@ -84,14 +84,14 @@ export default function Preloader() {
   if (isDone) return null;
 
   return (
-    <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-500 ${isHiding ? "opacity-0" : "opacity-100"} ${isHiding || progress > 95 ? "pointer-events-none" : "pointer-events-auto"}`} role="status" aria-live="polite" aria-label="Loading InterState Rankers" aria-hidden={isHiding ? true : false}>
+    <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-500 ${isHiding ? "opacity-0" : "opacity-100"} ${isHiding || progress > 95 ? "pointer-events-none" : "pointer-events-auto"}`} role="status" aria-live="polite" aria-label="Loading Interstate Rankers" aria-hidden={isHiding ? true : false}>
       <div className="absolute inset-0 hero-gradient-animated" />
       <div className="relative z-10 flex items-center select-none gap-6">
         {/* Logo */}
         <div className="animate-logo-pop">
           <Image
             src="/logo-preloader.png"
-            alt="InterState Rankers"
+            alt="Interstate Rankers"
             width={220}
             height={80}
             priority
@@ -109,7 +109,7 @@ export default function Preloader() {
               className="block text-5xl md:text-6xl font-body font-bold text-white tracking-wide preloader-reveal-initial will-reveal reveal-left"
               style={{ animationDelay: "300ms" }}
             >
-              InterState
+              Interstate
             </span>
           </div>
           <div className="relative overflow-hidden mt-1">

@@ -18,7 +18,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
       results: "300% revenue increase"
     },
     {
-      quote: "InterStateRankers didn't just build us a website - they built us a lead generation machine. Our appointment book is always full now.",
+      quote: "Interstate Rankers didn't just build us a website - they built us a lead generation machine. Our appointment book is always full now.",
       author: "Mike Rodriguez",
       title: "Founder",
       company: "Rodriguez HVAC",
@@ -92,7 +92,7 @@ const Testimonials = ({ compact = false, className = "" }: { compact?: boolean; 
             What Our Clients Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Real stories from real businesses that transformed their growth with InterStateRankers.
+            Real stories from real businesses that transformed their growth with Interstate Rankers.
           </p>
         </div>
 

@@ -28,29 +28,29 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-	title: "About Us: US Digital Marketing Agency | InterStateRankers",
+	title: "About Us: US Digital Marketing Agency | Interstate Rankers",
 	description:
-		"InterStateRankers is your trusted US digital growth collective specializing in custom web development, SEO services, and social media marketing—proudly serving businesses across all 50 states. We craft high-quality digital solutions that elevate online visibility and drive measurable results for American businesses.",
+		"Interstate Rankers is your trusted US digital growth collective specializing in custom web development, SEO services, and social media marketing—proudly serving businesses across all 50 states. We craft high-quality digital solutions that elevate online visibility and drive measurable results for American businesses.",
 	openGraph: {
-		title: "About InterStateRankers | US Digital Marketing Agency",
+		title: "About Interstate Rankers | US Digital Marketing Agency",
 		description:
 			"Trusted US digital growth collective specializing in web development, SEO services, and social media marketing for businesses across all 50 states.",
 		url: "/about",
 		type: "website",
 		locale: "en_US",
-		siteName: "InterStateRankers",
+		siteName: "Interstate Rankers",
 		images: [
 			{
 				url: "/InterStateRankerLogo.png",
 				width: 1200,
 				height: 630,
-				alt: "InterStateRankers - US Digital Marketing Agency"
+				alt: "Interstate Rankers - US Digital Marketing Agency"
 			}
 		]
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "About InterStateRankers | US Digital Marketing Agency",
+		title: "About Interstate Rankers | US Digital Marketing Agency",
 		description:
 			"Trusted US digital growth collective specializing in web development, SEO services, and social media marketing for businesses across all 50 states.",
 		images: ["/InterStateRankerLogo.png"]
@@ -99,7 +99,7 @@ export default function AboutPage() {
 								Your Trusted Digital Growth Collective for <span className="text-primary">US Businesses</span>
 							</h1>
 							<p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-slide-up">
-								At <span className="font-semibold text-primary">InterStateRankers</span>, we specialize in empowering <strong>US businesses</strong> to thrive online through custom web solutions, strategic SEO, and dynamic social media engagement. Founded by a dedicated team of experienced professionals, our mission is to deliver dependable, results-driven services with integrity and a human touch—serving clients nationwide across <strong>all 50 states</strong> from <strong>California to New York, Texas to Florida</strong>.
+								At <span className="font-semibold text-primary">Interstate Rankers</span>, we specialize in empowering <strong>US businesses</strong> to thrive online through custom web solutions, strategic SEO, and dynamic social media engagement. Founded by a dedicated team of experienced professionals, our mission is to deliver dependable, results-driven services with integrity and a human touch—serving clients nationwide across <strong>all 50 states</strong> from <strong>California to New York, Texas to Florida</strong>.
 							</p>
 						</div>
 					</header>
@@ -282,7 +282,7 @@ export default function AboutPage() {
 					<section className="max-w-6xl mx-auto mb-16">
 						<div className="text-center mb-12">
 							<h2 className="text-3xl md:text-4xl font-body font-bold mb-4 gradient-text">
-								Why Choose <span className="text-primary">InterStateRankers</span> for Your US Business
+								Why Choose <span className="text-primary">Interstate Rankers</span> for Your US Business
 							</h2>
 							<p className="text-lg text-muted-foreground max-w-2xl mx-auto">
 								Six compelling reasons why American businesses trust us with their digital growth
@@ -790,7 +790,7 @@ export default function AboutPage() {
 					__html: JSON.stringify({
 						"@context": "https://schema.org",
 						"@type": "LocalBusiness",
-						name: "InterStateRankers",
+						name: "Interstate Rankers",
 						description: "Digital marketing agency serving US businesses nationwide with web development, SEO, and social media services.",
 						areaServed: "United States",
 						serviceArea: {

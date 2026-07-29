@@ -23,7 +23,7 @@ export default function CancellationRefundPolicy() {
 
                         <ul className="list-disc pl-6 space-y-4">
                             <li>
-                                Clients have the right to discontinue services at any time; however, if the contract is terminated within an ongoing month, no refunds will be issued. A written notice via email or text message is required for cancellation 15 days prior to the cancellation of service, or pay a cancellation fee equal to one month of service. While future billing will stop, partial refunds will not be provided.
+                                For standard, ongoing services (e.g., SEO, GBP Optimization, PPC, web development, content marketing, social media marketing, and answering services), clients have the right to discontinue at any time by providing at least 15 days&apos; written notice via email or text message. If less than 15 days&apos; notice is given, the client will be charged a cancellation fee equal to one month of service in lieu of notice. If the contract is terminated within an ongoing month, no partial refunds will be issued for that month, though future billing will stop once the notice period (or fee) has been satisfied.
                             </li>
                             <li>
                                 Refunds will not be granted if the client disregards InterStateRankers’ recommendations and approvals regarding SEO strategies (White Hat only), including research techniques, content modifications, keyword enhancement, website evaluation, connectivity, and structure.
@@ -38,10 +38,7 @@ export default function CancellationRefundPolicy() {
                                 Once mock-up designs are approved and the project enters the testing phase, refunds will not be issued.
                             </li>
                             <li>
-                                Cancellations for special event-based services coordinated by our sales team are not accepted. These are exclusive, time-sensitive deals requiring a minimum of 30 days’ notice for withdrawal.
-                            </li>
-                            <li>
-                                Although SEO and other digital marketing services are non-refundable, clients may request cancellation with at least 15 days written notice.
+                                Special, event-based placements coordinated by our sales team are a separate category from the standard ongoing services above. These are exclusive, time-sensitive bookings, and cancellations are not accepted once booked; withdrawal requires a minimum of 30 days&apos; notice.
                             </li>
                             <li>
                                 Refunds will not be provided for projects that have been inactive or on hold for more than 30 days.

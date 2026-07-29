@@ -1,22 +1,30 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+
+export const COOKIE_CONSENT_EVENT = "cookie-consent-changed"
+
+export function getCookieConsent(): "accepted" | "rejected" | null {
+    if (typeof document === "undefined") return null
+    const row = document.cookie.split('; ').find(row => row.startsWith('cookie-consent='))
+    const value = row?.split('=')[1]
+    return value === "accepted" || value === "rejected" ? value : null
+}
 
 export function CookieConsent() {
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
-        const consent = document.cookie.split('; ').find(row => row.startsWith('cookie-consent='))
-        if (!consent) {
-            setIsVisible(true)
-        }
+        setIsVisible(getCookieConsent() === null)
     }, [])
 
-    const acceptCookies = () => {
-        document.cookie = "cookie-consent=true; path=/; max-age=31536000" // 1 year
+    const setConsent = (value: "accepted" | "rejected") => {
+        document.cookie = `cookie-consent=${value}; path=/; max-age=31536000` // 1 year
         setIsVisible(false)
+        window.dispatchEvent(new Event(COOKIE_CONSENT_EVENT))
     }
 
     if (!isVisible) return null
@@ -34,11 +42,18 @@ export function CookieConsent() {
                         Cookie Consent
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                        We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                        We use cookies for analytics and advertising to enhance your experience. You can accept or reject non-essential cookies. See our{" "}
+                        <Link href="/privacy-policy" className="underline hover:text-foreground">
+                            Privacy Policy
+                        </Link>{" "}
+                        for details.
                     </p>
                 </div>
                 <div className="flex justify-end gap-2">
-                    <Button onClick={acceptCookies} className="w-full sm:w-auto">
+                    <Button variant="outline" onClick={() => setConsent("rejected")} className="w-full sm:w-auto">
+                        Reject
+                    </Button>
+                    <Button onClick={() => setConsent("accepted")} className="w-full sm:w-auto">
                         Accept
                     </Button>
                 </div>

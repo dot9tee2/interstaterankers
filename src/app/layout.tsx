@@ -7,6 +7,7 @@ import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/next";
 import { CookieConsent } from "@/components/ui/cookie-consent";
+import { AnalyticsScripts } from "@/components/analytics/ConsentGate";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(process.env.SITE_URL || "https://interstaterankers.com"),
@@ -78,22 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<BackToTop />
 					</Providers>
 				</div>
-				{process.env.NEXT_PUBLIC_GA4_ID ? (
-					<>
-						<Script
-							src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
-							strategy="afterInteractive"
-						/>
-						<Script id="ga4-init" strategy="afterInteractive">
-							{`
-							window.dataLayer = window.dataLayer || [];
-							function gtag(){window.dataLayer.push(arguments);}
-							gtag('js', new Date());
-							gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}', { send_page_view: false });
-						`}
-						</Script>
-					</>
-				) : null}
+				<AnalyticsScripts measurementId={process.env.NEXT_PUBLIC_GA4_ID} />
 				<Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive"
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify({

@@ -90,7 +90,7 @@ export default function PrivacyPolicyPage() {
                                 <li>Serve targeted advertisements to you on other websites.</li>
                             </ul>
                             <p className="text-muted-foreground mt-2">
-                                You can control the use of cookies at the individual browser level. If you reject cookies, you may still use our site, but your ability to use some features or areas of our site may be limited.
+                                You can control the use of cookies at the individual browser level, or by selecting &quot;Reject&quot; on the cookie consent banner shown when you first visit our Site. If you reject non-essential cookies, analytics and advertising cookies (such as Google Analytics) will not be loaded, but you may still use our site, and your ability to use some features or areas of our site may be limited.
                             </p>
                         </section>
 
@@ -116,6 +116,7 @@ export default function PrivacyPolicyPage() {
                             <ul className="list-disc pl-6 text-muted-foreground">
                                 <li><strong>With your consent:</strong> We may share your information with third parties with your consent.</li>
                                 <li><strong>With our service providers:</strong> We may share your information with trusted third-party service providers who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.</li>
+                                <li><strong>With analytics and advertising partners:</strong> If you accept non-essential cookies, we share derivative data (such as your IP address and browsing behavior) with analytics providers (e.g., Google Analytics) and advertising platforms (e.g., Meta/Facebook) so that we can analyze site traffic and serve targeted advertisements to you on other websites. You can opt out of this sharing at any time by selecting &quot;Reject&quot; on our cookie consent banner.</li>
                                 <li><strong>For legal purposes:</strong> We may disclose your information if required to do so by law or in the good faith belief that such action is necessary to comply with a legal obligation, to protect and defend our rights or property, or to protect the personal safety of users of the Site or the public.</li>
                             </ul>
                         </section>

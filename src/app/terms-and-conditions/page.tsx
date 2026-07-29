@@ -64,7 +64,21 @@ export default function TermsAndConditionsPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">3. SMS and Mobile Messaging Terms</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">3. Google Business Profile (GBP) Optimization Services</h2>
+                            <p className="text-muted-foreground mb-4">
+                                For clients who sign up for Google Business Profile (GBP) Optimization services, the following additional terms apply:
+                            </p>
+                            <ul className="list-disc pl-6 text-muted-foreground mb-4">
+                                <li><strong>Managerial Access:</strong> The client must grant InterStateRankers managerial-level access to their Google Business Profile within fourteen (14) days of signing up for GBP Optimization services.</li>
+                                <li><strong>Profile Verification:</strong> If the client&apos;s Google Business Profile is not yet verified with Google, the client is responsible for completing verification within fourteen (14) days of signing up, independent of and prior to granting managerial access.</li>
+                                <li><strong>Failure to Provide Access or Verify:</strong> If, for any reason, the client does not grant managerial access and/or does not complete verification of their Google Business Profile within the applicable 14-day period, InterStateRankers reserves the right, at its sole discretion, to build and launch alternative landing page(s) for the client&apos;s business hosted on InterStateRankers&apos; high-authority domain (<a href="https://nearbybizfinder.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">nearbybizfinder.com</a>) and to begin SEO optimization efforts on those landing pages in place of, or in addition to, the client&apos;s Google Business Profile.</li>
+                                <li><strong>Continued Billing:</strong> The unavailability of managerial access or an unverified Google Business Profile does not pause, suspend, or excuse billing. InterStateRankers remains entitled to invoice and collect payment for the following month(s) of service regardless of whether optimization occurs on the client&apos;s Google Business Profile or on the substitute landing page(s) described above.</li>
+                                <li><strong>Ownership and Transition:</strong> Landing pages created under this section are owned and hosted by InterStateRankers on its own domain. If the client subsequently grants managerial access and/or completes verification, InterStateRankers may, at its discretion, resume or add optimization directly on the client&apos;s Google Business Profile.</li>
+                            </ul>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">4. SMS and Mobile Messaging Terms</h2>
                             <p className="text-muted-foreground mb-4">
                                 By providing your phone number and opting in to receive SMS/MMS messages from InterStateRankers, you agree to the following:
                             </p>
@@ -79,35 +93,38 @@ export default function TermsAndConditionsPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">4. Intellectual Property</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">5. Intellectual Property</h2>
                             <p className="text-muted-foreground mb-4">
                                 All content, original images, logos, and software on this site are the property of InterStateRankers or its content suppliers and are protected by international copyright laws.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">5. Limitation of Liability</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">6. No Guarantee of Results; Limitation of Liability</h2>
                             <p className="text-muted-foreground mb-4">
-                                InterStateRankers will not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, even if we have been advised of the possibility of such damages.
+                                Search engine rankings, online visibility, lead volume, and similar outcomes are influenced by factors outside of InterStateRankers&apos; control, including but not limited to changes to third-party algorithms (e.g., Google, Bing, Meta), market competition, and client-provided content and access. InterStateRankers does not guarantee any specific ranking, amount of traffic, number of leads, or other results from its SEO, GBP, PPC, content marketing, web development, or other digital marketing services.
+                            </p>
+                            <p className="text-muted-foreground mb-4">
+                                InterStateRankers will not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, even if we have been advised of the possibility of such damages. To the fullest extent permitted by law, InterStateRankers&apos; total aggregate liability arising out of or relating to these Terms or the services provided shall not exceed the total fees paid by the client to InterStateRankers in the three (3) months preceding the event giving rise to the claim.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">6. Governing Law</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">7. Governing Law</h2>
                             <p className="text-muted-foreground">
                                 These Terms and Conditions shall be governed by and construed in accordance with the laws of the State of Texas, United States, without regard to its conflict of law provisions.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">7. Changes to Terms</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">8. Changes to Terms</h2>
                             <p className="text-muted-foreground">
                                 We reserve the right to update these Terms and Conditions at any time. Changes will be effective immediately upon posting to this page.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">8. Contact Us</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">9. Contact Us</h2>
                             <div className="mt-4">
                                 <p className="font-semibold text-foreground">InterStateRankers</p>
                                 <p className="text-muted-foreground"><a href="mailto:info@interstaterankers.com" className="hover:underline">info@interstaterankers.com</a></p>

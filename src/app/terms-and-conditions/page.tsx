@@ -52,7 +52,7 @@ export default function TermsAndConditionsPage() {
                         <section className="mb-8">
                             <h2 className="text-2xl font-bold mb-4 text-foreground">1. Introduction</h2>
                             <p className="text-muted-foreground mb-4">
-                                Welcome to InterStateRankers. These Terms and Conditions govern your use of our website and services. By accessing or using our services, you agree to be bound by these terms. If you do not agree to any part of these terms, you may not use our services.
+                                Welcome to InterStateRankers. These Terms and Conditions govern your use of our website and services. By accessing or using our services, you agree to be bound by these terms. If you do not agree to any part of these terms, you may not use our services. You must be at least 18 years of age, and authorized to bind the business or entity on whose behalf you are acting, to agree to these Terms.
                             </p>
                         </section>
 
@@ -88,7 +88,6 @@ export default function TermsAndConditionsPage() {
                                 <li><strong>Rates:</strong> Message and data rates may apply.</li>
                                 <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time by replying "STOP" to any message. We will send you an SMS message to confirm that you have been unsubscribed.</li>
                                 <li><strong>Help:</strong> For help, reply "HELP" to any message or contact us at info@interstaterankers.com.</li>
-                                <li><strong>Lead Generation:</strong> If you provide your information via a Facebook Lead Ad or other third-party platform, your submission constitutes opt-in consent for us to contact you regarding the services you expressed interest in.</li>
                             </ul>
                         </section>
 
@@ -100,31 +99,62 @@ export default function TermsAndConditionsPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">6. No Guarantee of Results; Limitation of Liability</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">6. No Guarantee of Results; Limitation of Liability; Disclaimer of Warranties</h2>
                             <p className="text-muted-foreground mb-4">
                                 Search engine rankings, online visibility, lead volume, and similar outcomes are influenced by factors outside of InterStateRankers&apos; control, including but not limited to changes to third-party algorithms (e.g., Google, Bing, Meta), market competition, and client-provided content and access. InterStateRankers does not guarantee any specific ranking, amount of traffic, number of leads, or other results from its SEO, GBP, PPC, content marketing, web development, or other digital marketing services.
                             </p>
                             <p className="text-muted-foreground mb-4">
                                 InterStateRankers will not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, even if we have been advised of the possibility of such damages. To the fullest extent permitted by law, InterStateRankers&apos; total aggregate liability arising out of or relating to these Terms or the services provided shall not exceed the total fees paid by the client to InterStateRankers in the three (3) months preceding the event giving rise to the claim.
                             </p>
-                        </section>
-
-                        <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">7. Governing Law</h2>
-                            <p className="text-muted-foreground">
-                                These Terms and Conditions shall be governed by and construed in accordance with the laws of the State of Texas, United States, without regard to its conflict of law provisions.
+                            <p className="text-muted-foreground mb-4">
+                                Except as expressly stated in these Terms or in your individual service agreement or proposal, our services are provided &quot;as is&quot; and &quot;as available,&quot; without warranties of any kind, whether express or implied.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">8. Changes to Terms</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">7. Indemnification</h2>
+                            <p className="text-muted-foreground">
+                                You agree to indemnify, defend, and hold harmless InterStateRankers, its officers, employees, and agents from and against any claims, damages, losses, or expenses (including reasonable attorneys&apos; fees) arising out of or related to: (a) the accuracy of the business information, content, or approvals you provide to us; (b) your use of our services in violation of these Terms or applicable law; or (c) content published on your behalf, including on the landing pages described in Section 3.
+                            </p>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">8. Governing Law</h2>
+                            <p className="text-muted-foreground">
+                                These Terms and Conditions shall be governed by and construed in accordance with the laws of the State of Texas, United States, without regard to its conflict of law provisions. You agree that any dispute arising out of or relating to these Terms or our services shall be brought exclusively in the state or federal courts located in Harris County, Texas, and you consent to the personal jurisdiction of such courts.
+                            </p>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">9. Severability</h2>
+                            <p className="text-muted-foreground">
+                                If any provision of these Terms is found to be unlawful, void, or unenforceable, that provision shall be deemed severable and shall not affect the validity and enforceability of the remaining provisions.
+                            </p>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">10. Entire Agreement</h2>
+                            <p className="text-muted-foreground">
+                                These Terms, together with any applicable service agreement or proposal, constitute the entire agreement between you and InterStateRankers regarding your use of our services and supersede any prior agreements or understandings, whether written or oral.
+                            </p>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">11. Force Majeure</h2>
+                            <p className="text-muted-foreground">
+                                InterStateRankers will not be liable for any delay or failure to perform resulting from causes outside of our reasonable control, including but not limited to acts of God, natural disasters, internet or utility outages, or changes to third-party platform policies or algorithms.
+                            </p>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">12. Changes to Terms</h2>
                             <p className="text-muted-foreground">
                                 We reserve the right to update these Terms and Conditions at any time. Changes will be effective immediately upon posting to this page.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">9. Contact Us</h2>
+                            <h2 className="text-2xl font-bold mb-4 text-foreground">13. Contact Us</h2>
                             <div className="mt-4">
                                 <p className="font-semibold text-foreground">InterStateRankers</p>
                                 <p className="text-muted-foreground"><a href="mailto:info@interstaterankers.com" className="hover:underline">info@interstaterankers.com</a></p>

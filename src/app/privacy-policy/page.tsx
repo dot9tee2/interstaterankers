@@ -101,7 +101,7 @@ export default function PrivacyPolicyPage() {
                             </p>
                             <ul className="list-disc pl-6 text-muted-foreground">
                                 <li>To provide and improve our services: We use your information to deliver the services you have requested, to personalize your experience, and to improve our website and services.</li>
-                                <li>To communicate with you: We may use your contact information to send you newsletters, marketing communications, and other information about our services. You may opt out of these communications at any time.</li>
+                                <li>To communicate with you: We may use your contact information to send you newsletters, marketing communications, and other information about our services. You may opt out of marketing emails at any time by replying &quot;UNSUBSCRIBE&quot; to any marketing email you receive from us.</li>
                                 <li>To process payments: We use your billing information to process payments for our services.</li>
                                 <li>For marketing and advertising: We may use your information to display targeted advertisements to you on other websites.</li>
                                 <li>For analytics and research: We use derivative data and information from cookies to analyze trends, administer the site, track users’ movements around the site, and to gather demographic information about our user base as a whole.</li>

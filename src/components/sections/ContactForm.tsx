@@ -15,7 +15,9 @@ import { toast } from "@/components/ui/use-toast";
 import { sendContactEmailAction } from "@/app/actions/sendEmail";
 import { cn } from "@/lib/utils";
 
+// Package links preselect these by id (see the services field in src/data/pricing.ts)
 const SERVICES = [
+	{ id: "Answering & Lead Capture", label: "Answering & Lead Capture" },
 	{ id: "SEO", label: "SEO" },
 	{ id: "Web Development", label: "Web Development" },
 	{ id: "Social Media", label: "Social Media" },
@@ -36,7 +38,7 @@ const contactSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
-export default function ContactForm() {
+export default function ContactForm({ defaultServices = [], defaultMessage = "", messagePlaceholder = "Tell us a bit about your goals..." }: { defaultServices?: string[]; defaultMessage?: string; messagePlaceholder?: string } = {}) {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [isSuccess, setIsSuccess] = useState(false);
 
@@ -47,8 +49,9 @@ export default function ContactForm() {
 			email: "",
 			phone: "",
 			company: "",
-			message: "",
-			interestedIn: [],
+			message: defaultMessage,
+			// Only ids that have a button, so nothing is submitted that the visitor can't see or unselect
+			interestedIn: defaultServices.filter((id) => SERVICES.some((service) => service.id === id)),
 			fax: "",
 		},
 	});
@@ -77,13 +80,13 @@ export default function ContactForm() {
 
 	if (isSuccess) {
 		return (
-			<Card className="border-muted/40 text-center py-12 animate-in fade-in zoom-in duration-500">
+			<Card className="rounded-2xl border-border bg-card text-center py-12 animate-in fade-in zoom-in duration-500">
 				<CardContent className="space-y-6 flex flex-col items-center justify-center">
-					<div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center ring-8 ring-primary/5">
-						<CheckCircle2 className="w-8 h-8 text-primary" />
+					<div className="w-16 h-16 rounded-2xl border border-border bg-background flex items-center justify-center">
+						<CheckCircle2 className="w-8 h-8 text-accent-cyan" />
 					</div>
 					<div className="space-y-2">
-						<h3 className="text-2xl font-bold tracking-tight">Message Sent!</h3>
+						<h3 className="text-2xl font-semibold tracking-tight">Message sent</h3>
 						<p className="text-muted-foreground max-w-md mx-auto">
 							Thank you for reaching out. Our team will review your details and get back to you within 1 business day.
 						</p>
@@ -97,10 +100,9 @@ export default function ContactForm() {
 	}
 
 	return (
-		<Card className="border-muted/40 shadow-xl shadow-black/5 bg-card/50 backdrop-blur-sm relative overflow-hidden transition-all">
-			<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/40 via-primary to-primary/40" />
+		<Card className="rounded-2xl border-border bg-card">
 			<CardHeader>
-				<CardTitle className="text-2xl">Send us a message</CardTitle>
+				<CardTitle className="text-2xl font-semibold tracking-tight">Send us a message</CardTitle>
 				<CardDescription>Fill in the form and our team will contact you shortly.</CardDescription>
 			</CardHeader>
 			<CardContent>
@@ -135,6 +137,7 @@ export default function ContactForm() {
 													<button
 														type="button"
 														key={service.id}
+														aria-pressed={isSelected}
 														onClick={() => {
 															const current = new Set(field.value || []);
 															if (isSelected) {
@@ -145,10 +148,10 @@ export default function ContactForm() {
 															field.onChange(Array.from(current));
 														}}
 														className={cn(
-															"px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border flex items-center gap-2",
+															"px-4 py-2 rounded-full text-sm font-medium transition-colors border flex items-center gap-2",
 															isSelected
-																? "bg-primary text-primary-foreground border-primary shadow-md scale-105"
-																: "bg-background/80 text-muted-foreground border-border hover:border-primary/40 hover:bg-muted/50"
+																? "border-accent-cyan bg-accent-cyan/10 text-accent-cyan"
+																: "bg-background text-muted-foreground border-border hover:border-muted-foreground/40 hover:text-foreground"
 														)}
 													>
 														{isSelected && <Check className="w-3.5 h-3.5 animate-in zoom-in" />}
@@ -172,8 +175,8 @@ export default function ContactForm() {
 										<FormLabel>Full name</FormLabel>
 										<FormControl>
 											<div className="relative group">
-												<User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-primary" />
-												<Input className="pl-10 transition-shadow focus-visible:ring-primary/20" placeholder="Jane Doe" {...field} />
+												<User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-brand" />
+												<Input className="pl-10" placeholder="Jane Doe" {...field} />
 											</div>
 										</FormControl>
 										<FormMessage />
@@ -188,8 +191,8 @@ export default function ContactForm() {
 										<FormLabel>Email</FormLabel>
 										<FormControl>
 											<div className="relative group">
-												<Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-primary" />
-												<Input className="pl-10 transition-shadow focus-visible:ring-primary/20" type="email" placeholder="you@company.com" {...field} />
+												<Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-brand" />
+												<Input className="pl-10" type="email" placeholder="you@company.com" {...field} />
 											</div>
 										</FormControl>
 										<FormMessage />
@@ -204,8 +207,8 @@ export default function ContactForm() {
 										<FormLabel>Phone (optional)</FormLabel>
 										<FormControl>
 											<div className="relative group">
-												<Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-primary" />
-												<Input className="pl-10 transition-shadow focus-visible:ring-primary/20" type="tel" placeholder="(555) 000-0000" {...field} />
+												<Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-brand" />
+												<Input className="pl-10" type="tel" placeholder="(555) 000-0000" {...field} />
 											</div>
 										</FormControl>
 										<FormMessage />
@@ -220,8 +223,8 @@ export default function ContactForm() {
 										<FormLabel>Company (optional)</FormLabel>
 										<FormControl>
 											<div className="relative group">
-												<Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-primary" />
-												<Input className="pl-10 transition-shadow focus-visible:ring-primary/20" placeholder="Acme Inc." {...field} />
+												<Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground transition-colors group-focus-within:text-brand" />
+												<Input className="pl-10" placeholder="Acme Inc." {...field} />
 											</div>
 										</FormControl>
 										<FormMessage />
@@ -236,19 +239,17 @@ export default function ContactForm() {
 								<FormItem>
 									<FormLabel>Your message</FormLabel>
 									<FormControl>
-										<Textarea className="resize-none transition-shadow focus-visible:ring-primary/20" rows={5} placeholder="Tell us a bit about your goals..." {...field} />
+										<Textarea className="resize-none" rows={5} placeholder={messagePlaceholder} {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
 							)}
 						/>
-						<div className="flex items-center justify-between gap-4 pt-4 border-t border-border/50">
+						<div className="flex items-center justify-between gap-4 pt-4 border-t border-border">
 							<p className="text-sm text-muted-foreground hidden sm:block">Secured and encrypted.</p>
-							<Button type="submit" disabled={isSubmitting} className="group relative overflow-hidden transition-all duration-300 w-full sm:w-auto">
-								<span className="flex items-center gap-2 relative z-10">
-									{isSubmitting ? "Sending..." : "Send message"}
-									{!isSubmitting && <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-								</span>
+							<Button type="submit" disabled={isSubmitting} className="h-12 w-full rounded-xl px-6 text-base font-semibold sm:w-auto">
+								{isSubmitting ? "Sending..." : "Send message"}
+								{!isSubmitting && <Send className="h-4 w-4" />}
 							</Button>
 						</div>
 					</form>

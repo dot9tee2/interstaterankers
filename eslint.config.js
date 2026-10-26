@@ -21,9 +21,27 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "warn",
-        { allowConstantExport: true },
+        {
+          allowConstantExport: true,
+          // Route exports Next.js reads from pages and layouts
+          allowExportNames: [
+            "metadata",
+            "generateMetadata",
+            "viewport",
+            "generateViewport",
+            "generateStaticParams",
+            "revalidate",
+            "dynamic",
+            "dynamicParams",
+          ],
+        },
       ],
       "@typescript-eslint/no-unused-vars": "off",
     },
+  },
+  {
+    // shadcn/ui primitives export their variant helpers next to the component
+    files: ["src/components/ui/**/*.tsx"],
+    rules: { "react-refresh/only-export-components": "off" },
   }
 );

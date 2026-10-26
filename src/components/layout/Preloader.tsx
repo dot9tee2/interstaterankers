@@ -85,8 +85,8 @@ export default function Preloader() {
 
   return (
     <div className={`fixed inset-0 z-[9999] flex items-center justify-center transition-opacity duration-500 ${isHiding ? "opacity-0" : "opacity-100"} ${isHiding || progress > 95 ? "pointer-events-none" : "pointer-events-auto"}`} role="status" aria-live="polite" aria-label="Loading InterState Rankers" aria-hidden={isHiding ? true : false}>
-      <div className="absolute inset-0 hero-gradient-animated" />
-      <div className="relative z-10 flex items-center select-none gap-6">
+      <div className="absolute inset-0 bg-background" />
+      <div className="relative z-10 flex flex-col items-center select-none gap-4 px-4 sm:flex-row sm:gap-6">
         {/* Logo */}
         <div className="animate-logo-pop">
           <Image
@@ -94,19 +94,20 @@ export default function Preloader() {
             alt="InterState Rankers"
             width={220}
             height={80}
+            className="h-auto w-36 sm:w-[220px]"
             priority
           />
         </div>
 
         {/* Separator line */}
-        <div className="w-px h-16 md:h-20 bg-white/30" />
+        <div className="hidden w-px h-16 md:h-20 bg-border sm:block" />
 
         {/* Text container to the right */}
-        <div className="leading-tight text-left">
+        <div className="leading-tight text-center sm:text-left">
           <div className="relative overflow-hidden">
             {/* reveal mask */}
             <span
-              className="block text-5xl md:text-6xl font-body font-bold text-white tracking-wide preloader-reveal-initial will-reveal reveal-left"
+              className="block text-3xl sm:text-5xl md:text-6xl font-semibold text-foreground tracking-tight preloader-reveal-initial will-reveal reveal-left"
               style={{ animationDelay: "300ms" }}
             >
               InterState
@@ -114,7 +115,7 @@ export default function Preloader() {
           </div>
           <div className="relative overflow-hidden mt-1">
             <span
-              className="block text-5xl md:text-6xl font-body font-bold text-white tracking-wide preloader-slide-initial will-slide slide-up-fade"
+              className="block text-3xl sm:text-5xl md:text-6xl font-semibold text-foreground tracking-tight preloader-slide-initial will-slide slide-up-fade"
               style={{ animationDelay: "700ms" }}
             >
               Rankers

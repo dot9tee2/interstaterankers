@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
 // Enforce HTTPS always; optionally enforce a single host if enabled via env
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const url = new URL(request.url)
 
   const isAsset = url.pathname.startsWith('/_next') ||

@@ -1,9 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Category } from '@/types/blog'
+import { cn } from '@/lib/utils'
 
 interface CategoryFilterProps {
   categories: Category[]
@@ -12,33 +10,28 @@ interface CategoryFilterProps {
 }
 
 export function CategoryFilter({ categories, selectedCategory, onCategoryChange }: CategoryFilterProps) {
-  const categoryColorMap = {
-    'primary': 'bg-primary text-primary-foreground',
-    'accent-cyan': 'bg-accent-cyan text-white',
-    'accent-amber': 'bg-accent-amber text-white',
-    'primary-glow': 'bg-primary-glow text-white',
-  }
+  const chip = (selected: boolean) => cn(
+    'rounded-full border px-4 py-2 text-sm font-medium transition-colors',
+    selected
+      ? 'border-accent-cyan bg-accent-cyan/10 text-accent-cyan'
+      : 'border-border bg-background text-muted-foreground hover:border-muted-foreground/40 hover:text-foreground'
+  )
 
   return (
-    <div className="flex flex-wrap gap-3 justify-center mb-8">
-      <Button
-        variant={selectedCategory === null ? 'default' : 'outline'}
-        size="sm"
-        onClick={() => onCategoryChange(null)}
-        className="transition-all duration-300"
-      >
-        All Posts
-      </Button>
+    <div className="flex flex-wrap gap-3 justify-center mb-12 md:mb-16">
+      <button type="button" aria-pressed={selectedCategory === null} onClick={() => onCategoryChange(null)} className={chip(selectedCategory === null)}>
+        All posts
+      </button>
       {categories.map((category) => (
-        <Button
+        <button
           key={category._id}
-          variant={selectedCategory === category.slug.current ? 'default' : 'outline'}
-          size="sm"
+          type="button"
+          aria-pressed={selectedCategory === category.slug.current}
           onClick={() => onCategoryChange(category.slug.current)}
-          className="transition-all duration-300"
+          className={chip(selectedCategory === category.slug.current)}
         >
           {category.title}
-        </Button>
+        </button>
       ))}
     </div>
   )

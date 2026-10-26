@@ -18,8 +18,8 @@ export function BlogPostCard({ post, featured = false }: BlogPostCardProps) {
       className="group flex flex-col h-full animate-slide-up"
     >
       <article className={cn(
-        "flex flex-col h-full rounded-2xl overflow-hidden border border-white/10 bg-card/30 hover:bg-card/80 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:shadow-accent-cyan/10 hover:-translate-y-2 group-hover:border-accent-cyan/20",
-        featured && "border-accent-cyan/30 shadow-lg shadow-accent-cyan/5"
+        "flex flex-col h-full rounded-2xl overflow-hidden border border-border bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group-hover:border-accent-cyan/40",
+        featured && "border-accent-cyan/40"
       )}>
         {/* Image Container */}
         <div className="relative h-56 w-full overflow-hidden">
@@ -32,18 +32,15 @@ export function BlogPostCard({ post, featured = false }: BlogPostCardProps) {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
-            <div className="w-full h-full bg-linear-to-br from-gray-900 to-gray-800 flex items-center justify-center">
+            <div className="w-full h-full bg-muted flex items-center justify-center">
               <span className="text-muted-foreground text-sm font-medium">No Image Available</span>
             </div>
           )}
 
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-60" />
-
           {/* Category Badge */}
           {post.category && (
-            <div className="absolute top-4 left-4">
-              <Badge className="bg-background/80 backdrop-blur-md text-foreground border-white/10 hover:bg-background shadow-lg">
+            <div className="absolute top-6 left-6">
+              <Badge className="bg-card text-foreground border-border hover:bg-card shadow-sm">
                 {post.category.title}
               </Badge>
             </div>
@@ -71,7 +68,7 @@ export function BlogPostCard({ post, featured = false }: BlogPostCardProps) {
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-body font-bold mb-3 leading-tight group-hover:text-accent-cyan transition-colors line-clamp-2">
+          <h3 className="text-xl font-semibold tracking-tight mb-3 leading-tight group-hover:text-accent-cyan transition-colors line-clamp-2">
             {post.title}
           </h3>
 
@@ -81,9 +78,9 @@ export function BlogPostCard({ post, featured = false }: BlogPostCardProps) {
           </p>
 
           {/* Footer CTA */}
-          <div className="flex items-center text-sm font-semibold text-accent-cyan/90 group-hover:text-accent-cyan transition-colors mt-auto">
-            Read Article
-            <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+          <div className="flex items-center gap-2 text-sm font-semibold text-accent-cyan mt-auto">
+            Read article
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </div>
         </div>
       </article>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Providers from "./providers";
 import Preloader from "@/components/layout/Preloader";
+import SmoothScroll from "@/components/layout/SmoothScroll";
 import { BackToTop } from "@/components/ui/back-to-top";
 import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -14,10 +15,10 @@ export const metadata: Metadata = {
 		default: "InterStateRankers",
 		template: "%s | InterStateRankers",
 	},
-	description: "AI-driven answering services and SEO solutions for US businesses.",
+	description: "Human-led answering with AI backup and SEO solutions for US businesses.",
 	openGraph: {
 		title: "InterStateRankers",
-		description: "AI-driven answering services and SEO solutions for US businesses.",
+		description: "Human-led answering with AI backup and SEO solutions for US businesses.",
 		url: (process.env.SITE_URL || "https://interstaterankers.com") + "/",
 		siteName: "InterStateRankers",
 		locale: "en_US",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
 	twitter: {
 		card: "summary_large_image",
 		title: "InterStateRankers",
-		description: "AI-driven answering services and SEO solutions for US businesses.",
+		description: "Human-led answering with AI backup and SEO solutions for US businesses.",
 		images: ["/favicon.ico"]
 	},
 	other: { "sitemap": "/sitemap.xml" },
@@ -68,8 +69,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en-US">
 			<body>
+				<SmoothScroll />
 				<Preloader />
-				<div className="site-root overflow-x-hidden w-full">
+				{/* overflow-x-clip, not hidden: hidden turns this wrapper into a scroll container, which stops position: sticky from working anywhere inside it */}
+				<div className="site-root overflow-x-clip w-full">
 					<Providers>
 						<SpeedInsights />
 						<Analytics />
@@ -94,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						</Script>
 					</>
 				) : null}
-				<Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive"
+				<script id="org-jsonld" type="application/ld+json"
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify({
 							"@context": "https://schema.org",
@@ -102,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 							"@id": "https://interstaterankers.com/#organization",
 							name: "InterStateRankers",
 							url: "https://interstaterankers.com/",
-							logo: "/InterStateRankerLogo.png",
+							logo: "https://interstaterankers.com/InterStateRankerLogo.png",
 							areaServed: { "@type": "Country", name: "United States" },
 							contactPoint: {
 								"@type": "ContactPoint",
@@ -114,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 							}
 						})
 					}} />
-				<Script id="website-jsonld" type="application/ld+json" strategy="afterInteractive"
+				<script id="website-jsonld" type="application/ld+json"
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify({
 							"@context": "https://schema.org",

@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Search, Phone, Mail, MapPin, Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
+import { primaryCta } from "@/data/cta";
 
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
@@ -20,7 +21,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm text-muted-foreground">
-              Powering business growth with AI-driven answering services and SEO solutions.
+              Helping US businesses grow with local SEO and human-led answering backed by AI.
             </p>
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">
               <Phone className="h-4 w-4" />
@@ -81,19 +82,20 @@ const Footer = () => {
             </p>
             <div className="space-y-2">
               <Link
-                href="/contact"
+                href={primaryCta.href}
                 className="block w-full text-center py-2 px-4 bg-primary text-primary-foreground rounded-lg hover-lift text-sm font-medium"
               >
-                Get a Proposal
+                {primaryCta.label}
               </Link>
             </div>
           </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-muted-foreground">
             <p>&copy; 2026 InterStateRankers. All rights reserved.</p>
-            <div className="flex items-center space-x-4 mt-2 md:mt-0">
+            {/* flex-wrap so the links move to a new line on narrow screens instead of squeezing onto one */}
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <Link href="/sitemap.xml" className="hover:text-foreground transition-colors" rel="sitemap">
                 XML Sitemap
               </Link>

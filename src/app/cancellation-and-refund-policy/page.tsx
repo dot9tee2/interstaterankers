@@ -2,9 +2,10 @@
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { PageHero } from "@/components/ui/page-hero";
 
 export const metadata = {
-    title: "Cancellation and Refund Policy | InterStateRankers",
+    title: "Cancellation and Refund Policy",
     description: "Read our cancellation and refund policy.",
 };
 
@@ -12,11 +13,11 @@ export default function CancellationRefundPolicy() {
     return (
         <>
             <Navbar />
-            <main className="min-h-screen bg-background pt-24 pb-12">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    <h1 className="text-4xl font-bold mb-8 text-foreground">Cancellation And Refund Policy</h1>
-
-                    <div className="prose prose-lg dark:prose-invert max-w-none space-y-6 text-muted-foreground">
+            <main className="min-h-screen divide-y divide-border">
+                <PageHero breadcrumbs={[{ label: "Cancellation and Refund Policy" }]} eyebrow="Legal" title="Cancellation and refund policy" />
+                <section className="py-20 sm:py-24">
+                <div className="container mx-auto max-w-4xl px-4 md:px-6">
+                    <div className="space-y-6 rounded-2xl border border-border bg-card p-6 text-muted-foreground md:p-8">
                         <p>
                             Due to the nature of our work, refunds are not available.
                         </p>
@@ -52,6 +53,7 @@ export default function CancellationRefundPolicy() {
                         </ul>
                     </div>
                 </div>
+                </section>
             </main>
             <Footer />
         </>

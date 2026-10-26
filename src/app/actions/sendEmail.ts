@@ -2,18 +2,20 @@
 
 import { Resend } from "resend";
 
-// I should define the type here or in a separate types file.
 export type ContactFormValues = {
 	fullName: string;
 	email: string;
 	phone?: string;
 	company?: string;
 	message: string;
+	interestedIn?: string[];
+	fax?: string; // Honeypot field
 };
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendContactEmailAction(values: any) {
+// Partial: server actions can be called with any payload, so required fields are checked below
+export async function sendContactEmailAction(values: Partial<ContactFormValues>) {
 	if (!process.env.RESEND_API_KEY) {
 		console.warn("RESEND_API_KEY is not configured. Simulating email send for demo purposes.");
 		await new Promise((resolve) => setTimeout(resolve, 500));
@@ -27,6 +29,10 @@ export async function sendContactEmailAction(values: any) {
 		if (fax) {
 			console.warn("Spam bot detected via honeypot. Discarding submission quietly.");
 			return { success: true, data: { id: "honeypot-dropped" } };
+		}
+
+		if (!fullName || !email || !message) {
+			return { success: false, error: "Missing required fields" };
 		}
 
 		const { data, error } = await resend.emails.send({

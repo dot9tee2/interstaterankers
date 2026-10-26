@@ -6,9 +6,12 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Menu, Phone, Headphones, Globe, Search, TrendingUp, ChevronDown, Code, Palette, Smartphone, Share2, ArrowRight, Mail } from "lucide-react";
+import { Menu, Phone, Headphones, MapPin, TrendingUp, ChevronDown, Code, Palette, Smartphone, Share2, PenLine, MousePointerClick, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatedBorder } from "@/components/ui/animated-border";
+import { primaryCta } from "@/data/cta";
+
+const iconButtonClass = "flex items-center justify-center w-10 h-10 rounded-full border border-border bg-muted text-foreground hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/50 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -122,15 +125,16 @@ const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
+  // One distinct icon per service
   const services = [
     { name: "Search Engine Optimization", href: "/services/seo", icon: TrendingUp, description: "Search optimization & ranking" },
-    { name: "Google My Business Optimization", href: "/services/gmb", icon: Globe, description: "Own your local map pack" },
+    { name: "Google My Business Optimization", href: "/services/gmb", icon: MapPin, description: "Own your local map pack" },
     { name: "Web Development", href: "/services/web-development", icon: Code, description: "Fast, modern, conversion-focused sites" },
-    { name: "Answering Services", href: "/services/answering", icon: Headphones, description: "24/7 professional call answering" },
+    { name: "Answering Services", href: "/services/answering", icon: Headphones, description: "Human-led answering with AI backup" },
     { name: "Calling Services", href: "/services/calling", icon: Phone, description: "Outbound calling & follow-ups" },
-    { name: "Content Marketing", href: "/services/content-marketing", icon: Share2, description: "Content that attracts and converts" },
-    { name: "Social Media Marketing", href: "/services/social-media", icon: Globe, description: "Grow reach across social platforms" },
-    { name: "PPC Management", href: "/services/ppc", icon: Globe, description: "Paid traffic that delivers ROI" },
+    { name: "Content Marketing", href: "/services/content-marketing", icon: PenLine, description: "Content that attracts and converts" },
+    { name: "Social Media Marketing", href: "/services/social-media", icon: Share2, description: "Grow reach across social platforms" },
+    { name: "PPC Management", href: "/services/ppc", icon: MousePointerClick, description: "Paid traffic that delivers ROI" },
     { name: "Graphic Designing", href: "/services/graphic-design", icon: Palette, description: "Brand-first creative that stands out" },
     { name: "App Development", href: "/services/app-development", icon: Smartphone, description: "iOS & Android apps that scale" },
   ];
@@ -140,7 +144,7 @@ const Navbar = () => {
       borderWidth={1}
       borderRadius="rounded-full"
       className="fixed top-4 left-0 right-0 z-50 mx-auto w-[calc(100%-2rem)] md:w-[95%] max-w-7xl shadow-2xl"
-      innerClassName="bg-slate-950/95 backdrop-blur-lg"
+      innerClassName="bg-background/95 backdrop-blur-lg"
     >
       <nav className="w-full h-full">
         <div className={cn(
@@ -159,7 +163,8 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          {/* space-x-6 below xl leaves room for the labeled CTA at 1024px */}
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -210,7 +215,7 @@ const Navbar = () => {
           {showServicesMenu && (
             <div
               role="menu"
-              className="hidden lg:block absolute top-[calc(100%+0.75rem)] left-1/2 -translate-x-1/2 w-[900px] rounded-3xl border border-white/10 bg-slate-950 p-6 shadow-2xl z-50 ring-1 ring-white/5"
+              className="hidden lg:block absolute top-[calc(100%+0.75rem)] left-1/2 -translate-x-1/2 w-[900px] rounded-3xl border border-border bg-background p-6 shadow-2xl z-50"
               onMouseEnter={openWithDelay}
               onMouseLeave={closeWithDelay}
             >
@@ -224,7 +229,7 @@ const Navbar = () => {
                       href={service.href}
                       role="menuitem"
                       ref={(el) => { serviceLinksRef.current[index] = el; }}
-                      className="group flex items-start space-x-4 rounded-2xl p-4 transition-all duration-200 hover:bg-white/5 border border-transparent hover:border-white/10"
+                      className="group flex items-start space-x-4 rounded-2xl p-4 transition-all duration-200 hover:bg-muted border border-transparent hover:border-border"
                     >
                       <div className="p-2 rounded-xl bg-accent-cyan/10 text-accent-cyan group-hover:bg-accent-cyan/20 transition-colors">
                         <service.icon className="h-5 w-5" />
@@ -246,7 +251,7 @@ const Navbar = () => {
                       href={service.href}
                       role="menuitem"
                       ref={(el) => { serviceLinksRef.current[index + 3] = el; }}
-                      className="group flex items-start space-x-4 rounded-2xl p-4 transition-all duration-200 hover:bg-white/5 border border-transparent hover:border-white/10"
+                      className="group flex items-start space-x-4 rounded-2xl p-4 transition-all duration-200 hover:bg-muted border border-transparent hover:border-border"
                     >
                       <div className="p-2 rounded-xl bg-accent-cyan/10 text-accent-cyan group-hover:bg-accent-cyan/20 transition-colors">
                         <service.icon className="h-5 w-5" />
@@ -260,9 +265,8 @@ const Navbar = () => {
                 </div>
 
                 {/* Column 3: Need Help Section */}
-                <div className="relative rounded-2xl bg-gradient-to-b from-white/5 to-transparent p-6 border border-white/5">
-                  <div className="absolute inset-0 bg-accent-cyan/5 rounded-2xl blur-xl" />
-                  <div className="relative">
+                <div className="rounded-2xl border border-border bg-card p-6">
+                  <div>
                     <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Need Guidance?</p>
 
                     <p className="text-sm text-muted-foreground/90 mb-6 leading-relaxed">
@@ -270,19 +274,17 @@ const Navbar = () => {
                     </p>
 
                     {/* Phone contact */}
-                    <a href="tel:+12816195295" className="flex items-center gap-3 text-sm font-semibold mb-6 hover:text-accent-cyan transition-colors p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5">
+                    <a href="tel:+12816195295" className="flex items-center gap-3 text-sm font-semibold mb-6 hover:text-accent-cyan transition-colors p-3 rounded-xl border border-border bg-background hover:bg-muted">
                       <Phone className="h-4 w-4 text-accent-cyan" />
                       <span>(281) 619-5295</span>
                     </a>
 
                     <div className="space-y-3">
-                      <Link href="/services" className="block">
-                        <Button size="sm" className="w-full hero-gradient hover-lift text-white font-semibold shadow-lg shadow-accent-cyan/20">
-                          Explore All Services
-                        </Button>
-                      </Link>
-                      <Link href="/contact" className="flex items-center justify-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-white transition-colors py-1">
-                        Get a Custom Proposal
+                      <Button asChild size="sm" variant="outline" className="w-full rounded-xl border-border bg-transparent font-semibold text-foreground hover:bg-muted hover:text-foreground">
+                        <Link href="/services">Explore All Services</Link>
+                      </Button>
+                      <Link href={primaryCta.href} className="flex items-center justify-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors py-1">
+                        {primaryCta.label}
                         <ArrowRight className="h-3 w-3" />
                       </Link>
                     </div>
@@ -292,15 +294,14 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* Icon CTA Buttons */}
-          {/* Icon CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Right side: WhatsApp from lg, the labeled main CTA from md (phones get MobileCTABar on the homepage instead), menu below lg */}
+          <div className="flex items-center gap-3">
             {/* WhatsApp Button */}
             <a
               href="https://wa.me/12392919024"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/5 text-white hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 group backdrop-blur-sm"
+              className={cn(iconButtonClass, "hidden lg:flex")}
               aria-label="Contact on WhatsApp"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -308,75 +309,70 @@ const Navbar = () => {
               </svg>
             </a>
 
-            {/* Mail Button */}
-            <Link href="/contact">
-              <Button
-                size="icon"
-                className="rounded-full border border-white/10 bg-white/5 text-white hover:bg-accent-cyan/10 hover:text-accent-cyan hover:border-accent-cyan/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all w-10 h-10 backdrop-blur-sm"
-                aria-label="Contact via Email"
-              >
-                <Mail className="h-5 w-5" />
-              </Button>
+            {/* Main CTA, always in view while scrolling */}
+            <Link
+              href={primaryCta.href}
+              className="hidden md:inline-flex h-10 items-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {primaryCta.label}
             </Link>
-          </div>
 
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-80">
-              <div className="flex flex-col space-y-4 mt-8">
-                {navigation.map((item) => (
-                  <div key={item.name}>
-                    {item.hasDropdown ? (
-                      <Collapsible open={isMobileServicesOpen} onOpenChange={setIsMobileServicesOpen}>
-                        <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-lg font-medium hover:text-foreground">
-                          <span>{item.name}</span>
-                          <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isMobileServicesOpen && "rotate-180")} />
-                        </CollapsibleTrigger>
-                        <CollapsibleContent className="ml-4 mt-2 space-y-2">
-                          {services.map((service) => (
-                            <Link
-                              key={service.name}
-                              href={service.href}
-                              className="flex items-center gap-2 py-1 text-sm text-muted-foreground hover:text-foreground"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              <service.icon className="h-4 w-4 text-accent-cyan" />
-                              <span>{service.name}</span>
-                            </Link>
-                          ))}
-                        </CollapsibleContent>
-                      </Collapsible>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="block py-2 text-lg font-medium"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
+            {/* Mobile Menu */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80">
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navigation.map((item) => (
+                    <div key={item.name}>
+                      {item.hasDropdown ? (
+                        <Collapsible open={isMobileServicesOpen} onOpenChange={setIsMobileServicesOpen}>
+                          <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-lg font-medium hover:text-foreground">
+                            <span>{item.name}</span>
+                            <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isMobileServicesOpen && "rotate-180")} />
+                          </CollapsibleTrigger>
+                          <CollapsibleContent className="ml-4 mt-2 space-y-2">
+                            {services.map((service) => (
+                              <Link
+                                key={service.name}
+                                href={service.href}
+                                className="flex items-center gap-2 py-1 text-sm text-muted-foreground hover:text-foreground"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <service.icon className="h-4 w-4 text-accent-cyan" />
+                                <span>{service.name}</span>
+                              </Link>
+                            ))}
+                          </CollapsibleContent>
+                        </Collapsible>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className="block py-2 text-lg font-medium"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                  <div className="pt-4 space-y-2">
+                    <Button asChild variant="outline" className="w-full">
+                      <a href="tel:+12816195295">Talk to an Expert</a>
+                    </Button>
+                    <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                      <Link href={primaryCta.href} onClick={() => setIsOpen(false)}>
+                        {primaryCta.label}
                       </Link>
-                    )}
+                    </Button>
                   </div>
-                ))}
-                <div className="pt-4 space-y-2">
-                  <a href="tel:+12816195295" className="w-full">
-                    <Button variant="outline" className="w-full">
-                      Talk to an Expert
-                    </Button>
-                  </a>
-                  <Link href="/contact" className="w-full" onClick={() => setIsOpen(false)}>
-                    <Button className="w-full hero-gradient text-white">
-                      Get a Proposal
-                    </Button>
-                  </Link>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
     </AnimatedBorder>

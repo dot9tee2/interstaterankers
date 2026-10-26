@@ -39,13 +39,13 @@ export const BackToTop = () => {
             variant="default"
             size="icon"
             className={cn(
-                "fixed bottom-8 right-8 z-50 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hidden md:flex hero-gradient border-none",
+                "fixed bottom-8 right-8 z-50 rounded-full border border-border bg-card text-foreground transition-all duration-300 hover:bg-muted hidden md:flex",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
             )}
             onClick={scrollToTop}
             aria-label="Back to top"
         >
-            <ArrowUp className="w-5 h-5 text-white" />
+            <ArrowUp className="w-5 h-5" />
         </Button>
     );
 };

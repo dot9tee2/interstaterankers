@@ -36,7 +36,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
             <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-colors duration-300"
+                className="rounded-full border-border hover:bg-muted hover:text-foreground transition-colors duration-300"
                 onClick={() => window.open(shareLinks.linkedin, '_blank', 'width=600,height=600')}
                 title="Share on LinkedIn"
             >
@@ -47,7 +47,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
             <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full hover:bg-black hover:text-white hover:border-black transition-colors duration-300"
+                className="rounded-full border-border hover:bg-muted hover:text-foreground transition-colors duration-300"
                 onClick={() => window.open(shareLinks.twitter, '_blank', 'width=600,height=600')}
                 title="Share on X (Twitter)"
             >
@@ -58,7 +58,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
             <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full hover:bg-[#1877f2] hover:text-white hover:border-[#1877f2] transition-colors duration-300"
+                className="rounded-full border-border hover:bg-muted hover:text-foreground transition-colors duration-300"
                 onClick={() => window.open(shareLinks.facebook, '_blank', 'width=600,height=600')}
                 title="Share on Facebook"
             >
@@ -69,7 +69,7 @@ export function SocialShare({ url, title }: SocialShareProps) {
             <Button
                 variant="outline"
                 size="icon"
-                className="rounded-full hover:bg-accent-cyan hover:text-black hover:border-accent-cyan transition-colors duration-300"
+                className="rounded-full border-border hover:bg-muted hover:text-foreground transition-colors duration-300"
                 onClick={handleCopy}
                 title="Copy Link"
             >

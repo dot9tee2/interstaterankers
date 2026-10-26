@@ -4,60 +4,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Copied from src/index.css */
 @layer base {
+	/* Site-wide tokens: the dark palette described in the color system notes below */
 	:root {
-		/* Core Brand Colors */
-		--background: 220 23% 7%;
+		--background: 222 30% 7%;
 		--foreground: 210 40% 98%;
-		/* Surface Colors */
-		--card: 217 33% 17%;
+		--card: 222 26% 11%;
 		--card-foreground: 210 40% 98%;
-		--popover: 220 23% 7%;
+		--popover: 222 26% 11%;
 		--popover-foreground: 210 40% 98%;
-		/* Primary Brand Gradient - Indigo to Electric Violet */
-		--primary: 265 90% 15%;
-		--primary-foreground: 210 40% 98%;
-		--primary-glow: 262 83% 65%;
-		/* Secondary Surfaces */
-		--secondary: 215 28% 17%;
+		--primary: 262 72% 58%;
+		--primary-foreground: 0 0% 100%;
+		--primary-glow: 262 90% 76%;
+		--brand: 262 90% 76%;
+		--secondary: 222 22% 14%;
 		--secondary-foreground: 210 40% 98%;
-		/* Muted Tones */
-		--muted: 217 33% 17%;
+		--muted: 222 22% 14%;
 		--muted-foreground: 215 20% 65%;
-		/* Accent Colors */
 		--accent-cyan: 187 85% 53%;
 		--accent-amber: 38 92% 50%;
-		--accent-foreground: 220 23% 7%;
-		/* Status Colors */
+		--accent-foreground: 222 30% 7%;
 		--destructive: 0 84% 60%;
 		--destructive-foreground: 210 40% 98%;
 		--success: 142 76% 36%;
 		--success-foreground: 210 40% 98%;
-		/* UI Elements */
-		--border: 215 28% 17%;
-		--input: 215 28% 17%;
-		--ring: 262 83% 65%;
+		--border: 222 18% 19%;
+		--input: 222 18% 19%;
+		--ring: 262 90% 76%;
 		--radius: 0.75rem;
-		/* Brand Gradients */
-		--gradient-primary: linear-gradient(135deg, hsl(243 55% 18%) 0%, hsl(262 83% 65%) 100%);
-		--gradient-accent: linear-gradient(135deg, hsl(187 85% 53%) 0%, hsl(38 92% 50%) 100%);
-		--gradient-surface: linear-gradient(135deg, hsl(217 33% 17%) 0%, hsl(215 28% 17%) 100%);
-		/* Shadows */
-		--shadow-glow: 0 0 40px hsl(262 83% 65% / 0.3);
-		--shadow-card: 0 20px 40px -12px hsl(220 23% 7% / 0.8);
-		--shadow-button: 0 10px 30px -10px hsl(262 83% 65% / 0.4);
+		/* Flat surfaces only: the gradient helpers resolve to solid colors so leftover usages stay on-palette */
+		--gradient-primary: hsl(262 72% 58%);
+		--gradient-accent: hsl(187 85% 53%);
+		--gradient-surface: hsl(222 26% 11%);
+		--shadow-glow: none;
+		--shadow-card: none;
+		--shadow-button: none;
 		/* Animation Timings */
 		--transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		--transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 		--sidebar-background: 0 0% 98%;
 		--sidebar-foreground: 240 5.3% 26.1%;
 		--sidebar-primary: 240 5.9% 10%;
-		--sidebar-primary-foreground: 0 0% 98%;
+		--sidebar-primary-foreground: 0 0% 100%;
 		--sidebar-accent: 240 4.8% 95.9%;
 		--sidebar-accent-foreground: 240 5.9% 10%;
 		--sidebar-border: 220 13% 91%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
+		color-scheme: dark;
 	}
 
 	.dark {
@@ -88,6 +81,73 @@
 		--sidebar-accent-foreground: 240 4.8% 95.9%;
 		--sidebar-border: 240 3.7% 15.9%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
+	}
+}
+
+/*
+ * Color system v2. :root above carries the dark palette for the whole site; .theme-dark repeats it
+ * so anything already scoped to it keeps working. Hues: ink 222, violet 262, cyan 187/192,
+ * amber 38, with a role for each:
+ *   primary       violet fills: buttons, solid chips (white text on top)
+ *   brand         violet text and icons, tuned to stay readable on the current surface
+ *   accent-cyan   eyebrows, links, icons and data highlights
+ *   accent-amber  star ratings and status only
+ * Surfaces: page sections sit on background; cards sit on card; a "band" section uses
+ * card as its background and puts background-colored cards inside it.
+ * .theme-light is kept for an optional light block:
+ * wrapping any element in it switches every token inside to the light palette.
+ */
+@layer base {
+	.theme-dark {
+		color-scheme: dark;
+		--background: 222 30% 7%;
+		--foreground: 210 40% 98%;
+		--card: 222 26% 11%;
+		--card-foreground: 210 40% 98%;
+		--popover: 222 26% 11%;
+		--popover-foreground: 210 40% 98%;
+		--muted: 222 22% 14%;
+		--muted-foreground: 215 20% 65%;
+		--secondary: 222 22% 14%;
+		--secondary-foreground: 210 40% 98%;
+		--border: 222 18% 19%;
+		--input: 222 18% 19%;
+		--primary: 262 72% 58%;
+		--primary-foreground: 0 0% 100%;
+		--primary-glow: 262 90% 76%;
+		--brand: 262 90% 76%;
+		--accent-cyan: 187 85% 53%;
+		--accent-foreground: 222 30% 7%;
+		--accent-amber: 38 92% 50%;
+		--ring: 262 90% 76%;
+		background-color: hsl(var(--background));
+		color: hsl(var(--foreground));
+	}
+
+	.theme-light {
+		color-scheme: light;
+		--background: 250 30% 98%;
+		--foreground: 222 30% 9%;
+		--card: 0 0% 100%;
+		--card-foreground: 222 30% 9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 222 30% 9%;
+		--muted: 248 28% 95%;
+		--muted-foreground: 222 12% 38%;
+		--secondary: 248 28% 95%;
+		--secondary-foreground: 222 30% 9%;
+		--border: 245 16% 89%;
+		--input: 245 16% 89%;
+		--primary: 262 72% 58%;
+		--primary-foreground: 0 0% 100%;
+		--primary-glow: 262 62% 50%;
+		--brand: 262 62% 50%;
+		--accent-cyan: 192 90% 29%;
+		--accent-foreground: 0 0% 100%;
+		--accent-amber: 36 95% 44%;
+		--ring: 262 62% 50%;
+		background-color: hsl(var(--background));
+		color: hsl(var(--foreground));
 	}
 }
 
@@ -351,7 +411,7 @@
 	position: relative;
 	height: 2px;
 	width: 200px;
-	background: rgba(255, 255, 255, 0.2);
+	background: hsl(var(--border));
 	border-radius: 9999px;
 	overflow: hidden;
 }
@@ -362,8 +422,7 @@
 	top: 0;
 	height: 100%;
 	width: 0%;
-	background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
-	box-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+	background: hsl(var(--accent-cyan));
 	transition: width 0.3s ease;
 }
 

@@ -1,96 +1,94 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, CheckCircle, Star } from "lucide-react";
+import { ArrowRight, Phone, CheckCircle, Users } from "lucide-react";
+import { primaryCta } from "@/data/cta";
+import { clientCount, guarantee } from "@/data/proof";
 
 const FinalCTA = () => {
   const benefits = [
     "Free consultation & business audit",
-    "Custom growth strategy in 24 hours",
+    "Business audit in 1–2 working days",
     "No long-term contracts required",
-    "Results guaranteed or money back"
+    guarantee.title
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 hero-gradient" />
-
+    // The page's only violet band and its last high point, so it gets more room than the standard py-20 sm:py-24.
+    // MobileCTABar watches the id and hides its own bar while this section is on screen.
+    <section id="final-cta" className="relative py-24 sm:py-32 overflow-hidden bg-primary text-primary-foreground">
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4">
+      <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Trust Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8 text-sm font-medium text-white animate-fade-in">
-            <Star className="w-4 h-4 text-accent-amber" />
-            <span>Trusted by 100+ growing businesses</span>
+          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-4 py-2 mb-8 text-sm font-medium animate-fade-in">
+            <Users className="w-4 h-4" />
+            <span>Trusted by {clientCount}+ growing businesses</span>
           </div>
 
           {/* Main Headline */}
-          <h2 className="text-4xl md:text-6xl font-body font-bold text-white mb-6 animate-slide-up">
-            Ready to Grow?
+          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 animate-slide-up">
+            Ready to grow?
           </h2>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
+          <p className="text-xl md:text-2xl mb-8 leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
             Stop losing leads to missed calls and poor search rankings.
             <br />
-            <span className="accent-gradient-text font-semibold">Start capturing every opportunity today.</span>
+            <span className="font-semibold">Start capturing every opportunity today.</span>
           </p>
 
-          {/* Benefits List */}
+          {/* Benefits List: same check icon, size and gap as the trust row below */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10 animate-slide-up" style={{ animationDelay: '400ms' }}>
-            {benefits.map((benefit, index) => (
-              <div key={benefit} className="flex items-center space-x-3 text-white/90">
-                <CheckCircle className="w-5 h-5 text-accent-cyan flex-shrink-0" />
+            {benefits.map((benefit) => (
+              <div key={benefit} className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" />
                 <span className="text-sm font-medium">{benefit}</span>
               </div>
             ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8 animate-slide-up" style={{ animationDelay: '600ms' }}>
-            <a href="/contact">
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:bg-white/90 hover-lift glow-button text-lg px-8 py-6 h-auto font-bold"
-              >
-                Get Your Free Proposal
-                <ArrowRight className="ml-2 h-6 w-6" />
-              </Button>
-            </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 animate-slide-up" style={{ animationDelay: '600ms' }}>
+            <Button
+              asChild
+              size="lg"
+              className="h-14 w-full sm:w-auto px-8 text-base font-semibold rounded-xl bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+            >
+              <a href={primaryCta.href}>
+                {primaryCta.label}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
 
-            <a href="tel:+12816195295">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold"
-              >
-                <Phone className="mr-2 h-5 w-5" />
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-14 w-full sm:w-auto px-8 text-base font-semibold rounded-xl border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            >
+              <a href="tel:+12816195295">
+                <Phone className="h-4 w-4" />
                 Talk to an Expert Now
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-8 text-white/70 text-sm animate-slide-up" style={{ animationDelay: '800ms' }}>
-            <div className="flex items-center space-x-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-2 text-primary-foreground/90 text-sm animate-slide-up" style={{ animationDelay: '800ms' }}>
+            <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4" />
               <span>No setup fees</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4" />
               <span>Cancel anytime</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4" />
               <span>24/7 support</span>
             </div>
           </div>
 
         </div>
-
-        {/* Background Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-accent-cyan/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent-amber/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-white/10 rounded-full blur-2xl animate-pulse delay-500" />
       </div>
     </section>
   );

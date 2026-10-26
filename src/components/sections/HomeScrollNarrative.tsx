@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Compass, Hammer, Rocket, GaugeCircle, ArrowRight } from "lucide-react";
+import { Compass, Hammer, Rocket, GaugeCircle } from "lucide-react";
+import { SectionHeader } from "@/components/ui/section-header";
 
 type PlaybookStep = {
   id: string;
@@ -61,8 +62,9 @@ const HomeScrollNarrative = () => {
         }
         if (Object.keys(updates).length) {
           setProgressById((prev) => ({ ...prev, ...updates }));
-          const best = Object.entries({ ...progressById, ...updates }).sort((a, b) => b[1] - a[1])[0];
-          if (best && best[0] !== activeId) setActiveId(best[0]);
+          // Most visible of the sections that just changed; React skips the update when it's already active
+          const best = Object.entries(updates).sort((a, b) => b[1] - a[1])[0];
+          if (best) setActiveId(best[0]);
         }
       },
       { threshold: Array.from({ length: 11 }, (_, i) => i / 10) }
@@ -82,22 +84,24 @@ const HomeScrollNarrative = () => {
   };
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-body font-bold mb-4 gradient-text">Our Growth Playbook</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">A simple, repeatable system that compounds results—designed to move fast and measure what matters.</p>
-        </div>
+    <section className="py-20 sm:py-24 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <SectionHeader
+          className="mb-12 md:mb-16"
+          eyebrow="How it works"
+          title="Our growth playbook"
+          description="A simple, repeatable system that compounds results—designed to move fast and measure what matters."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Left sticky nav (desktop) */}
           <aside className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24 space-y-4">
-              <div className="p-6 rounded-2xl bg-card border border-border glow-card">
+              <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">
                 <h3 className="text-2xl font-body font-bold">Playbook</h3>
-                <p className="text-sm text-muted-foreground">Follow the steps as the story scrolls on the right.</p>
+                <p className="mt-1 text-sm text-muted-foreground">Follow the steps as the story scrolls on the right.</p>
               </div>
-              <nav className="p-2 rounded-2xl bg-card border border-border glow-card divide-y divide-border">
+              <nav className="p-2 rounded-2xl bg-card border border-border shadow-sm divide-y divide-border">
                 {STEPS.map((s) => {
                   const isActive = s.id === activeId;
                   const pct = Math.round((progressById[s.id] || 0) * 100);
@@ -121,8 +125,8 @@ const HomeScrollNarrative = () => {
           </aside>
 
           {/* Mobile top pills */}
-          <div className="lg:hidden -mx-4">
-            <div className="px-4 pb-4 sticky top-16 z-10 bg-background/80 backdrop-blur-sm border-b border-border">
+          <div className="lg:hidden -mx-4 md:-mx-6">
+            <div className="px-4 md:px-6 pb-4 sticky top-16 z-10 bg-background/80 backdrop-blur-sm border-b border-border">
               <div className="flex gap-2 overflow-x-auto no-scrollbar">
                 {STEPS.map((s) => (
                   <button
@@ -137,18 +141,19 @@ const HomeScrollNarrative = () => {
             </div>
           </div>
 
-          {/* Right scrollytelling content */}
-          <div className="lg:col-span-8 space-y-16">
+          {/* Right scrollytelling content: the wider desktop spacing gives the sticky nav room to track each step */}
+          <div className="lg:col-span-8 space-y-8 lg:space-y-16">
             {STEPS.map((s) => (
               <section
                 key={s.id}
                 id={s.id}
                 ref={(el) => { sectionRefs.current[s.id] = el; }}
-                className="scroll-mt-24 p-6 rounded-2xl bg-card border border-border glow-card group"
+                className="scroll-mt-24 p-6 rounded-2xl bg-card border border-border shadow-sm"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center">
-                    <s.icon className="w-6 h-6 text-white" />
+                  {/* Neutral icon tile: violet fills are kept for the main call-to-action button */}
+                  <div className="w-12 h-12 shrink-0 rounded-xl border border-border bg-background flex items-center justify-center">
+                    <s.icon className="w-6 h-6 text-accent-cyan" />
                   </div>
                   <div>
                     <h4 className="text-xl font-body font-semibold">{s.title}</h4>
@@ -163,10 +168,6 @@ const HomeScrollNarrative = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground group-hover:text-accent-cyan transition-colors">
-                  <span>See how it works</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </div>
               </section>
             ))}
           </div>

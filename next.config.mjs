@@ -7,6 +7,8 @@ const __dirname = path.dirname(__filename);
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Lets phones on the local network load dev assets (HMR, client chunks)
+  allowedDevOrigins: ['192.168.18.17'],
   // This empty object tells Next.js it's okay to run Turbopack 
   // even though you have a custom webpack config below.
   turbopack: {},

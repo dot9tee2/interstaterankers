@@ -1,21 +1,26 @@
+// slug: the package's id in links (/contact?package=<slug>).
+// services: the contact form options preselected for the package; they must match the ids in ContactForm's SERVICES.
 export const pricingPackages = [
     {
+        slug: "google-maps-growth",
         name: "Google Maps Growth Package",
-        price: "299.00",
+        services: ["Local SEO / GMB"],
+        price: "249.00",
         description: "GBP Optimization for local reach & Monthly Management",
         features: [
             "Reputation Management & Review Optimization",
             "High-Intent Transactional Keywords Targeting",
-            "Daily Google Business Profile Posting",
+            "Three Weekly GBP Posts After Initial Optimization",
             "NAP Consistency & Citation Correction",
             "Google Maps Ranking Optimization",
             "Monthly Reporting"
         ],
-        popular: false,
-        gradient: "from-blue-500/20 to-cyan-500/20"
+        popular: false
     },
     {
+        slug: "authority-pro",
         name: "Authority Pro Package",
+        services: ["SEO", "Local SEO / GMB"],
         price: "499.00",
         description: "Advanced Reputation Management",
         features: [
@@ -30,11 +35,12 @@ export const pricingPackages = [
             "Reputation & Review Growth",
             "Monthly Performance Reporting"
         ],
-        popular: false,
-        gradient: "from-purple-500/20 to-pink-500/20"
+        popular: false
     },
     {
+        slug: "google-meta-ads-growth",
         name: "Google/Meta Ads Growth Package",
+        services: ["PPC"],
         price: "749.00",
         description: "Google/Meta Ads Management",
         features: [
@@ -49,11 +55,12 @@ export const pricingPackages = [
             "Reputation & Review Management",
             "Monthly Performance Reporting"
         ],
-        popular: false,
-        gradient: "from-purple-500/20 to-pink-500/20"
+        popular: false
     },
     {
+        slug: "social-authority",
         name: "Social Authority Package",
+        services: ["Social Media"],
         price: "399.00",
         description: "Social Media Management",
         features: [
@@ -66,28 +73,30 @@ export const pricingPackages = [
             "Reputation & Review Management",
             "Monthly Performance Reporting"
         ],
-        popular: false,
-        gradient: "from-purple-500/20 to-pink-500/20"
+        popular: false
     },
     {
+        slug: "lead-capture-booking",
         name: "Lead Capture & Booking Suite",
-        price: "999.00",
-        description: "Answering Services, Appointments & CRM Management",
+        services: ["Answering & Lead Capture"],
+        price: "1200.00",
+        description: "Human-led answering, appointments & CRM updates. Scope and pricing can be discussed.",
         features: [
             "Lead Answering So No Opportunity is Missed",
             "Lead Qualification Before Booking Appointments",
             "Realtime Lead Capture & Qualification",
             "Centralized CRM To Track Calls, Leads & Follow-ups",
             "Increased Engagement Inquiries & Reach",
-            "No Missed Calls, Faster Response & Higher Close Rates",
+            "Human Coverage Weekdays, 9 AM–5 PM Central; Mixed Human & AI Coverage Otherwise",
             "Higher Conversion From Every Inbound Lead",
             "Monthly Performance Reporting"
         ],
-        popular: true,
-        gradient: "from-purple-500/20 to-pink-500/20"
+        popular: true
     },
     {
+        slug: "interstate-premium",
         name: "Interstate Premium",
+        services: ["Answering & Lead Capture", "Local SEO / GMB", "SEO", "Web Development", "PPC", "Social Media"],
         price: "2249.00",
         description: "Complete domination with full Interstate at Your Service.",
         features: [
@@ -106,7 +115,6 @@ export const pricingPackages = [
             "Free QR Code",
             "Monthly Performance Reporting"
         ],
-        popular: true,
-        gradient: "from-amber-500/20 to-orange-500/20"
+        popular: true
     }
 ];

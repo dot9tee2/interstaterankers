@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getFeaturedPosts, getAllPosts } from "@/lib/blog";
 import { urlFor } from "@/lib/sanity";
 import { cn } from "@/lib/utils";
+import { SectionHeader } from "@/components/ui/section-header";
 
 const InsightsPreview = async () => {
   // Prefer featured posts; fallback to latest 3 posts
@@ -16,28 +17,17 @@ const InsightsPreview = async () => {
   }
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-background" />
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-accent-cyan/5 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <Badge variant="outline" className="mb-4 border-accent-cyan text-accent-cyan bg-accent-cyan/10 px-4 py-1.5 rounded-full text-sm">
-            Knowledge Hub
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-body font-bold mb-6 gradient-text">
-            Growth Insights
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Stay ahead of the curve with our latest strategies, case studies, and industry analysis for sustainable business growth.
-          </p>
-        </div>
+    <section className="py-20 sm:py-24 bg-background relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <SectionHeader
+          className="mb-12 md:mb-16 animate-fade-in"
+          eyebrow="Knowledge hub"
+          title="Growth insights"
+          description="Stay ahead of the curve with our latest strategies, case studies, and industry analysis for sustainable business growth."
+        />
 
         {/* Insights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post, index) => (
             <Link
               href={`/insights/${post.slug.current}`}
@@ -45,7 +35,7 @@ const InsightsPreview = async () => {
               className="group flex flex-col h-full animate-slide-up"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <article className="flex flex-col h-full rounded-2xl overflow-hidden border border-white/10 bg-card/30 hover:bg-card/80 backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:shadow-accent-cyan/10 hover:-translate-y-2 group-hover:border-accent-cyan/20">
+              <article className="flex flex-col h-full rounded-2xl overflow-hidden border border-border bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group-hover:border-accent-cyan/40">
                 {/* Image Container */}
                 <div className="relative h-56 w-full overflow-hidden">
                   {post.featuredImage ? (
@@ -57,17 +47,14 @@ const InsightsPreview = async () => {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   ) : (
-                    <div className="w-full h-full bg-linear-to-br from-gray-900 to-gray-800 flex items-center justify-center">
+                    <div className="w-full h-full bg-muted flex items-center justify-center">
                       <span className="text-muted-foreground text-sm font-medium">No Image Available</span>
                     </div>
                   )}
 
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-60" />
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-background/80 backdrop-blur-md text-foreground border-white/10 hover:bg-background shadow-lg">
+                  {/* Category Badge: inset to line up with the p-6 content below */}
+                  <div className="absolute top-6 left-6">
+                    <Badge className="bg-card text-foreground border-border hover:bg-card shadow-sm">
                       {post.category?.title ?? "Insight"}
                     </Badge>
                   </div>
@@ -89,7 +76,7 @@ const InsightsPreview = async () => {
                     </div>
                     <div className="flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" />
-                      <span>{post.readTime ?? "5 min read"}</span>
+                      <span>{post.readTime ?? 5} min read</span>
                     </div>
                   </div>
 
@@ -104,9 +91,9 @@ const InsightsPreview = async () => {
                   </p>
 
                   {/* Footer CTA */}
-                  <div className="flex items-center text-sm font-semibold text-accent-cyan/90 group-hover:text-accent-cyan transition-colors mt-auto">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-accent-cyan mt-auto">
                     Read Article
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
               </article>
@@ -114,14 +101,14 @@ const InsightsPreview = async () => {
           ))}
         </div>
 
-        {/* View All CTA */}
-        <div className="text-center">
-          <Link href="/insights">
-            <Button size="lg" className="hero-gradient hover-lift text-white font-semibold rounded-full px-8 h-12 shadow-lg shadow-primary/20">
-              View All Insights
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
+        {/* View All CTA: outlined, because reading more is never the main action (the violet fill is kept for that) */}
+        <div className="text-center mt-12 md:mt-16">
+          <Button asChild variant="outline" size="lg" className="h-12 rounded-xl border-border bg-transparent px-6 font-semibold text-foreground hover:bg-muted hover:text-foreground">
+            <Link href="/insights">
+              View all insights
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

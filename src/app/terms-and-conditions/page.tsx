@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import Link from "next/link";
+import { PageHero } from "@/components/ui/page-hero";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-    title: "Terms and Conditions | InterStateRankers",
+    title: "Terms and Conditions",
     description: "Terms and Conditions for InterStateRankers. Please read these terms carefully before using our services.",
     openGraph: {
         title: "Terms and Conditions | InterStateRankers",
@@ -20,51 +19,35 @@ export const metadata: Metadata = {
 };
 
 export default function TermsAndConditionsPage() {
-    const currentDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    // Date the policy text last changed; update it whenever the wording changes
+    const lastUpdated = "February 25, 2026";
 
     return (
         <div className="min-h-screen">
             <Navbar />
-            <main className="container mx-auto px-4 py-16">
-                {/* Breadcrumb */}
-                <div className="mb-8">
-                    <Breadcrumb>
-                        <BreadcrumbList>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink asChild>
-                                    <Link href="/">Home</Link>
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator />
-                            <BreadcrumbItem>
-                                <BreadcrumbPage>Terms and Conditions</BreadcrumbPage>
-                            </BreadcrumbItem>
-                        </BreadcrumbList>
-                    </Breadcrumb>
-                </div>
-
-                <article className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
-                    <h1 className="text-4xl md:text-5xl font-body font-bold mb-8 gradient-text">Terms and Conditions</h1>
-
-                    <div className="bg-card border border-border rounded-xl p-8 shadow-sm">
-                        <p className="text-sm text-muted-foreground mb-6">Last Updated: {currentDate}</p>
+            <main className="divide-y divide-border">
+                <PageHero breadcrumbs={[{ label: "Terms and Conditions" }]} eyebrow="Legal" title="Terms and Conditions" />
+                <section className="py-20 sm:py-24">
+                <article className="container mx-auto max-w-4xl px-4 md:px-6">
+                    <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+                        <p className="text-sm text-muted-foreground mb-6">Last Updated: {lastUpdated}</p>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">1. Introduction</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">1. Introduction</h2>
                             <p className="text-muted-foreground mb-4">
                                 Welcome to InterStateRankers. These Terms and Conditions govern your use of our website and services. By accessing or using our services, you agree to be bound by these terms. If you do not agree to any part of these terms, you may not use our services.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">2. Services</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">2. Services</h2>
                             <p className="text-muted-foreground mb-4">
                                 InterStateRankers provides digital marketing services, including SEO, web development, content marketing, and AI-driven answering services. The specific details of the services provided to you will be outlined in your individual service agreement or proposal.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">3. SMS and Mobile Messaging Terms</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">3. SMS and Mobile Messaging Terms</h2>
                             <p className="text-muted-foreground mb-4">
                                 By providing your phone number and opting in to receive SMS/MMS messages from InterStateRankers, you agree to the following:
                             </p>
@@ -79,35 +62,35 @@ export default function TermsAndConditionsPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">4. Intellectual Property</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">4. Intellectual Property</h2>
                             <p className="text-muted-foreground mb-4">
                                 All content, original images, logos, and software on this site are the property of InterStateRankers or its content suppliers and are protected by international copyright laws.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">5. Limitation of Liability</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">5. Limitation of Liability</h2>
                             <p className="text-muted-foreground mb-4">
                                 InterStateRankers will not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, even if we have been advised of the possibility of such damages.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">6. Governing Law</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">6. Governing Law</h2>
                             <p className="text-muted-foreground">
                                 These Terms and Conditions shall be governed by and construed in accordance with the laws of the State of Texas, United States, without regard to its conflict of law provisions.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">7. Changes to Terms</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">7. Changes to Terms</h2>
                             <p className="text-muted-foreground">
                                 We reserve the right to update these Terms and Conditions at any time. Changes will be effective immediately upon posting to this page.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">8. Contact Us</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">8. Contact Us</h2>
                             <div className="mt-4">
                                 <p className="font-semibold text-foreground">InterStateRankers</p>
                                 <p className="text-muted-foreground"><a href="mailto:info@interstaterankers.com" className="hover:underline">info@interstaterankers.com</a></p>
@@ -118,6 +101,7 @@ export default function TermsAndConditionsPage() {
                         </section>
                     </div>
                 </article>
+                </section>
             </main>
 
             <Script id="terms-schema" type="application/ld+json" strategy="afterInteractive"

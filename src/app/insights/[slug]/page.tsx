@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/ui/section-header";
 import { ArrowLeft, Clock, User, Calendar, Share2, Linkedin, Twitter, Facebook } from "lucide-react";
 import { format } from "date-fns";
 import Navbar from "@/components/layout/Navbar";
@@ -86,7 +87,7 @@ const portableTextComponents: PortableTextComponents = {
     image: ({ value }: PortableTextTypeComponentProps<SanityImageSource & { caption?: string; alt?: string; _type: 'image' }>) => {
       return (
         <figure className="my-10">
-          <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-lg">
+          <div className="relative rounded-2xl overflow-hidden border border-border">
             <Image
               src={urlFor(value).width(1000).height(600).url()}
               alt={value.alt || ""}
@@ -107,16 +108,16 @@ const portableTextComponents: PortableTextComponents = {
   block: {
     // FIX: Render H1 as H2 to avoid duplicate H1 tags on the page
     h1: ({ children }) => (
-      <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-12 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">{children}</h2>
+      <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6 mt-12 text-foreground">{children}</h2>
     ),
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-3xl font-bold mb-4 mt-10 text-foreground">{children}</h2>
+      <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4 mt-10 text-foreground">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-bold mb-3 mt-8 text-foreground/90">{children}</h3>
+      <h3 className="text-xl md:text-2xl font-semibold tracking-tight mb-3 mt-8 text-foreground/90">{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-lg md:text-xl font-bold mb-2 mt-6 text-foreground/80">{children}</h4>
+      <h4 className="text-lg md:text-xl font-semibold mb-2 mt-6 text-foreground/80">{children}</h4>
     ),
     normal: ({ children }) => (
       <p className="mb-6 text-muted-foreground leading-loose text-lg">{children}</p>
@@ -169,22 +170,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const relatedPosts = await getRelatedPosts(post._id, post.category?.slug?.current, 3);
 
-  // Styling for different categories
-  const categoryColorMap = {
-    'primary': 'bg-primary/20 text-primary border-primary/20',
-    'accent-cyan': 'bg-accent-cyan/20 text-accent-cyan border-accent-cyan/20',
-    'accent-amber': 'bg-accent-amber/20 text-accent-amber border-accent-amber/20',
-    'primary-glow': 'bg-primary-glow/20 text-white border-primary-glow/20',
-  };
-
-  const categoryStyle = categoryColorMap[post.category?.color || 'primary'];
-
   return (
     <div className="min-h-screen bg-background selection:bg-accent-cyan/20 selection:text-accent-cyan">
       <Navbar />
 
       <main className="pb-24 pt-32">
-        <article className="container max-w-4xl mx-auto px-4">
+        <article className="container max-w-4xl mx-auto px-4 md:px-6">
           {/* Breadcrumb - Left Aligned */}
           <div className="mb-8">
             <Breadcrumb>
@@ -209,7 +200,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Header */}
-          <header className="mb-12 border-b border-border/40 pb-12">
+          <header className="mb-12 border-b border-border pb-12">
             {/* Category */}
             {post.category && (
               <div className="mb-6">
@@ -220,7 +211,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-8 leading-tight text-balance text-foreground">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-8 leading-[1.08] text-balance text-foreground">
               {post.title}
             </h1>
 
@@ -256,7 +247,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Featured Image */}
           {post.featuredImage && (
-            <div className="mb-16 relative aspect-[21/9] rounded-2xl overflow-hidden shadow-sm border border-border/50">
+            <div className="mb-16 relative aspect-[21/9] rounded-2xl overflow-hidden border border-border">
               <Image
                 src={urlFor(post.featuredImage).width(1200).height(600).url()}
                 alt={post.featuredImage.alt || post.title}
@@ -268,7 +259,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Main Content */}
-          <div className="prose prose-lg prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-accent-cyan prose-img:rounded-2xl prose-strong:text-white">
+          <div className="prose prose-lg prose-invert max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-accent-cyan prose-img:rounded-2xl prose-strong:text-foreground">
             <PortableText value={post.content} components={portableTextComponents} />
           </div>
 
@@ -283,11 +274,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </article>
 
         {/* Back Button */}
-        {/* Back Button */}
-        <div className="container max-w-4xl mx-auto px-4 mt-12 mb-20">
-          <Button variant="outline" size="lg" asChild className="group border-white/20 hover:bg-accent-cyan hover:text-black hover:border-accent-cyan transition-all duration-300">
-            <Link href="/insights" className="flex items-center gap-2">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <div className="container max-w-4xl mx-auto px-4 md:px-6 mt-12 mb-20">
+          <Button variant="outline" size="lg" asChild className="group h-12 rounded-xl border-border bg-transparent px-6 font-semibold text-foreground hover:bg-muted hover:text-foreground">
+            <Link href="/insights">
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
               Back to Insights
             </Link>
           </Button>
@@ -295,10 +285,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="bg-muted/30 py-20 border-t border-border/50">
-            <div className="container mx-auto px-4">
-              <div className="flex items-center justify-between mb-12">
-                <h2 className="text-3xl font-bold font-heading">Related Articles</h2>
+          <section className="bg-card py-20 sm:py-24 border-t border-border">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="flex items-end justify-between mb-12 md:mb-16">
+                <SectionHeader align="left" eyebrow="Keep reading" title="Related articles" />
                 <Link href="/insights" className="text-sm font-semibold text-accent-cyan hover:underline decoration-2 underline-offset-4 hidden md:block">
                   View all insights
                 </Link>

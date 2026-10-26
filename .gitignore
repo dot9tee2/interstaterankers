@@ -45,3 +45,10 @@ sitemap-reports/
 
 # Sanity Studio build
 .sanity/
+
+# Local PDF working files; the downloadable PDF stays in public/downloads/
+/tmp/
+/output/
+
+# Local editorial draft, not part of the website release
+/docs/content/core-services-draft.md

@@ -1,12 +1,17 @@
 "use client";
 
 import React, { useMemo, useRef } from "react";
+import Link from "next/link";
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { RoundedBox } from "@react-three/drei/core/RoundedBox";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Check, Phone } from "lucide-react";
 import * as THREE from "three";
 import { OrbitControls as ThreeOrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { Button } from "@/components/ui/button";
+import { primaryCta } from "@/data/cta";
+import { clientCount, guarantee } from "@/data/proof";
+
+const trustPoints = [`Trusted by ${clientCount}+ businesses`, guarantee.title, "No long-term contracts"];
 
 function CameraControls() {
   const { camera, gl } = useThree();
@@ -33,8 +38,8 @@ function LogoCube() {
     "/logos/ads.png",
     "/logos/gmb.png",
     "/logos/meta.png",
-    "/logos/wordpress.png",
     "/logos/linkedin.png",
+    "/logos/nextjs.png",
     "/logos/calls.png",
   ]) as THREE.Texture[];
 
@@ -70,7 +75,7 @@ function LogoCube() {
         return (
           <>
             <RoundedBox args={[size, size, size]} radius={radius} smoothness={smoothness} castShadow receiveShadow>
-              <meshStandardMaterial color="hsl(256.13,47.21%,38.63%)" metalness={0.6} roughness={0.35} />
+              <meshStandardMaterial color="hsl(262, 47%, 38%)" metalness={0.6} roughness={0.35} />
             </RoundedBox>
             {/* Logo overlays on each face as slightly inset planes to preserve rounded edges */}
             {/* +X */}
@@ -88,7 +93,7 @@ function LogoCube() {
               <planeGeometry args={[faceSize, faceSize]} />
               <meshStandardMaterial map={materials[2].map as THREE.Texture} transparent depthWrite={false} side={THREE.DoubleSide} />
             </mesh>
-            {/* -Y */}
+            {/* -Y (bottom): the spin never turns it toward the viewer, so it only shows when someone drags the cube */}
             <mesh position={[0, -half - epsilon, 0]} rotation={[Math.PI / 2, 0, 0]} castShadow={false} receiveShadow={false} renderOrder={10}>
               <planeGeometry args={[faceSize, faceSize]} />
               <meshStandardMaterial map={materials[3].map as THREE.Texture} transparent depthWrite={false} side={THREE.DoubleSide} />
@@ -110,43 +115,55 @@ function LogoCube() {
   );
 }
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-slate-950 via-[#0B0F19] to-slate-950">
-      <div className="relative z-10 container mx-auto px-4 pt-32 pb-20 lg:pt-48 lg:pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="space-y-8 text-center lg:text-left order-1 lg:order-1">
-            <h1 className="text-4xl md:text-7xl font-body font-bold text-white leading-tight">
-              Minimal. Fast.
-              <br />
-              <span className="accent-gradient-text">Seriously Effective.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
-              AI answering and SEO-first experiences built to convert. A modern stack that works while you sleep.
+    <section id="hero" aria-labelledby="hero-heading" className="relative overflow-hidden bg-background">
+      <div className="container relative mx-auto px-4 pb-20 pt-32 md:px-6 lg:pb-24 lg:pt-40">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="text-center lg:text-left">
+            {/* The leading line only shows in the left-aligned desktop layout; centered on a phone it would hang off a wrapped label */}
+            <p className="mb-6 flex items-center justify-center gap-3 text-balance text-xs font-semibold uppercase tracking-[0.2em] text-accent-cyan lg:justify-start">
+              <span aria-hidden="true" className="hidden h-px w-8 bg-accent-cyan lg:block" />
+              Answering &amp; local SEO for US businesses
             </p>
-            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 pt-4">
-              <a href="/contact">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 glow-button text-lg px-8 py-6 h-auto font-semibold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300 hover:scale-105">
-                  Get a Proposal
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
-              <a href="tel:+12816195295">
-                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 h-auto font-semibold rounded-full hover:border-white/40 transition-all duration-300">
-                  <Play className="mr-2 h-5 w-5 fill-current" />
+            <h1 id="hero-heading" className="text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl xl:text-6xl">
+              <span className="block">Get found on Google.</span>
+              <span className="block text-brand">Never miss another lead.</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl lg:mx-0">
+              We improve your local search presence, then help your team answer enquiries and book appointments with human-led support and AI backup.
+            </p>
+
+            {/* MobileCTABar watches this id: its bar appears once these buttons have scrolled away */}
+            <div id="hero-cta" className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
+              <Button asChild size="lg" className="h-14 w-full rounded-xl px-8 text-base font-semibold sm:w-auto">
+                <Link href={primaryCta.href}>
+                  {primaryCta.label}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-14 w-full rounded-xl border-border bg-transparent px-8 text-base font-semibold text-foreground hover:bg-muted hover:text-foreground sm:w-auto">
+                <a href="tel:+12816195295">
+                  <Phone className="h-4 w-4" />
                   Talk to an Expert
-                </Button>
-              </a>
+                </a>
+              </Button>
             </div>
+            <p className="mt-4 text-pretty text-sm text-muted-foreground">{primaryCta.note}</p>
+
+            <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t border-border pt-8 lg:justify-start">
+              {trustPoints.map((point) => (
+                <li key={point} className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  <Check aria-hidden="true" className="h-4 w-4 text-accent-cyan" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="relative w-full max-w-xl mx-auto lg:max-w-xl order-2 lg:order-2 perspective-1000">
-            {/* Premium multi-layered glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-purple/20 blur-[100px] rounded-full opacity-60" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent-cyan/20 blur-[60px] rounded-full opacity-60" />
-
             <div className="relative aspect-[4/3] w-full">
-              <div className="absolute inset-0 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl overflow-hidden ring-1 ring-white/5">
+              <div className="absolute inset-0 rounded-3xl border border-border bg-card overflow-hidden">
                 <Canvas shadows dpr={[1, 1.8]} camera={{ position: [0, 0, 4.2], fov: 45 }}>
                   <ambientLight intensity={0.7} />
                   <directionalLight position={[3, 3, 3]} intensity={1.5} castShadow />
@@ -159,12 +176,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* subtle vignette & grain overlay if desired */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,rgba(0,0,0,0)_70%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
     </section>
   );
-};
-
-export default Hero;
+}

@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Headphones, Phone, LayoutGrid, Search, Share2, Globe, Code, Smartphone, Palette, DollarSign } from "lucide-react";
+import { ArrowRight, Headphones, Phone, MapPin, TrendingUp, Share2, PenLine, Code, Smartphone, Palette, MousePointerClick } from "lucide-react";
+import { primaryCta } from "@/data/cta";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 type ServiceSection = {
@@ -17,7 +18,7 @@ const SERVICES: (ServiceSection & { href?: string })[] = [
     id: "seo",
     title: "Search Engine Optimization",
     description: "Technical, on-page, and local SEO to rank and win the demand you deserve.",
-    icon: Search,
+    icon: TrendingUp,
     href: "/services/seo",
     bullets: [
       "Technical audits",
@@ -30,7 +31,7 @@ const SERVICES: (ServiceSection & { href?: string })[] = [
     id: "gmb",
     title: "Google My Business Optimization",
     description: "Optimize and manage your Google Business Profile to dominate local search and maps.",
-    icon: LayoutGrid,
+    icon: MapPin,
     href: "/services/gmb",
     bullets: [
       "Profile setup & optimization",
@@ -54,7 +55,7 @@ const SERVICES: (ServiceSection & { href?: string })[] = [
   {
     id: "answering",
     title: "Answering Services",
-    description: "24/7 professional coverage so you never miss a lead. AI-assisted routing and real-time reporting.",
+    description: "Human-led answering and appointment support, with AI backup and updates through your CRM or ISR HQ.",
     icon: Headphones,
     bullets: [
       "Live call answering and intake",
@@ -79,7 +80,7 @@ const SERVICES: (ServiceSection & { href?: string })[] = [
     id: "content-marketing",
     title: "Content Marketing",
     description: "Plan, produce, and distribute content that attracts, educates, and converts.",
-    icon: Share2,
+    icon: PenLine,
     bullets: [
       "Editorial strategy",
       "Blogs & guides",
@@ -91,7 +92,7 @@ const SERVICES: (ServiceSection & { href?: string })[] = [
     id: "social-media-marketing",
     title: "Social Media Marketing",
     description: "Grow brand reach and engagement across social platforms with data-driven campaigns.",
-    icon: Globe,
+    icon: Share2,
     bullets: [
       "Channel strategy",
       "Content calendars",
@@ -103,7 +104,7 @@ const SERVICES: (ServiceSection & { href?: string })[] = [
     id: "ppc-management",
     title: "PPC Management",
     description: "High-intent paid traffic and conversion optimization for reliable ROI.",
-    icon: DollarSign,
+    icon: MousePointerClick,
     bullets: [
       "Account audits",
       "Keyword & audience strategy",
@@ -163,7 +164,6 @@ const ServicesScrollShowcase = () => {
       (entries) => {
         const viewportH = window.innerHeight;
         const updates: Record<string, number> = {};
-        let currentActive = activeId;
         for (const entry of entries) {
           const id = entry.target.getAttribute("id");
           if (!id) continue;
@@ -174,12 +174,9 @@ const ServicesScrollShowcase = () => {
         }
         if (Object.keys(updates).length) {
           setProgressById((prev) => ({ ...prev, ...updates }));
-          // Active is the most visible section
-          const best = Object.entries({ ...progressById, ...updates }).sort((a, b) => b[1] - a[1])[0];
-          if (best && best[0] !== currentActive) {
-            currentActive = best[0];
-            setActiveId(best[0]);
-          }
+          // Active is the most visible of the sections that just changed; React skips the update when it's already active
+          const best = Object.entries(updates).sort((a, b) => b[1] - a[1])[0];
+          if (best) setActiveId(best[0]);
         }
       },
       { root: null, threshold: Array.from({ length: 11 }, (_, i) => i / 10) }
@@ -233,18 +230,18 @@ const ServicesScrollShowcase = () => {
 
   return (
     <div>
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="py-20 sm:py-24">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Left: Sticky summary and nav (hidden on small, shown on lg) */}
             <aside className="hidden lg:block lg:col-span-4">
               <div className="sticky top-24 space-y-6">
-                <div className="p-6 rounded-2xl bg-card border border-border glow-card">
-                  <h3 className="text-2xl font-body font-bold mb-2">Services We Provide</h3>
+                <div className="p-6 rounded-2xl bg-card border border-border">
+                  <h3 className="text-2xl font-semibold tracking-tight mb-2">Services we provide</h3>
                   <p className="text-sm text-muted-foreground">Explore our core capabilities. The list highlights the section currently in view.</p>
                 </div>
 
-                <nav className="p-2 rounded-2xl bg-card border border-border glow-card divide-y divide-border">
+                <nav className="p-2 rounded-2xl bg-card border border-border divide-y divide-border">
                   {SERVICES.map((s) => {
                     const isActive = activeId === s.id;
                     const progress = Math.round((progressById[s.id] || 0) * 100);
@@ -271,8 +268,8 @@ const ServicesScrollShowcase = () => {
             </aside>
 
             {/* Mobile top nav */}
-            <div className="lg:hidden -mx-4">
-              <div className="px-4 pb-4 sticky top-16 z-10 bg-background/80 backdrop-blur-sm border-b border-border">
+            <div className="lg:hidden -mx-4 md:-mx-6">
+              <div className="px-4 md:px-6 pb-4 sticky top-16 z-10 bg-background border-b border-border">
                 <div className="flex gap-2 overflow-x-auto no-scrollbar">
                   {SERVICES.map((s) => (
                     <button
@@ -295,17 +292,17 @@ const ServicesScrollShowcase = () => {
                   key={s.id}
                   id={s.id}
                   ref={(el) => { sectionRefs.current[s.id] = el; }}
-                  className="scroll-mt-24 p-6 rounded-2xl bg-card border border-border glow-card group cursor-pointer"
+                  className="scroll-mt-24 p-6 rounded-2xl bg-card border border-border group cursor-pointer"
                   onClick={() => openService(s.id)}
                   role="button"
                   aria-label={`Learn more about ${s.title}`}
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center">
-                      <s.icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 shrink-0 rounded-xl border border-border bg-background flex items-center justify-center">
+                      <s.icon className="w-6 h-6 text-accent-cyan" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-body font-semibold">{s.title}</h4>
+                      <h4 className="text-xl font-semibold tracking-tight">{s.title}</h4>
                       <p className="text-muted-foreground mt-1">{s.description}</p>
                     </div>
                   </div>
@@ -335,8 +332,8 @@ const ServicesScrollShowcase = () => {
             <div>
               <DialogHeader>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg hero-gradient flex items-center justify-center">
-                    <selectedService.icon className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 shrink-0 rounded-xl border border-border bg-background flex items-center justify-center">
+                    <selectedService.icon className="w-5 h-5 text-accent-cyan" />
                   </div>
                   <DialogTitle>{selectedService.title}</DialogTitle>
                 </div>
@@ -358,7 +355,7 @@ const ServicesScrollShowcase = () => {
                   <p className="text-sm text-muted-foreground">
                     Want specifics for your use case? Get a tailored proposal and timeline.
                   </p>
-                  <a href="/contact" className="inline-block mt-3 text-sm px-4 py-2 rounded-md bg-primary text-primary-foreground hover:opacity-90">Get a Proposal</a>
+                  <a href={primaryCta.href} className="mt-3 inline-flex h-10 items-center rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">{primaryCta.label}</a>
                 </div>
               </div>
             </div>
@@ -370,5 +367,3 @@ const ServicesScrollShowcase = () => {
 };
 
 export default ServicesScrollShowcase;
-
-

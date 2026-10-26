@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import Link from "next/link";
+import { PageHero } from "@/components/ui/page-hero";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | InterStateRankers",
+    title: "Privacy Policy",
     description: "Privacy Policy for InterStateRankers. Learn how we collect, use, and protect your personal information.",
     openGraph: {
         title: "Privacy Policy | InterStateRankers",
@@ -20,37 +19,21 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-    const currentDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    // Date the policy text last changed; update it whenever the wording changes
+    const lastUpdated = "February 25, 2026";
 
     return (
         <div className="min-h-screen">
             <Navbar />
-            <main className="container mx-auto px-4 py-16">
-                {/* Breadcrumb */}
-                <div className="mb-8">
-                    <Breadcrumb>
-                        <BreadcrumbList>
-                            <BreadcrumbItem>
-                                <BreadcrumbLink asChild>
-                                    <Link href="/">Home</Link>
-                                </BreadcrumbLink>
-                            </BreadcrumbItem>
-                            <BreadcrumbSeparator />
-                            <BreadcrumbItem>
-                                <BreadcrumbPage>Privacy Policy</BreadcrumbPage>
-                            </BreadcrumbItem>
-                        </BreadcrumbList>
-                    </Breadcrumb>
-                </div>
-
-                <article className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
-                    <h1 className="text-4xl md:text-5xl font-body font-bold mb-8 gradient-text">Privacy Policy</h1>
-
-                    <div className="bg-card border border-border rounded-xl p-8 shadow-sm">
-                        <p className="text-sm text-muted-foreground mb-6">Last Updated: {currentDate}</p>
+            <main className="divide-y divide-border">
+                <PageHero breadcrumbs={[{ label: "Privacy Policy" }]} eyebrow="Legal" title="Privacy Policy" />
+                <section className="py-20 sm:py-24">
+                <article className="container mx-auto max-w-4xl px-4 md:px-6">
+                    <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+                        <p className="text-sm text-muted-foreground mb-6">Last Updated: {lastUpdated}</p>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">1. Introduction</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">1. Introduction</h2>
                             <p className="text-muted-foreground mb-4">
                                 Welcome to InterStateRankers! We are a digital marketing agency committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, https://interstaterankers.com, use our services, or interact with our lead generation tools on third-party platforms like Facebook and Instagram.
                             </p>
@@ -60,7 +43,7 @@ export default function PrivacyPolicyPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">2. What Information We Collect</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">2. What Information We Collect</h2>
                             <p className="text-muted-foreground mb-4">
                                 We may collect information about you in a variety of ways. The information we may collect on the Site includes:
                             </p>
@@ -95,7 +78,7 @@ export default function PrivacyPolicyPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">3. How We Use Your Information</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">3. How We Use Your Information</h2>
                             <p className="text-muted-foreground mb-2">
                                 We use the information we collect for the following purposes:
                             </p>
@@ -109,7 +92,7 @@ export default function PrivacyPolicyPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">4. How We Share Your Information</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">4. How We Share Your Information</h2>
                             <p className="text-muted-foreground mb-2">
                                 We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties except in the following circumstances:
                             </p>
@@ -121,7 +104,7 @@ export default function PrivacyPolicyPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">5. Your Data Protection Rights</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">5. Your Data Protection Rights</h2>
                             <p className="text-muted-foreground mb-2">You have the following data protection rights:</p>
                             <ul className="list-disc pl-6 text-muted-foreground mb-4">
                                 <li>The right to access: You have the right to request copies of your personal data.</li>
@@ -137,35 +120,35 @@ export default function PrivacyPolicyPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">6. Data Security</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">6. Data Security</h2>
                             <p className="text-muted-foreground">
                                 We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Site is at your own risk.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">7. Third-Party Websites</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">7. Third-Party Websites</h2>
                             <p className="text-muted-foreground">
                                 Our website may contain links to third-party websites. We are not responsible for the privacy practices of these other sites. We encourage our users to be aware when they leave our site and to read the privacy statements of each and every website that collects personally identifiable information.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">8. Children’s Privacy</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">8. Children’s Privacy</h2>
                             <p className="text-muted-foreground">
                                 Our services are not intended for use by children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If we become aware that a child under 13 has provided us with personal information, we will take steps to delete such information.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">9. Changes to this Privacy Policy</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">9. Changes to this Privacy Policy</h2>
                             <p className="text-muted-foreground">
                                 We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new privacy policy on this page.
                             </p>
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">10. SMS and Mobile Communication Policy</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">10. SMS and Mobile Communication Policy</h2>
                             <p className="text-muted-foreground mb-4">
                                 This section outlines our policies regarding mobile information and SMS/text messaging in compliance with 10DLC and other regulations.
                             </p>
@@ -186,7 +169,7 @@ export default function PrivacyPolicyPage() {
                         </section>
 
                         <section className="mb-8">
-                            <h2 className="text-2xl font-bold mb-4 text-foreground">11. Contact Us</h2>
+                            <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">11. Contact Us</h2>
                             <p className="text-muted-foreground mb-2">
                                 If you have any questions about this Privacy Policy, please contact us.
                             </p>
@@ -200,6 +183,7 @@ export default function PrivacyPolicyPage() {
                         </section>
                     </div>
                 </article>
+                </section>
             </main>
 
             <Script id="privacy-schema" type="application/ld+json" strategy="afterInteractive"

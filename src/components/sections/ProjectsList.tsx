@@ -40,7 +40,7 @@ export default function ProjectsList({ initialProjects }: ProjectsListProps) {
     return (
         <div className="space-y-8">
             {/* Filters & Search */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-muted/30 p-4 rounded-xl border border-border/40 backdrop-blur-sm">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-card p-4 rounded-xl border border-border">
                 <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {industries.map((industry) => (
                         <Button
@@ -51,7 +51,7 @@ export default function ProjectsList({ initialProjects }: ProjectsListProps) {
                             className={cn(
                                 "rounded-full transition-all duration-300",
                                 activeFilter === industry
-                                    ? "bg-accent-cyan text-accent-cyan-foreground shadow-md shadow-accent-cyan/20 hover:bg-accent-cyan/90"
+                                    ? "bg-accent-cyan/10 text-accent-cyan border border-accent-cyan hover:bg-accent-cyan/20"
                                     : "border-border/60 hover:border-accent-cyan/50 hover:text-accent-cyan hover:bg-accent-cyan/10"
                             )}
                         >
@@ -102,7 +102,7 @@ function ProjectCard({ project }: { project: ProjectPreview }) {
             href={`/projects/${project.slug.current}`}
             className="group block h-full focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-xl"
         >
-            <div className="h-full border border-border/60 bg-card rounded-xl overflow-hidden hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col">
+            <div className="h-full border border-border bg-card rounded-2xl overflow-hidden hover:border-accent-cyan/40 hover:shadow-lg transition-all duration-300 flex flex-col">
                 {/* Image Container */}
                 <div className="relative overflow-hidden">
                     <AspectRatio ratio={16 / 9}>
@@ -114,7 +114,7 @@ function ProjectCard({ project }: { project: ProjectPreview }) {
 
                         <div className="absolute top-3 right-3 z-10">
                             {project.industry && (
-                                <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm shadow-sm border-border/50">
+                                <Badge variant="secondary" className="bg-card border-border shadow-sm">
                                     {project.industry}
                                 </Badge>
                             )}

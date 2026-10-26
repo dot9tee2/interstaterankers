@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getAllPosts, getAllCategories } from "@/lib/blog";
 import { InsightsClient } from "@/components/blog/InsightsClient";
+import Link from "next/link";
+import { ArrowRight, FolderOpen, Globe, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
 	title: "Insights: SEO & Growth Guides (US)",
@@ -20,8 +22,7 @@ export const revalidate = 60;
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Script from "next/script";
-import Link from "next/link";
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { PageHero } from "@/components/ui/page-hero";
 
 export default async function InsightsPage() {
 	const [posts, categories] = await Promise.all([
@@ -32,36 +33,34 @@ export default async function InsightsPage() {
 	return (
 		<div className="min-h-screen">
 			<Navbar />
-			<main className="container mx-auto px-4 py-16">
-				<div className="mb-8">
-					<Breadcrumb>
-						<BreadcrumbList>
-							<BreadcrumbItem>
-								<BreadcrumbLink asChild>
-									<Link href="/">Home</Link>
-								</BreadcrumbLink>
-							</BreadcrumbItem>
-							<BreadcrumbSeparator />
-							<BreadcrumbItem>
-								<BreadcrumbPage>Insights</BreadcrumbPage>
-							</BreadcrumbItem>
-						</BreadcrumbList>
-					</Breadcrumb>
-				</div>
-				
-				{/* Header */}
-				<div className="text-center mb-12">
-					<h1 className="text-4xl font-body font-bold mb-6 gradient-text">Insights & Resources</h1>
-					<p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-						Stay ahead with our latest insights on business growth, SEO strategies, and industry best practices.
-					</p>
-				</div>
-
-				{/* Blog Posts with Category Filter */}
-				<InsightsClient 
-					initialPosts={posts}
-					categories={categories}
+			<main className="divide-y divide-border">
+				<PageHero
+					breadcrumbs={[{ label: "Insights" }]}
+					eyebrow="Insights"
+					title="Insights & resources"
+					description="Stay ahead with our latest insights on business growth, SEO strategies, and industry best practices."
 				/>
+
+				<section className="py-20 sm:py-24">
+					<div className="container mx-auto px-4 md:px-6">
+						<Link href="/insights/how-to-host-your-website-on-vercel" className="group mb-12 grid gap-8 rounded-2xl border border-accent-cyan/30 bg-card p-6 transition-colors hover:border-accent-cyan md:grid-cols-[1fr_1.6fr] md:p-10">
+							<div aria-hidden="true" className="flex items-center justify-center gap-4 rounded-xl border border-border bg-background p-8 text-accent-cyan">
+								<FolderOpen className="h-10 w-10" /><ArrowRight className="h-5 w-5" /><Globe className="h-10 w-10" /><ArrowRight className="h-5 w-5" /><Mail className="h-10 w-10" />
+							</div>
+							<div>
+								<p className="mb-3 text-xs font-semibold uppercase tracking-widest text-accent-cyan">Client tutorial · Visual walkthrough</p>
+								<h2 className="mb-4 text-2xl font-semibold tracking-tight md:text-3xl">Got your website files? Here’s how to launch on Vercel.</h2>
+								<p className="mb-5 leading-relaxed text-muted-foreground">Understand your files, connect your domain, and get enquiry emails working. A step-by-step guide for business owners with no technical background.</p>
+								<span className="inline-flex items-center gap-2 font-semibold text-accent-cyan">Open the visual guide <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+							</div>
+						</Link>
+						{/* Blog Posts with Category Filter */}
+						<InsightsClient
+							initialPosts={posts}
+							categories={categories}
+						/>
+					</div>
+				</section>
 			</main>
 			{/* BreadcrumbList JSON-LD */}
 			<Script id="insights-breadcrumb-ld" type="application/ld+json" strategy="afterInteractive"

@@ -7,6 +7,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   const staticPages = [
     {
+      url: `${baseUrl}/insights/how-to-host-your-website-on-vercel`,
+      lastModified: new Date('2026-10-26T00:00:00+05:00'),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
@@ -31,13 +37,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
     {
+      url: `${baseUrl}/terms-and-conditions`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/cancellation-and-refund-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.5,
+    },
+    {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     // Service Subpages
-    ...['seo', 'web-development', 'social-media', 'ppc', 'content-marketing'].map(slug => ({
+    ...[
+      'seo',
+      'gmb',
+      'web-development',
+      'answering',
+      'calling',
+      'content-marketing',
+      'social-media',
+      'ppc',
+      'graphic-design',
+      'app-development',
+    ].map(slug => ({
       url: `${baseUrl}/services/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,

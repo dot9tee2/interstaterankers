@@ -32,6 +32,7 @@ export default {
 					foreground: 'hsl(var(--primary-foreground))',
 					glow: 'hsl(var(--primary-glow))'
 				},
+				brand: 'hsl(var(--brand))',
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
@@ -77,6 +78,15 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			// Named because tailwindcss-animate also claims duration-*/ease-*, so arbitrary values like duration-[1200ms]
+			// are ambiguous and Tailwind drops them without a build error
+			transitionDuration: {
+				'1200': '1200ms'
+			},
+			transitionTimingFunction: {
+				// Overshoots slightly, for cards and pins that pop into place in the service stories
+				pop: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
 			},
 			keyframes: {
 				'accordion-down': {

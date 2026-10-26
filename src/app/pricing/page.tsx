@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import Link from "next/link";
 import Script from "next/script";
 import { Button } from "@/components/ui/button";
-import { Check, Star, Phone } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Check, Phone, ShieldCheck } from "lucide-react";
 import {
 	Accordion,
 	AccordionContent,
@@ -15,13 +13,18 @@ import {
 } from "@/components/ui/accordion";
 import { pricingPackages } from "@/data/pricing";
 import PricingCard from "@/components/pricing/PricingCard";
+import FinalCTA from "@/components/sections/FinalCTA";
+import { PageHero } from "@/components/ui/page-hero";
+import { SectionHeader } from "@/components/ui/section-header";
+import { primaryCta } from "@/data/cta";
+import { guarantee } from "@/data/proof";
 
 export const metadata: Metadata = {
 	title: "SEO & Digital Growth Packages Pricing",
-	description: "Local SEO & Growth packages starting at $399/mo. Includes dedicated Lead CRM, GMB Optimization, and Custom Plans.",
+	description: "Google Business Profile management from $249/mo, with SEO, advertising and human-led answering packages for US businesses.",
 	openGraph: {
 		title: "SEO & Digital Growth Packages Pricing",
-		description: "Local SEO & Growth packages starting at $399/mo. Includes dedicated Lead CRM, GMB Optimization, and Custom Plans.",
+		description: "Google Business Profile management from $249/mo, with SEO, advertising and human-led answering packages for US businesses.",
 		url: "/pricing",
 		type: "website",
 	},
@@ -30,187 +33,148 @@ export const metadata: Metadata = {
 	},
 };
 
+const crmFeatures = [
+	{ title: "Real-time lead sync", text: "Facebook & Google leads appear instantly." },
+	{ title: "Automated speed-to-lead", text: "Instant SMS/email follow-ups sent automatically." },
+	{ title: "Pipeline ROI tracking", text: "Know exactly which ad made you money." },
+];
+
+const faqs = [
+	{
+		question: "Is there a long-term contract?",
+		answer: "Recurring services are month-to-month, with 15 days' notice for cancellation. Your proposal explains the service scope and billing arrangements. Any pilot or trial is provided under a signed agreement; ask us about the terms before starting.",
+	},
+	{
+		question: 'What does "Target any 5 areas" mean?',
+		answer: 'This allows you to dominate specifically in your most profitable neighborhoods or cities. Instead of just ranking for "Plumber" (too broad), we rank you for "Plumber [City Name]" or "Plumber [Neighborhood]" where your actual customers are searching.',
+	},
+	{
+		question: "How does ISR HQ work?",
+		answer: "It is a unified app (mobile & desktop) where all your leads land. When a lead comes in from Facebook or Google, your phone buzzes instantly. You can call, text, or email them right from the app, ensuring you never miss a deal.",
+	},
+	{
+		question: "Can I switch packages later?",
+		answer: "Absolutely. Many clients start with one growth package to build a foundation, then upgrade to Interstate Premium once they see the ROI and want to expand to more territories.",
+	},
+];
+
 export default function PricingPage() {
 	return (
 		<div className="min-h-screen flex flex-col">
 			<Navbar />
 
-			<main className="flex-grow">
-				{/* Hero Section */}
-				<section className="relative py-24 bg-gradient-to-b from-slate-950 via-indigo-950/20 to-background overflow-visible">
-					<div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
-					<div className="container relative mx-auto px-4 text-center">
-						<div className="animate-fade-in-up">
-							<Badge variant="outline" className="mb-6 bg-cyan-500/10 border-cyan-500/40 text-cyan-500 px-6 py-1.5 text-sm font-medium backdrop-blur-md">
-								Transparent Pricing
-							</Badge>
-							<h1 className="text-5xl md:text-6xl font-body font-bold mb-6 gradient-text tracking-tight pb-2 leading-tight">
-								Simplified Growth Packages
-							</h1>
-							<p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-								Choose the power level that fits your goals. From local presence to complete market domination.
-							</p>
+			<main className="flex-grow divide-y divide-border">
+				<PageHero
+					breadcrumbs={[{ label: "Pricing" }]}
+					eyebrow="Pricing"
+					title="Simple growth packages"
+					description="Choose the level that fits your goals, from local presence to complete market coverage. Month to month, no long-term contracts."
+				/>
+
+				{/* Packages: a raised band, like the homepage pricing section */}
+				<section className="bg-card py-20 sm:py-24">
+					<div className="container mx-auto px-4 md:px-6">
+						<SectionHeader className="mb-12 md:mb-16" eyebrow="Packages" title="Choose your growth engine" />
+						{/* gap-y-12 leaves room for the "Best value" badge that sits on a card's top edge */}
+						<div className="mx-auto grid max-w-lg grid-cols-1 gap-8 gap-y-12 md:max-w-none md:grid-cols-2 lg:grid-cols-3">
+							{pricingPackages.map((pkg) => (
+								<PricingCard key={pkg.name} pkg={pkg} />
+							))}
 						</div>
-					</div>
-				</section>
-
-				<div className="container mx-auto px-4 py-12">
-					{/* Breadcrumb */}
-					<div className="mb-16">
-						<Breadcrumb>
-							<BreadcrumbList>
-								<BreadcrumbItem>
-									<BreadcrumbLink asChild>
-										<Link href="/">Home</Link>
-									</BreadcrumbLink>
-								</BreadcrumbItem>
-								<BreadcrumbSeparator />
-								<BreadcrumbItem>
-									<BreadcrumbPage>Pricing</BreadcrumbPage>
-								</BreadcrumbItem>
-							</BreadcrumbList>
-						</Breadcrumb>
-					</div>
-
-					{/* Packages Grid */}
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
-						{pricingPackages.map((pkg) => (
-							<PricingCard key={pkg.name} pkg={pkg} />
-						))}
-					</div>
-				</div>
-
-				{/* CRM & Lead Gen Section - Full Width */}
-				<section className="py-24 bg-gradient-to-br from-indigo-950/50 to-background border-y border-indigo-500/10 relative overflow-hidden">
-					<div className="container mx-auto px-4 max-w-5xl">
-						<div className="grid md:grid-cols-2 gap-16 items-center">
-							<div className="relative z-10">
-								<Badge className="mb-6 bg-indigo-500/20 text-indigo-300 border-indigo-500/30">
-									ISR Command Center
-								</Badge>
-								<h2 className="text-4xl font-bold mb-6">Your Entire Business in One Pocket.</h2>
-								<p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-									Stop chasing leads across five different apps. Centralize leads from Facebook Ads, Google Ads, and your Website in one unified dashboard.
-								</p>
-
-								<div className="space-y-5">
-									<div className="flex items-start gap-4">
-										<div className="bg-indigo-500/10 p-2 rounded-lg">
-											<Check className="w-6 h-6 text-indigo-400" />
-										</div>
-										<div>
-											<h4 className="font-semibold mb-1">Real-time Lead Sync</h4>
-											<p className="text-sm text-muted-foreground">Facebook & Google leads appear instantly.</p>
-										</div>
-									</div>
-									<div className="flex items-start gap-4">
-										<div className="bg-indigo-500/10 p-2 rounded-lg">
-											<Check className="w-6 h-6 text-indigo-400" />
-										</div>
-										<div>
-											<h4 className="font-semibold mb-1">Automated Speed-to-Lead</h4>
-											<p className="text-sm text-muted-foreground">Instant SMS/Email follow-ups sent automatically.</p>
-										</div>
-									</div>
-									<div className="flex items-start gap-4">
-										<div className="bg-indigo-500/10 p-2 rounded-lg">
-											<Check className="w-6 h-6 text-indigo-400" />
-										</div>
-										<div>
-											<h4 className="font-semibold mb-1">Pipeline ROI Tracking</h4>
-											<p className="text-sm text-muted-foreground">Know exactly which ad made you money.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div className="relative">
-								{/* Decorative Glow */}
-								<div className="absolute inset-0 bg-indigo-500/20 blur-[100px] rounded-full" />
-
-								<div className="bg-card/50 backdrop-blur-xl border border-indigo-500/20 rounded-2xl p-8 text-center relative shadow-2xl hover:scale-105 transition-transform duration-500">
-									<div className="mb-8 pb-8 border-b border-white/10">
-										<p className="text-sm font-medium text-muted-foreground mb-2">One-Time Setup</p>
-										<p className="text-4xl font-bold">$200</p>
-									</div>
-
-									<div className="mb-8">
-										<p className="text-sm font-medium text-indigo-300 mb-2 font-mono uppercase tracking-wider">Subscription</p>
-										<div className="flex items-baseline justify-center gap-1">
-											<span className="text-6xl font-bold text-white">$50</span>
-											<span className="text-xl text-muted-foreground">/mo</span>
-										</div>
-										<p className="text-sm text-muted-foreground mt-4 bg-white/5 inline-block px-4 py-1 rounded-full">Includes 3 Team Members</p>
-									</div>
-
-									<div className="text-left text-sm space-y-2 mb-8 bg-black/20 p-4 rounded-lg">
-										<div className="flex justify-between">
-											<span className="text-muted-foreground">Additional Users</span>
-											<span className="font-semibold">+$10/mo</span>
-										</div>
-									</div>
-
-									<Button className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-lg h-12 shadow-lg shadow-indigo-500/25" asChild>
-										<a href="tel:+12816195295">
-											Get Access Now
-										</a>
-									</Button>
-								</div>
+						<div className="mx-auto mt-12 flex max-w-lg items-start gap-4 rounded-2xl border border-primary/50 bg-background p-6 md:mt-16 md:max-w-none">
+							<span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card">
+								<ShieldCheck className="h-5 w-5 text-accent-cyan" />
+							</span>
+							<div>
+								<h2 className="text-base font-semibold text-foreground">{guarantee.title}</h2>
+								<p className="mt-1 text-sm leading-relaxed text-muted-foreground">{guarantee.text}</p>
 							</div>
 						</div>
 					</div>
 				</section>
 
-				{/* FAQ & Footer Section */}
-				<div className="container mx-auto px-4 py-24">
-					{/* FAQ Section */}
-					<div className="max-w-3xl mx-auto mb-24">
-						<h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-						<Accordion type="single" collapsible className="w-full space-y-4">
-							<AccordionItem value="item-1" className="border rounded-lg px-4 bg-card/50">
-								<AccordionTrigger className="text-lg">Is there a long-term contract?</AccordionTrigger>
-								<AccordionContent className="text-muted-foreground">
-									No. All our "Ranker" packages are month-to-month. We believe our results should keep you staying, not a piece of paper. You can cancel or upgrade at any time with a 30-day notice.
-								</AccordionContent>
-							</AccordionItem>
-							<AccordionItem value="item-2" className="border rounded-lg px-4 bg-card/50">
-								<AccordionTrigger className="text-lg">What does "Target any 5 areas" mean?</AccordionTrigger>
-								<AccordionContent className="text-muted-foreground">
-									This allows you to dominate specifically in your most profitable neighborhoods or cities. Instead of just ranking for "Plumber" (too broad), we rank you for "Plumber [City Name]" or "Plumber [Neighborhood]" where your actual customers are searching.
-								</AccordionContent>
-							</AccordionItem>
-							<AccordionItem value="item-3" className="border rounded-lg px-4 bg-card/50">
-								<AccordionTrigger className="text-lg">How does the "ISR Command Center" work?</AccordionTrigger>
-								<AccordionContent className="text-muted-foreground">
-									It is a unified app (mobile & desktop) where all your leads land. When a lead comes in from Facebook or Google, your phone buzzes instantly. You can call, text, or email them right from the app, ensuring you never miss a deal.
-								</AccordionContent>
-							</AccordionItem>
-							<AccordionItem value="item-4" className="border rounded-lg px-4 bg-card/50">
-								<AccordionTrigger className="text-lg">Can I switch packages later?</AccordionTrigger>
-								<AccordionContent className="text-muted-foreground">
-									Absolutely. Most clients start with the **Local Ranker** to build a foundation and upgrade to **InterState Omni** once they see the ROI and want to expand to more territories.
-								</AccordionContent>
-							</AccordionItem>
+				{/* CRM & Lead Gen add-on */}
+				<section className="py-20 sm:py-24">
+					<div className="container mx-auto px-4 md:px-6">
+						<div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+							<div>
+								<SectionHeader
+									align="left"
+									eyebrow="ISR HQ"
+									title="Your entire business in one pocket"
+									description="Stop chasing leads across five different apps. Centralize leads from Facebook Ads, Google Ads, and your website in one unified dashboard."
+								/>
+								<ul className="mt-12 space-y-6">
+									{crmFeatures.map((feature) => (
+										<li key={feature.title} className="flex items-start gap-4">
+											<span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card">
+												<Check className="h-5 w-5 text-accent-cyan" />
+											</span>
+											<div>
+												<h3 className="font-semibold text-foreground">{feature.title}</h3>
+												<p className="mt-1 text-sm text-muted-foreground">{feature.text}</p>
+											</div>
+										</li>
+									))}
+								</ul>
+							</div>
+
+							<div className="rounded-3xl border border-border bg-card p-6 text-center md:p-8">
+								<div className="mb-8 border-b border-border pb-8">
+									<p className="mb-2 text-sm font-medium text-muted-foreground">One-time setup</p>
+									<p className="text-4xl font-semibold tracking-tight text-foreground">$200</p>
+								</div>
+
+								<div className="mb-8">
+									<p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-cyan">Subscription</p>
+									<div className="flex items-baseline justify-center gap-1">
+										<span className="text-5xl font-semibold tracking-tight text-foreground">$50</span>
+										<span className="text-lg text-muted-foreground">/mo</span>
+									</div>
+									<p className="mt-4 inline-block rounded-full border border-border px-4 py-1 text-sm text-muted-foreground">Includes 3 team members</p>
+								</div>
+
+								<div className="mb-8 flex justify-between rounded-xl border border-border bg-background p-4 text-left text-sm">
+									<span className="text-muted-foreground">Additional users</span>
+									<span className="font-semibold text-foreground">+$10/mo</span>
+								</div>
+
+								<Button asChild variant="outline" className="h-12 w-full rounded-xl border-border bg-transparent text-base font-semibold text-foreground hover:bg-muted hover:text-foreground">
+									<a href="tel:+12816195295">
+										<Phone className="h-4 w-4" />
+										Call to get access
+									</a>
+								</Button>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				{/* FAQ */}
+				<section className="py-20 sm:py-24">
+					<div className="container mx-auto px-4 md:px-6">
+						<SectionHeader className="mb-12 md:mb-16" eyebrow="FAQs" title="Frequently asked questions" />
+						<Accordion type="single" collapsible className="mx-auto w-full max-w-3xl">
+							{faqs.map((faq, index) => (
+								<AccordionItem key={faq.question} value={`item-${index}`}>
+									<AccordionTrigger className="py-4 text-left text-base md:text-lg">{faq.question}</AccordionTrigger>
+									<AccordionContent className="pb-4 leading-relaxed text-muted-foreground">{faq.answer}</AccordionContent>
+								</AccordionItem>
+							))}
 						</Accordion>
-					</div>
-
-					{/* Custom Plan Footer */}
-					<div className="text-center bg-gradient-to-r from-muted/50 via-card to-muted/50 border border-border rounded-3xl p-16 max-w-5xl mx-auto relative overflow-hidden group">
-						<div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,transparent,white,transparent)] opacity-20" />
-
-						<div className="relative z-10">
-							<h2 className="text-4xl font-bold mb-6">Need Something Customized?</h2>
-							<p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-								We know one size doesn't fit all. We build bespoke **Custom Plans** tailored to your specific industry, competition, and aggressive growth goals.
+						<div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-border bg-card p-6 text-center md:mt-16 md:p-8">
+							<h2 className="text-2xl font-semibold tracking-tight text-foreground">Need something customized?</h2>
+							<p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+								One size doesn&apos;t fit all. We build custom plans tailored to your industry, competition, and growth goals.
 							</p>
-							<Button asChild variant="outline" size="lg" className="border-primary/50 hover:bg-primary/5 text-lg h-14 px-8">
-								<Link href="/contact">
-									Get a Custom Quote
-								</Link>
+							<Button asChild variant="outline" className="mt-6 h-12 rounded-xl border-border bg-transparent px-6 text-base font-semibold text-foreground hover:bg-muted hover:text-foreground">
+								<Link href={primaryCta.href}>Get a custom quote</Link>
 							</Button>
 						</div>
 					</div>
-				</div>
+				</section>
+
+				<FinalCTA />
 			</main>
 
 			<Script id="pricing-schema" type="application/ld+json" strategy="afterInteractive"
@@ -219,8 +183,8 @@ export default function PricingPage() {
 						"@context": "https://schema.org",
 						"@type": "PriceSpecification",
 						"priceCurrency": "USD",
-						"minPrice": "399.00",
-						"maxPrice": "599.00"
+						"minPrice": Math.min(...pricingPackages.map((pkg) => Number(pkg.price))).toFixed(2),
+						"maxPrice": Math.max(...pricingPackages.map((pkg) => Number(pkg.price))).toFixed(2)
 					})
 				}} />
 

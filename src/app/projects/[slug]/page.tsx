@@ -74,17 +74,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Header */}
         <header className="relative max-w-5xl mx-auto text-center mb-16 px-4">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] -z-10 bg-primary/10 blur-[100px] rounded-full opacity-60 pointer-events-none" />
 
           <div className="flex flex-wrap gap-2 justify-center mb-6">
             {project.industry ? (
-              <Badge variant="outline" className="bg-background/40 backdrop-blur-sm border-white/10 px-3 py-1 text-xs uppercase tracking-wider text-muted-foreground font-medium">
+              <Badge variant="outline" className="bg-card border-border px-3 py-1 text-xs uppercase tracking-wider text-muted-foreground font-medium">
                 {project.industry}
               </Badge>
             ) : null}
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-body font-bold mb-6 gradient-text tracking-tight leading-tight">
+          <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-foreground tracking-tight leading-tight">
             {project.title}
           </h1>
 

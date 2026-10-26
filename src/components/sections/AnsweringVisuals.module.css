@@ -1,0 +1,96 @@
+.figure {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+  border-radius: 20px;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 13px;
+  line-height: 1.6;
+}
+.figure *, .figure *::before, .figure *::after { box-sizing: border-box; }
+.heading { display: flex; align-items: center; gap: 10px; padding: 18px 20px; border-bottom: 1px solid hsl(var(--border)); font-weight: 500; }
+.heading > svg, .cardHeading > svg, .agreement > svg, .status > svg { flex-shrink: 0; color: hsl(var(--accent-cyan)); }
+.heading > span { min-width: 0; }
+.heading small { margin-left: auto; font-size: 11px; color: hsl(var(--muted-foreground)); font-weight: 400; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; padding: 20px 20px 0; }
+.figure button { min-height: 44px; min-width: 40px; padding: 10px 12px; border: 1px solid hsl(var(--border)); border-radius: 9px; background: hsl(var(--card)); color: hsl(var(--muted-foreground)); font: inherit; font-size: 12px; line-height: 1.4; cursor: pointer; text-align: left; transition: border-color .2s, color .2s; }
+.figure button:hover { border-color: hsl(var(--accent-cyan) / .6); color: hsl(var(--foreground)); }
+.figure button[aria-pressed="true"] { border-color: hsl(var(--accent-cyan) / .65); color: hsl(var(--accent-cyan)); }
+.figure button:focus-visible { outline: 2px solid hsl(var(--accent-cyan)); outline-offset: 3px; }
+.diagram { padding: 24px 20px; }
+.clockFace { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 4px 0 24px; color: hsl(var(--accent-cyan)); }
+.clockFace span { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
+.schedule { display: grid; gap: 10px; }
+.schedule > div { display: flex; align-items: center; gap: 12px; padding: 16px; border: 1px solid hsl(var(--border)); border-radius: 12px; background: hsl(var(--card)); }
+.schedule > div[data-active="true"] { border-color: hsl(var(--accent-cyan) / .6); }
+.schedule > div > div { flex: 1; min-width: 0; }
+.schedule strong, .schedule span:not(.dot) { display: block; }
+.schedule strong { font-size: 14px; font-weight: 500; }
+.schedule > div > svg { flex-shrink: 0; color: hsl(var(--muted-foreground)); }
+.schedule span:not(.dot) { font-size: 12px; color: hsl(var(--muted-foreground)); }
+.dot { flex-shrink: 0; width: 7px; height: 7px; border: 1px solid hsl(var(--muted-foreground)); border-radius: 50%; }
+[data-active="true"] .dot { border-color: hsl(var(--accent-cyan)); background: hsl(var(--accent-cyan)); }
+.status { display: flex; align-items: center; justify-content: center; gap: 9px; padding-top: 18px; font-size: 12px; color: hsl(var(--muted-foreground)); }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.steps button { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; }
+.number { display: inline-flex; width: 25px; height: 25px; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid hsl(var(--border)); border-radius: 50%; color: hsl(var(--accent-cyan)); font-size: 11px; font-variant-numeric: tabular-nums; }
+.ruleCard, .recordCard { padding: 20px; border: 1px solid hsl(var(--border)); border-radius: 13px; background: hsl(var(--card)); }
+.cardHeading { display: flex; align-items: center; gap: 12px; }
+.eyebrow { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: hsl(var(--muted-foreground)); }
+.figure h3 { margin: 16px 0; font-size: 20px; font-weight: 500; letter-spacing: -.025em; line-height: 1.3; }
+.checklist { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.checklist li { display: flex; align-items: baseline; gap: 10px; font-size: 13px; }
+.checklist li > span { width: 6px; height: 6px; flex-shrink: 0; border: 1px solid hsl(var(--accent-cyan)); border-radius: 2px; }
+.branch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-top: 20px; }
+.branch > span { display: flex; align-items: center; gap: 8px; border-top: 1px solid hsl(var(--border)); padding-top: 12px; font-size: 12px; }
+.branch svg { flex-shrink: 0; color: hsl(var(--accent-cyan)); }
+.detail { margin: 16px 0 0; font-size: 13px; color: hsl(var(--muted-foreground)); }
+.timeline { display: grid; gap: 26px; margin: 0; padding: 0; list-style: none; }
+.timeline li { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 16px; border: 1px solid hsl(var(--border)); border-radius: 12px; background: hsl(var(--card)); }
+.timeline li:nth-child(2) { border-color: hsl(var(--accent-cyan) / .55); }
+.timeline strong { font-size: 14px; font-weight: 500; }
+.timeline p { margin: 3px 0 0; color: hsl(var(--muted-foreground)); font-size: 12px; }
+.timelineArrow { position: absolute; bottom: -22px; left: 20px; color: hsl(var(--accent-cyan)); }
+.agreement { display: flex; align-items: center; gap: 10px; margin-top: 20px; font-size: 12px; color: hsl(var(--muted-foreground)); }
+.recordRoute { display: flex; gap: 8px; padding: 20px 20px 0; }
+.recordRoute > div { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
+.recordRoute button { flex: 1; text-align: center; padding-inline: 8px; }
+.recordRoute svg { flex-shrink: 0; color: hsl(var(--accent-cyan)); }
+.recordCard dl { margin: 0; }
+.recordCard dl > div { display: grid; grid-template-columns: 85px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid hsl(var(--border)); }
+.recordCard dt { color: hsl(var(--muted-foreground)); font-size: 12px; }
+.recordCard dd { margin: 0; font-size: 13px; }
+.destinations { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; padding-top: 20px; }
+.destinations span:not(:nth-child(2)) { padding: 8px 16px; border: 1px solid hsl(var(--border)); border-radius: 8px; font-size: 12px; }
+.destinations span:nth-child(2) { color: hsl(var(--muted-foreground)); font-size: 11px; }
+.figure figcaption { border-top: 1px solid hsl(var(--border)); padding: 18px 20px; color: hsl(var(--muted-foreground)); font-size: 12px; line-height: 1.75; }
+.figure figcaption > span { display: block; margin-top: 8px; }
+.figure figcaption > svg { display: inline-block; vertical-align: middle; margin-right: 8px; color: hsl(var(--accent-cyan)); }
+.figure[data-seen="true"] .clockFace,
+.figure[data-seen="true"] .ruleCard,
+.figure[data-seen="true"] .recordCard,
+.figure[data-seen="true"] .timeline li { animation: arrive .65s ease-out both; }
+.figure[data-seen="true"] .timeline li:nth-child(2) { animation-delay: .12s; }
+.figure[data-seen="true"] .timeline li:nth-child(3) { animation-delay: .24s; }
+@keyframes arrive { from { opacity: .55; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 480px) {
+  .heading { flex-wrap: wrap; padding: 16px; gap: 8px; }
+  .heading small { flex-basis: 100%; margin-left: 26px; }
+  .controls, .recordRoute { padding: 16px 16px 0; gap: 6px; }
+  .diagram { padding: 20px 16px; }
+  .figure button { font-size: 11px; padding: 10px 8px; }
+  .recordRoute > div { gap: 5px; }
+  .recordRoute svg { width: 12px; }
+  .ruleCard, .recordCard { padding: 16px; }
+  .schedule > div { padding: 13px; gap: 10px; }
+  .schedule strong { font-size: 13px; }
+  .branch { grid-template-columns: 1fr; gap: 10px; }
+  .recordCard dl > div { grid-template-columns: 68px minmax(0, 1fr); gap: 10px; }
+  .figure figcaption { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .figure *, .figure *::before, .figure *::after { animation: none !important; transition: none !important; }
+}

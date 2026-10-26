@@ -6,10 +6,10 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
     title: "Privacy Policy",
-    description: "Privacy Policy for InterStateRankers. Learn how we collect, use, and protect your personal information.",
+    description: "Privacy Policy for Interstate Rankers. Learn how we collect, use, and protect your personal information.",
     openGraph: {
-        title: "Privacy Policy | InterStateRankers",
-        description: "Learn how InterStateRankers collects, uses, and protects your personal information.",
+        title: "Privacy Policy | Interstate Rankers",
+        description: "Learn how Interstate Rankers collects, uses, and protects your personal information.",
         url: "/privacy-policy",
         type: "website",
     },
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
                         <section className="mb-8">
                             <h2 className="text-2xl font-semibold tracking-tight mb-4 text-foreground">1. Introduction</h2>
                             <p className="text-muted-foreground mb-4">
-                                Welcome to InterStateRankers! We are a digital marketing agency committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, https://interstaterankers.com, use our services, or interact with our lead generation tools on third-party platforms like Facebook and Instagram.
+                                Welcome to Interstate Rankers! We are a digital marketing agency committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, https://interstaterankers.com, use our services, or interact with our lead generation tools on third-party platforms like Facebook and Instagram.
                             </p>
                             <p className="text-muted-foreground">
                                 Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or provide your information through our lead generation tools.
@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
                                 <li>Serve targeted advertisements to you on other websites.</li>
                             </ul>
                             <p className="text-muted-foreground mt-2">
-                                You can control the use of cookies at the individual browser level. If you reject cookies, you may still use our site, but your ability to use some features or areas of our site may be limited.
+                                You can control the use of cookies at the individual browser level, or by selecting &quot;Reject&quot; on the cookie consent banner shown when you first visit our Site. If you reject non-essential cookies, analytics and advertising cookies (such as Google Analytics) will not be loaded, but you may still use our site, and your ability to use some features or areas of our site may be limited.
                             </p>
                         </section>
 
@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
                             </p>
                             <ul className="list-disc pl-6 text-muted-foreground">
                                 <li>To provide and improve our services: We use your information to deliver the services you have requested, to personalize your experience, and to improve our website and services.</li>
-                                <li>To communicate with you: We may use your contact information to send you newsletters, marketing communications, and other information about our services. You may opt out of these communications at any time.</li>
+                                <li>To communicate with you: We may use your contact information to send you newsletters, marketing communications, and other information about our services. You may opt out of marketing emails at any time by replying &quot;UNSUBSCRIBE&quot; to any marketing email you receive from us.</li>
                                 <li>To process payments: We use your billing information to process payments for our services.</li>
                                 <li>For marketing and advertising: We may use your information to display targeted advertisements to you on other websites.</li>
                                 <li>For analytics and research: We use derivative data and information from cookies to analyze trends, administer the site, track users’ movements around the site, and to gather demographic information about our user base as a whole.</li>
@@ -99,6 +99,7 @@ export default function PrivacyPolicyPage() {
                             <ul className="list-disc pl-6 text-muted-foreground">
                                 <li><strong>With your consent:</strong> We may share your information with third parties with your consent.</li>
                                 <li><strong>With our service providers:</strong> We may share your information with trusted third-party service providers who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.</li>
+                                <li><strong>With analytics and advertising partners:</strong> If you accept non-essential cookies, we share derivative data (such as your IP address and browsing behavior) with analytics providers (e.g., Google Analytics) and advertising platforms (e.g., Meta/Facebook) so that we can analyze site traffic and serve targeted advertisements to you on other websites. You can opt out of this sharing at any time by selecting &quot;Reject&quot; on our cookie consent banner.</li>
                                 <li><strong>For legal purposes:</strong> We may disclose your information if required to do so by law or in the good faith belief that such action is necessary to comply with a legal obligation, to protect and defend our rights or property, or to protect the personal safety of users of the Site or the public.</li>
                             </ul>
                         </section>
@@ -174,7 +175,7 @@ export default function PrivacyPolicyPage() {
                                 If you have any questions about this Privacy Policy, please contact us.
                             </p>
                             <div className="mt-4">
-                                <p className="font-semibold text-foreground">InterStateRankers</p>
+                                <p className="font-semibold text-foreground">Interstate Rankers</p>
                                 <p className="text-muted-foreground"><a href="mailto:info@interstaterankers.com" className="hover:underline">info@interstaterankers.com</a></p>
                                 <p className="text-muted-foreground">
                                     <a href="tel:+12816195295" className="hover:underline">(281) 619-5295</a>
@@ -192,11 +193,11 @@ export default function PrivacyPolicyPage() {
                         "@context": "https://schema.org",
                         "@type": "WebPage",
                         name: "Privacy Policy",
-                        description: "Privacy Policy regarding data collection and usage at InterStateRankers.",
+                        description: "Privacy Policy regarding data collection and usage at Interstate Rankers.",
                         url: "https://interstaterankers.com/privacy-policy",
                         publisher: {
                             "@type": "Organization",
-                            name: "InterStateRankers",
+                            name: "Interstate Rankers",
                             logo: "https://interstaterankers.com/InterStateRankerLogo.png"
                         }
                     })

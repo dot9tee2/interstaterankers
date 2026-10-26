@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: service.title,
     description: service.description,
     openGraph: {
-        title: `${service.title} | InterStateRankers`,
+        title: `${service.title} | Interstate Rankers`,
         description: service.description,
         url: `/services/graphic-design`,
         type: "website",

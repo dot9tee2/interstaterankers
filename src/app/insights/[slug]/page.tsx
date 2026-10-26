@@ -326,7 +326,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             },
             publisher: {
               "@type": "Organization",
-              name: "InterStateRankers",
+              name: "Interstate Rankers",
               logo: {
                 "@type": "ImageObject",
                 url: "https://interstaterankers.com/InterStateRankerLogo.png",

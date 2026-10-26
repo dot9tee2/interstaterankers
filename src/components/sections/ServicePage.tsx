@@ -153,10 +153,10 @@ export default function ServicePage({ slug, service }: { slug: string; service: 
             "@type": "Service",
             name: service.title,
             description: service.description,
-            provider: { "@type": "Organization", name: "InterStateRankers", url: "https://interstaterankers.com" },
+            provider: { "@type": "Organization", name: "Interstate Rankers", url: "https://interstaterankers.com" },
             areaServed: { "@type": "Country", name: "United States" },
             url: pageUrl,
-            brand: { "@type": "Brand", name: "InterStateRankers" },
+            brand: { "@type": "Brand", name: "Interstate Rankers" },
           }),
         }}
       />

@@ -13,7 +13,7 @@ const Footer = () => {
             <Link href="/" className="flex items-center">
               <Image
                 src="/InterStateRankerLogo.png"
-                alt="InterStateRankers logo"
+                alt="Interstate Rankers logo"
                 width={128}
                 height={32}
                 className="h-8 w-auto"
@@ -93,7 +93,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-muted-foreground">
-            <p>&copy; 2026 InterStateRankers. All rights reserved.</p>
+            <p>&copy; 2026 Interstate Rankers. All rights reserved.</p>
             {/* flex-wrap so the links move to a new line on narrow screens instead of squeezing onto one */}
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <Link href="/sitemap.xml" className="hover:text-foreground transition-colors" rel="sitemap">
@@ -104,6 +104,9 @@ const Footer = () => {
               </Link>
               <Link href="/terms-and-conditions" className="hover:text-foreground transition-colors">
                 Terms & Conditions
+              </Link>
+              <Link href="/privacy-policy" className="hover:text-foreground transition-colors">
+                Privacy Policy
               </Link>
               <Link href="/cancellation-and-refund-policy" className="hover:text-foreground transition-colors">
                 Cancellation & Refund Policy

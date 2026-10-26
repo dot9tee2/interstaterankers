@@ -20,7 +20,7 @@ export const stats: Stat[] = [
   { value: 95, suffix: "%", label: "Calls answered", description: "Never miss another lead" },
   { value: 60, prefix: "+", suffix: "%", label: "Lead conversion", description: "From Google My Business" },
   { value: 90, prefix: "<", suffix: " days", label: "SEO wins", description: "Time to first page rankings" },
-  { value: clientCount, suffix: "+", label: "Growing businesses", description: "Trust InterStateRankers" },
+  { value: clientCount, suffix: "+", label: "Growing businesses", description: "Trust Interstate Rankers" },
 ];
 
 export type Testimonial = {

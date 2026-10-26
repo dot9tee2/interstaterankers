@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Contact InterStateRankers (US)",
-	description: "Contact InterStateRankers for human-led answering, SEO, and digital growth services across the United States.",
+	title: "Contact Interstate Rankers (US)",
+	description: "Contact Interstate Rankers for human-led answering, SEO, and digital growth services across the United States.",
 	openGraph: {
-		title: "Contact InterStateRankers (US)",
-		description: "Contact InterStateRankers for human-led answering, SEO, and digital growth services across the United States.",
+		title: "Contact Interstate Rankers (US)",
+		description: "Contact Interstate Rankers for human-led answering, SEO, and digital growth services across the United States.",
 		url: "/contact",
 		locale: "en_US"
 	},
@@ -120,7 +120,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 					__html: JSON.stringify({
 						"@context": "https://schema.org",
 						"@type": "ContactPage",
-						name: "Contact InterStateRankers",
+						name: "Contact Interstate Rankers",
 						url: "https://interstaterankers.com/contact",
 						inLanguage: "en-US",
 						isPartOf: { "@id": "https://interstaterankers.com/#website" }

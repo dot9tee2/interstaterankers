@@ -150,7 +150,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
         title: service.title,
         description: service.description,
         openGraph: {
-            title: `${service.title} | InterStateRankers`,
+            title: `${service.title} | Interstate Rankers`,
             description: service.description,
             url: `/services/${slug}`,
             type: "website",

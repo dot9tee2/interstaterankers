@@ -4,23 +4,23 @@ import Providers from "./providers";
 import Preloader from "@/components/layout/Preloader";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { BackToTop } from "@/components/ui/back-to-top";
-import Script from "next/script";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from "@vercel/analytics/next";
 import { CookieConsent } from "@/components/ui/cookie-consent";
+import { AnalyticsScripts } from "@/components/analytics/ConsentGate";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(process.env.SITE_URL || "https://interstaterankers.com"),
 	title: {
-		default: "InterStateRankers",
-		template: "%s | InterStateRankers",
+		default: "Interstate Rankers",
+		template: "%s | Interstate Rankers",
 	},
 	description: "Human-led answering with AI backup and SEO solutions for US businesses.",
 	openGraph: {
-		title: "InterStateRankers",
+		title: "Interstate Rankers",
 		description: "Human-led answering with AI backup and SEO solutions for US businesses.",
 		url: (process.env.SITE_URL || "https://interstaterankers.com") + "/",
-		siteName: "InterStateRankers",
+		siteName: "Interstate Rankers",
 		locale: "en_US",
 		type: "website",
 		images: [
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
 				url: "/favicon.ico",
 				width: 1200,
 				height: 630,
-				alt: "InterStateRankers"
+				alt: "Interstate Rankers"
 			}
 		]
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "InterStateRankers",
+		title: "Interstate Rankers",
 		description: "Human-led answering with AI backup and SEO solutions for US businesses.",
 		images: ["/favicon.ico"]
 	},
@@ -81,29 +81,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<BackToTop />
 					</Providers>
 				</div>
-				{process.env.NEXT_PUBLIC_GA4_ID ? (
-					<>
-						<Script
-							src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
-							strategy="afterInteractive"
-						/>
-						<Script id="ga4-init" strategy="afterInteractive">
-							{`
-							window.dataLayer = window.dataLayer || [];
-							function gtag(){window.dataLayer.push(arguments);}
-							gtag('js', new Date());
-							gtag('config', '${process.env.NEXT_PUBLIC_GA4_ID}', { send_page_view: false });
-						`}
-						</Script>
-					</>
-				) : null}
+				<AnalyticsScripts measurementId={process.env.NEXT_PUBLIC_GA4_ID} />
 				<script id="org-jsonld" type="application/ld+json"
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify({
 							"@context": "https://schema.org",
 							"@type": "Organization",
 							"@id": "https://interstaterankers.com/#organization",
-							name: "InterStateRankers",
+							name: "Interstate Rankers",
 							url: "https://interstaterankers.com/",
 							logo: "https://interstaterankers.com/InterStateRankerLogo.png",
 							areaServed: { "@type": "Country", name: "United States" },
@@ -124,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 							"@type": "WebSite",
 							"@id": "https://interstaterankers.com/#website",
 							url: "https://interstaterankers.com/",
-							name: "InterStateRankers",
+							name: "Interstate Rankers",
 							inLanguage: "en-US",
 							publisher: {
 								"@id": "https://interstaterankers.com/#organization"

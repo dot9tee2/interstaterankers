@@ -1,0 +1,41 @@
+.heading { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; }
+.heading > p { color: #a5a0b5; font-size: .7rem; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; }
+.heading > span { color: #b5a0df; font-size: .9rem; }
+.paper { position: relative; padding: 3rem 0 0; color: #dedbd5; }
+.paper::before { content: ""; position: absolute; top: 3rem; bottom: 7rem; right: 29%; border-left: 1px solid #b5a0cf25; pointer-events: none; }
+.header { margin-bottom: 2.5rem; max-width: 68%; }
+.header h2 { scroll-margin-top: 8rem; }
+.kicker { font-size: .65rem; text-transform: uppercase; letter-spacing: .15em; color: #a29daa; margin-bottom: 1.5rem; }
+.header h2 { font-family: inherit; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; font-weight: 600; letter-spacing: -.025em; }
+.salutation, .entry > p, .signature > p:first-child { font-family: inherit; font-size: clamp(1rem, 1.4vw, 1.125rem); line-height: 1.8; }
+.salutation { margin-bottom: 1.8rem; }
+.entry { display: grid; grid-template-columns: minmax(0, 1fr) 22%; gap: 12%; margin-bottom: 3.2rem; }
+.entry strong { font-weight: 400; text-decoration: underline; text-decoration-color: #8a6dbb80; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.note { align-self: center; color: #b9a2de; font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-size: 1rem; line-height: 1.6; transform: rotate(-4deg); }
+.entry:nth-of-type(2) .note { transform: rotate(3deg); }
+.sketch { width: 100%; max-width: 170px; margin-bottom: .5rem; }
+.signature { padding: .5rem 0 2.5rem; max-width: 68%; }
+.signed { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive; font-size: clamp(1.25rem, 2.4vw, 1.8rem); color: #b9a2de; line-height: 1.6; margin-top: 1.5rem; }
+.signature > span { display: block; margin-top: .8rem; font-size: .7rem; color: #a29daa; line-height: 1.7; }
+.postscript { display: flex; align-items: baseline; gap: 1rem; border-top: 1px solid #b5a0cf25; padding-top: 1.5rem; font-size: .85rem; line-height: 1.8; position: relative; background: hsl(var(--background)); }
+.postscript > span { font-weight: 600; font-size: 1rem; }
+.postscript a { color: #b9a2de; text-decoration: underline; text-underline-offset: 4px; }
+.postscript a:hover { color: #dfccff; }
+.postscript a:focus-visible { outline: 2px solid #b9a2de; outline-offset: 5px; }
+@media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+        .note { animation: annotate linear both; animation-timeline: view(); animation-range: entry 5% entry 95%; }
+        .sketch path { stroke-dasharray: 650; animation: draw linear both; animation-timeline: view(); animation-range: entry 5% entry 100%; }
+    }
+}
+@keyframes annotate { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
+@keyframes draw { from { stroke-dashoffset: 650; } to { stroke-dashoffset: 0; } }
+@media (max-width: 700px) {
+    .heading > span { display: none; }
+    .paper { padding-top: 2rem; }
+    .paper::before { display: none; }
+    .entry { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2rem; }
+    .note { display: flex; align-items: center; gap: 1rem; padding-left: .75rem; border-left: 2px solid #b5a0cf70; font-size: .9rem; transform: rotate(-2deg); }
+    .sketch { flex: 0 0 95px; width: 95px; margin: 0; }
+    .signature, .header { max-width: none; }
+}

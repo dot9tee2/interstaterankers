@@ -35,3 +35,10 @@ export type Testimonial = {
 // Real client quotes only: invented testimonials are deceptive under the FTC's rule on reviews and testimonials.
 // The homepage Results section shows these in a grid, and leaves the grid out while the list is empty.
 export const testimonials: Testimonial[] = [];
+
+export const videoTestimonials: {
+  src: string;
+  name: string;
+  company: string;
+  captions: string;
+}[] = [];
